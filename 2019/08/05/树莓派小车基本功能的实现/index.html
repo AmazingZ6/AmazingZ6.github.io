@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>树莓派小车基本功能的实现 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾 1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应MDNEM8]XG)U~P248D]E.jpg)如图所示，">
+  <meta name="description" content="在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾 1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色">
 <meta name="keywords" content="树莓派">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派小车基本功能的实现">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/树莓派小车基本功能的实现/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾 1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应MDNEM8]XG)U~P248D]E.jpg)如图所示，">
+<meta property="og:description" content="在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾 1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/08/05/树莓派小车基本功能的实现/L@4">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/树莓派小车基本功能的实现/111.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/08/05/树莓派小车基本功能的实现/3426615-a8a227ec96464665.jpg">
-<meta property="og:updated_time" content="2019-08-06T07:23:17.702Z">
+<meta property="og:updated_time" content="2019-08-06T07:23:53.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派小车基本功能的实现">
-<meta name="twitter:description" content="在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾 1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应MDNEM8]XG)U~P248D]E.jpg)如图所示，">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/05/树莓派小车基本功能的实现/L@4">
+<meta name="twitter:description" content="在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾 1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/05/树莓派小车基本功能的实现/111.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -39,6 +39,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?1";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 </html>
@@ -175,7 +185,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。<br>下面我将对本次实训经行一个简单的回顾</p>
-<h1><span id="1小车的组装">1.小车的组装</span></h1><p>首先我们需要一下材料<br>树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡<br>然后按照电路图将小车的零部件一个一个组装起来即可<br>唯一需要注意的是引脚的对应<br><img src="L@4" alt="xxx">MDNEM8]XG)U~P248D]E.jpg)<br>如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色框里的物理接口</p>
+<h1><span id="1小车的组装">1.小车的组装</span></h1><p>首先我们需要一下材料<br>树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡<br>然后按照电路图将小车的零部件一个一个组装起来即可<br>唯一需要注意的是引脚的对应<br><img src="111.jpg" alt="xxx"><br>如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色框里的物理接口</p>
 <p>下图为组装好的小车</p>
 <p><img src="3426615-a8a227ec96464665.jpg" alt="xxx"></p>
 <h1><span id="2socket编程">2.SOCKET编程</span></h1><p>那么要如何实现电脑端与小车的通信呢，这时候就需要用到socket编程了，它可以通过IP地址实现两地之间的通信</p>
@@ -348,6 +358,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">1.小车的组装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">2.SOCKET编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">3.与小车连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">4.控制小车</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
