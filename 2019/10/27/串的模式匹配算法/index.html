@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>串的模式匹配算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <!-- 辅助函数（Helpers）https://hexo.io/zh-cn/docs/helpers.html#%E6%9D%A1%E4%BB%B6%E5%87%BD%E6%95%B0 -->
-    <meta name="keywords" content>
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="串的模式匹配算法">
+<meta property="og:url" content="http://yoursite.com/2019/10/27/串的模式匹配算法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/5.png">
+<meta property="og:updated_time" content="2019-10-27T05:56:48.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="串的模式匹配算法">
+<meta name="twitter:description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -177,25 +184,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-串的模式匹配算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-串的模式匹配算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/10/27/串的模式匹配算法/" target="_blank">串的模式匹配算法</a>
-        
+    <h1 class="article-title" itemprop="name">
+      串的模式匹配算法
     </h1>
   
 
 
   
   
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2019/10/27/串的模式匹配算法/" class="archive-article-date">
         <time datetime="2019-10-27T05:46:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
 </a>
@@ -206,16 +213,73 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="1-模式匹配简单算法"><a href="#1-模式匹配简单算法" class="headerlink" title="1.模式匹配简单算法"></a>1.模式匹配简单算法</h1><p>Index(S,T,pos);<br>初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。<br>操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int Index (<span class="built_in">String</span> S, <span class="built_in">String</span> T, int pos) &#123;</span><br><span class="line"> <span class="comment">// T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0</span></span><br><span class="line">  <span class="keyword">if</span> (pos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    n = StrLength(S);  m = StrLength(T);  i = pos;</span><br><span class="line">    <span class="keyword">while</span> ( i &lt;= n-m+<span class="number">1</span>) &#123;</span><br><span class="line">        SubString (sub, S, i, m);<span class="comment">//表示在S串中取从第i位置开始的m长度字串并存在sub里</span></span><br><span class="line">        <span class="keyword">if</span> (StrCompare(sub,T) != <span class="number">0</span>)   ++i ;<span class="comment">//比较，不成功则往后移</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> i ;</span><br><span class="line">    &#125; <span class="comment">// while</span></span><br><span class="line">  &#125; <span class="comment">// if</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;          <span class="comment">// S中不存在与T相等的子串</span></span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre></td></tr></table></figure></p>
+    <h1><span id="1模式匹配简单算法">1.模式匹配简单算法</span></h1><p>Index(S,T,pos);<br>初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。<br>操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int Index (<span class="built_in">String</span> S, <span class="built_in">String</span> T, int pos) &#123;</span><br><span class="line"> <span class="comment">// T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0</span></span><br><span class="line">  <span class="keyword">if</span> (pos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    n = StrLength(S);  m = StrLength(T);  i = pos;</span><br><span class="line">    <span class="keyword">while</span> ( i &lt;= n-m+<span class="number">1</span>) &#123;</span><br><span class="line">        SubString (sub, S, i, m);<span class="comment">//表示在S串中取从第i位置开始的m长度字串并存在sub里</span></span><br><span class="line">        <span class="keyword">if</span> (StrCompare(sub,T) != <span class="number">0</span>)   ++i ;<span class="comment">//比较，不成功则往后移</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> i ;</span><br><span class="line">    &#125; <span class="comment">// while</span></span><br><span class="line">  &#125; <span class="comment">// if</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;          <span class="comment">// S中不存在与T相等的子串</span></span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre></td></tr></table></figure></p>
 <p>如果我们不采用串的基本操作的话，还可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int Index(SString S, SString T, int pos) &#123;</span><br><span class="line"><span class="comment">// 返回子串T在主串S中第pos个字符之后的位置。若不存在，</span></span><br><span class="line"><span class="comment">// 则函数值为0。其中，T非空，1≤pos≤StrLength(S)。</span></span><br><span class="line">　i = pos;   j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (S[i] == T[j]) &#123; ++i;  ++j; &#125;   <span class="comment">// 继续比较后继字符</span></span><br><span class="line">      <span class="keyword">else</span> &#123; i = i-j+<span class="number">2</span>;   j = <span class="number">1</span>; &#125;     <span class="comment">// 指针后退重新开始匹配</span></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre></td></tr></table></figure></p>
-<p>将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可<br>设上次一比较在S串中的起始位置为x则  x+j-1=i<br>所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2<br>匹配成功，同样返回首位置，否则返回零<br>上述算法时间复杂度最坏都达到了O(m*n);<br>
-    
-    <a class="article-more-a" href="/2019/10/27/串的模式匹配算法/#more">more >></a>
-    
-    
+<p>将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可<br>设上次一比较在S串中的起始位置为x则  x+j-1=i<br>所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2<br>匹配成功，同样返回首位置，否则返回零<br>上述算法时间复杂度最坏都达到了O(m*n);<br><a id="more"></a></p>
+<h1><span id="2模式匹配的改进算法kmp算法">2.模式匹配的改进算法(KMP算法)</span></h1><p>KMP算法的改进在于：<br>每当一趟匹配过程中出现字符比较不相等时，不需回溯i指针，而是利用已经得到的“部分匹配”的结果将模式向右“滑动”尽可能远的一段距离后，继续进行比较，i不动，j向前移<br>举个例子<br>比较s=‘acabaabaabcacaabc’  t=‘abaabc’<br><img src="1.png" alt="xxx"><br>第一次比较时比较到第二个发现不同，于是将j指针移回a　　　<br><img src="2.png" alt="xxx"></p>
+<p>接着进行比较，比较到t中的c时发现不一样，但此前已经比较过两次ac,无需再比一次，所以将j指针移到t中的第三个a即可</p>
+<p><img src="3.png" alt="xxx"></p>
+<p><img src="4.png" alt="xxx"><br>这样就比完了，比上一种方法要少比很多次，效率提高了不少<br>在用这种方法时，我们需要知道每次比较不一样时j指针需要回到t串中的那个位置，所以我们用next数组来存放回溯的位置，就串t=‘abaabc’来说，next[j]={0,1,1,2,2,3};j从1开始<br>即<br><img src="5.png" alt="xxx"></p>
+<p>算法实现如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int Index_KMP(SString S, SString T, int pos) &#123;</span><br><span class="line">     <span class="comment">//  1≤pos≤StrLength(S)</span></span><br><span class="line">     i = pos;   j = <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">if</span> (j == <span class="number">0</span> || S[i] == T[j]) &#123; ++i;  ++j; &#125;</span><br><span class="line">                                               <span class="comment">// 继续比较后继字符</span></span><br><span class="line">        <span class="keyword">else</span>  j = next[j];         <span class="comment">// 模式串向右移动</span></span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];    <span class="comment">// 匹配成功</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index_KMP</span></span><br></pre></td></tr></table></figure></p>
+<p>next函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_next(SString &amp;T, int &amp;next[] ) &#123;</span><br><span class="line">     <span class="comment">// 求模式串T的next函数值并存入数组next</span></span><br><span class="line">     i = <span class="number">1</span>;   next[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">           <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j])</span><br><span class="line">                 &#123;++i;  ++j; next[i] = j; &#125;</span><br><span class="line">           <span class="keyword">else</span>  j = next[j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="comment">// get_next</span></span><br></pre></td></tr></table></figure>
+<p>此外，如果不匹配时发现前面已经比较过的，和将要比较的那个是完全一样的话，就没有比下去的必要了，例如模式串为 aaaab时，如果j=3发现不同，按上一种方法，则应移到j=2经行比较，但j=2时也是a，再比较就相当于多比了一次，这样就有了改进的空间。<br>代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_nextval(SString &amp;T, int &amp;nextval[]) &#123;</span><br><span class="line">      i = <span class="number">1</span>;   nextval[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">          <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j]) &#123;</span><br><span class="line">              ++i;  ++j;</span><br><span class="line">              <span class="keyword">if</span> (T[i] != T[j])  next[i] = j;</span><br><span class="line">              <span class="keyword">else</span>  nextval[i] = nextval[j];</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span>  j = nextval[j];</span><br><span class="line">     &#125;</span><br><span class="line">  &#125; <span class="comment">// get_nextval</span></span><br></pre></td></tr></table></figure>
+<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
 
     
 
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+      <div> 
+        <ul class="post-copyright">
+          <li>
+            <strong>本文作者：</strong>
+            AmazingZ6
+          </li>
+          <li>
+            <strong>本文链接：</strong>
+            <a href="http://yoursite.com/2019/10/27/串的模式匹配算法/" title="串的模式匹配算法" target="_blank">http://yoursite.com/2019/10/27/串的模式匹配算法/</a>
+          </li>
+          <li>
+            <strong>版权声明： </strong>
+            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+          </li>
+        </ul>
+      </div>
     
 
   </div>
@@ -225,16 +289,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/27/串的模式匹配算法/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/27/串的模式匹配算法/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/18/JAVAString类常用方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVAString类常用方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -255,666 +379,14 @@
 
 
 
-  
-    <article id="post-JAVAString类常用方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/18/JAVAString类常用方法/" target="_blank">JAVAString类常用方法</a>
-        
-    </h1>
-  
 
 
-  
-  
-<a href="/2019/09/18/JAVAString类常用方法/" class="archive-article-date">
-        <time datetime="2019-09-18T00:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
-</a>
 
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1><span id="1创建新string">1.创建新String</span></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String concat(String s);//返回一个新串，在原串后附加上s。</span><br><span class="line">String replace(String old, String new);//返回一个新串，将原串中出现的old替换成new。</span><br><span class="line">String substring(int start, int end);//返回一个新串，它是原串中从start到end的一部分。</span><br><span class="line">String toLowerCase();//返回一个新串，它将原串中的大写字母变成小写。</span><br><span class="line">String toUpperCase();//返回一个新串，它将原串中的小写字母变成大写。</span><br></pre></td></tr></table></figure>
-<h1><span id="2查找方法">2.查找方法</span></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean endsWith(String s);//如原串以s串为结尾，则返回true。</span><br><span class="line">boolean startsWith(String s);//如原串以s串为开始，则返回true。</span><br><span class="line">int indexOf(String s);//返回串中第一次出现s串的序号值。</span><br><span class="line">int indexOf(String s, int offset);//返回串中从offset开始查找，第一次出现s串的序号值。</span><br></pre></td></tr></table></figure>
-<h1><span id="3比较方法">3.比较方法</span></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean equals(String s);//如果原串与s串相等，则返回true。</span><br><span class="line">boolean equalsIgnoreCase(String s);//如果在忽略大小写的情况下，原串与s串相等，则返回true。</span><br><span class="line">int  compareTo(String s);//进行字典序比较，如果原串小于s串则返回负数；如果原串大于s串则返回正数；如果原串等于s串则返回零。</span><br></pre></td></tr></table></figure>
-<h1><span id="4其它方法">4.其它方法</span></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str.split(&quot;,&quot;);//根据字符来拆分字符串，当我们需要以‘|’、‘：’、‘+’、‘.’、‘^’等特殊字符作为拆分条件的话，则需要加上 \\ 转义字符</span><br><span class="line">charAt(int index)//返回index处的字符。</span><br><span class="line">int length()//返回串的长度。</span><br><span class="line">str.trim();//裁除首、尾空格符</span><br><span class="line">str.contains(&quot;&quot;);//是否包含 &quot;&quot;</span><br></pre></td></tr></table></figure>
 
-    
 
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/18/JAVAString类常用方法/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JAVA基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/17/JAVA基础知识/" target="_blank">JAVA基础知识</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/17/JAVA基础知识/" class="archive-article-date">
-        <time datetime="2019-09-17T02:56:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=)</p>
-<h1><span id="1java数据输出格式的控制">1.JAVA数据输出格式的控制</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.format.(<span class="string">"格式串"</span>，数值数据）<span class="comment">//方法一</span></span><br><span class="line">System.out.print(<span class="string">"格式串"</span>，数值数据) <span class="comment">//方法二</span></span><br></pre></td></tr></table></figure>
-<h1><span id="2用float时数后要加f">2.用float时数后要加F</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float a=<span class="number">3.4</span>F;</span><br></pre></td></tr></table></figure>
-<h1><span id="3数字不能自动转化为boolean">3.数字不能自动转化为Boolean</span></h1><h1><span id="4字符检测的方法">4.字符检测的方法</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char ch=<span class="string">'a'</span>;</span><br><span class="line">Character.isLetter(ch) -- ch是否是字母</span><br><span class="line">Character.isDigit(ch)  -- ch是否是数字</span><br><span class="line">Character.isLetterOrDigit(ch) -- ch是否是字母或数字</span><br><span class="line">Character.isWhitespace(ch) -- ch是否是空格</span><br><span class="line">Character.isLowerCase(ch) -- ch是否是小写字母</span><br><span class="line">Character.isUpperCase(ch) -- ch是否是大写字母</span><br></pre></td></tr></table></figure>
-<h1><span id="5自定义符号常量加final">5.自定义符号常量加final</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final double PI=<span class="number">3.14159</span>;</span><br></pre></td></tr></table></figure>
-<h1><span id="6在方法外定义的变量会自动初始化">6.在方法外定义的变量会自动初始化</span></h1><h1><span id="7string加其他类型变量时会将其他类型转化为字符类型">7.String加其他类型变量时会将其他类型转化为字符类型</span></h1><h1><span id="8字符串转数值">8.字符串转数值</span></h1><p>方法1：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i = Integer.parseInt(<span class="string">"123"</span>);       (常用)</span><br><span class="line">double d = Double.parseDouble(<span class="string">"1.23"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>方法2：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i =Integer.valueOf(<span class="string">"123"</span>).intValue();</span><br></pre></td></tr></table></figure></p>
-<h1><span id="9数值转字符串">9.数值转字符串</span></h1><p> 方法1：<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s=<span class="built_in">String</span>.valueOf(value);</span><br></pre></td></tr></table></figure></p>
-<p> 其中value为任一种数字类型。</p>
-<p>方法2：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s = Integer.toString(<span class="number">123</span>);</span><br></pre></td></tr></table></figure></p>
-<p>方法3：最直接<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s = <span class="string">""</span> + value;  其中value为任意一种数字类型。</span><br></pre></td></tr></table></figure></p>
-<h1><span id="10字符数组转字符串">10.字符数组转字符串</span></h1> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> char[ ] c=&#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>&#125;;</span><br><span class="line"><span class="built_in">String</span> str=<span class="keyword">new</span> <span class="built_in">String</span>(c);</span><br></pre></td></tr></table></figure>
-<h1><span id="11字符串转字符数组">11.字符串转字符数组</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> str=<span class="string">"abc"</span>;</span><br><span class="line">char[ ]  c=str.toCharArray();</span><br></pre></td></tr></table></figure>
-<h1><span id="12和equals的区别">12.”==”和equals的区别</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s1=<span class="string">"abc"</span>;  <span class="comment">//方法以</span></span><br><span class="line"><span class="built_in">String</span> s2=<span class="string">"abc"</span>;</span><br><span class="line"><span class="built_in">String</span> s3=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>); <span class="comment">//方法二</span></span><br><span class="line"><span class="built_in">String</span> s4=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(s1==s2); </span><br><span class="line">System.out.println(s1.equals(s2));</span><br><span class="line">System.out.println(s3==s4);</span><br><span class="line">System.out.println(s3.equals(s4));</span><br></pre></td></tr></table></figure>
-<p>得到的结果为true,true,false,true.<br>方法一属于常量式创建，会存放一个在一个叫String pool 的地方，再次创建时会直接引用存在的相同变量<br>而方法二属于对象式创建，是运行时在Heap内存里面创建对象，每new一次都一定会创建对象<br>而“==”是比较两者的地址是否一样，所以第三个为false<br>equals是比较变量是否一样。</p>
-<h1><span id="13也能用于浮点型变量">13.%也能用于浮点型变量</span></h1><h1><span id="14类型转换">14.类型转换</span></h1><p>当没有信息丢失时，变量可被自动升级为一个较长的形式（如：int至long的升级）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">long bigval = <span class="number">6</span>;  <span class="comment">// 6 is an int type, OK</span></span><br><span class="line">int smallval = <span class="number">99</span>L;  <span class="comment">// 99L is a long, error </span></span><br><span class="line">double z = <span class="number">12.414</span>F;  <span class="comment">// 12.414F is float, OK</span></span><br><span class="line">float z1 = <span class="number">12.414</span>;  <span class="comment">// 12.414 is double, error</span></span><br><span class="line"><span class="comment">//但升级也可能会导致出错</span></span><br><span class="line">short  a，b，c</span><br><span class="line">a=<span class="number">1</span>；b=<span class="number">2</span>；c= a+b；<span class="comment">//上述程序会因为在操作short之前提升每个short至int而出错。</span></span><br><span class="line"><span class="comment">//然而，如果c被声明为一个int，或按如下操作进行类型转换：</span></span><br><span class="line">c = (short)(a+b);<span class="comment">//则上述代码将会成功通过</span></span><br></pre></td></tr></table></figure></p>
-<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositorie" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositorie</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JAVA基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/17/JAVA基础知识/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算三重积分的四种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/11/计算三重积分的四种方法/" target="_blank">计算三重积分的四种方法</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/11/计算三重积分的四种方法/" class="archive-article-date">
-        <time datetime="2019-09-11T09:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>以后可能会经常使用，在这里总结一下</p>
-<h1><span id="先一后二法">先一后二法</span></h1><p>$\iiint _{\Omega }f\left( x,y,z\right) dv=\int ^{b}_{a}dx\int ^{y_{2}\left( x\right) }_{y_{1}\left( x\right) }dy\int ^{z_{2}\left( x,y\right) }_{z_{1}\left( x,y\right) }f\left( x,y,z\right) dz$</p>
-<h1><span id="先二后一法">先二后一法</span></h1><p>$\begin{aligned}\iiint _{\Omega }f\left( x,y,z\right) dv=\int ^{b}_{a}dz\iint _{Dz}f\left( x,y,z\right) dxdy\end{aligned}$</p>
-<h1><span id="利用柱面坐标计算">利用柱面坐标计算</span></h1><p>$\begin{cases}x=\rho \cos \theta \\ y=\rho \sin \theta \\ z=z\end{cases}\iiint _{\Omega }f\left( x,y,z\right) dv=\begin{aligned}\iiint _{\Omega }f\left( \rho \cos \theta ,\rho \sin \theta ,z\right) \rho d\rho d\theta dz\end{aligned}$</p>
-<h1><span id="利用球面坐标计算">利用球面坐标计算</span></h1><p>$\begin{cases}x=r\sin \varphi \cos \theta \\ y=r\sin \varphi \sin \theta \\ z=r\cos \varphi \end{cases}\begin{aligned}\iiint _{\Omega }f\left( x,y,z\right) dv=\iiint _{\Omega }f\left( r\sin \varphi \cos \theta ,r\sin \varphi \sin \theta ,r\cos y\right) r^{2}\sin \varphi drdyd\theta \end{aligned}$</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/11/计算三重积分的四种方法/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Eclipse的安装-HelloWorld的实现以及jdk的下载与环境配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/05/Eclipse的安装-HelloWorld的实现以及jdk的下载与环境配置/" target="_blank">Eclipse的安装,HelloWorld的实现以及jdk的下载与环境配置</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/05/Eclipse的安装-HelloWorld的实现以及jdk的下载与环境配置/" class="archive-article-date">
-        <time datetime="2019-09-05T14:03:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>上了第一节JAVA课后，老师然我们自己下去安装Eclipse以及JAVA的jdk，也是费了我一番功夫，在这里简单总结一下，希望能帮助到大家</p>
-<h1 id="1-Eclipse的下载与安装"><a href="#1-Eclipse的下载与安装" class="headerlink" title="1.Eclipse的下载与安装"></a>1.Eclipse的下载与安装</h1><p>直接百度搜索Eclipse，下面第一个就是官网，进入官网我们选择downlaoad packages<br><img src="1.png" alt="xxx"><br>然后选择对应的要下载的版本，我这里选的是Windows</p>
-<p><img src="2.png" alt="xxx"><br>
-    
-    <a class="article-more-a" href="/2019/09/05/Eclipse的安装-HelloWorld的实现以及jdk的下载与环境配置/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/05/Eclipse的安装-HelloWorld的实现以及jdk的下载与环境配置/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-树莓派小车基本功能的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/08/05/树莓派小车基本功能的实现/" target="_blank">树莓派小车基本功能的实现</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/05/树莓派小车基本功能的实现/" class="archive-article-date">
-        <time datetime="2019-08-05T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。<br>下面我将对本次实训经行一个简单的回顾</p>
-<h1 id="1-小车的组装"><a href="#1-小车的组装" class="headerlink" title="1.小车的组装"></a>1.小车的组装</h1><p>首先我们需要一下材料<br>树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡<br>然后按照电路图将小车的零部件一个一个组装起来即可<br>唯一需要注意的是引脚的对应<br><img src="111.jpg" alt="xxx"><br>如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色框里的物理接口</p>
-<p>下图为组装好的小车</p>
-<p><img src="3426615-a8a227ec96464665.jpg" alt="xxx"></p>
-<h1 id="2-SOCKET编程"><a href="#2-SOCKET编程" class="headerlink" title="2.SOCKET编程"></a>2.SOCKET编程</h1><p>那么要如何实现电脑端与小车的通信呢，这时候就需要用到socket编程了，它可以通过IP地址实现两地之间的通信</p>
-<blockquote>
-<p>套接字（socket）是一个抽象层，应用程序可以通过它发送或接收数据，可对其进行像对文件一样的打开、读写和关闭等操作。套接字允许应用程序将I/O插入到网络中，并与网络中的其他应用程序进行通信。网络套接字是IP地址与端口的组合</p>
-</blockquote>
-<p>首先我们要实现最基本的本地通信<br>下面附上最基本的本地通信的代码<br>
-    
-    <a class="article-more-a" href="/2019/08/05/树莓派小车基本功能的实现/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/05/树莓派小车基本功能的实现/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-java-python大数加法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/07/30/c-java-python大数加法/" target="_blank">c++ java python大数加法</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/07/30/c-java-python大数加法/" class="archive-article-date">
-        <time datetime="2019-07-30T09:39:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>转自：<a href="https://blog.csdn.net/weixin_43871885/article/details/97797871" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43871885/article/details/97797871</a> </p>
-<h3 id="c-代码"><a href="#c-代码" class="headerlink" title="c++代码"></a>c++代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define MAXN 1000</span><br><span class="line">int a[MAXN],b[MAXN];</span><br><span class="line">int main(int argc, <span class="keyword">const</span> char * argv[])</span><br><span class="line">&#123;</span><br><span class="line">    string str1,str2;<span class="comment">//保存输入</span></span><br><span class="line">    long int len1,len2;</span><br><span class="line">    long int i,j,k;</span><br><span class="line">    int up;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*输入流程*/</span></span><br><span class="line">    cin&gt;&gt;str1&gt;&gt;str2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*初始化各量*/</span></span><br><span class="line">    len1 = str1.length();</span><br><span class="line">    len2 = str2.length();</span><br><span class="line">    memset(a, <span class="number">0</span>, sizeof(a));</span><br><span class="line">    memset(b, <span class="number">0</span>, sizeof(b));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*注意，必须倒着保存数据*/</span></span><br><span class="line">    <span class="keyword">for</span> (i = len1 - <span class="number">1</span>, k = <span class="number">0</span>; i != <span class="number">-1</span>; -- i)</span><br><span class="line">    &#123;</span><br><span class="line">        a[k] = str1[i] - <span class="string">'0'</span>;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (j = len2 - <span class="number">1</span>, k = <span class="number">0</span>; j != <span class="number">-1</span>; -- j)</span><br><span class="line">    &#123;</span><br><span class="line">        b[k] = str2[j] - <span class="string">'0'</span>;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, up = <span class="number">0</span>; i &lt; MAXN; ++ i)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i] = a[i] + b[i] + up;</span><br><span class="line">        up = a[i] / <span class="number">10</span>;</span><br><span class="line">        a[i] %= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = MAXN - <span class="number">1</span>; i != <span class="number">-1</span>; -- i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (k = i; k != <span class="number">-1</span>; --k)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/07/30/c-java-python大数加法/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/07/30/c-java-python大数加法/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/07/27/my-first-blog/" target="_blank">my first blog</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/07/27/my-first-blog/" class="archive-article-date">
-        <time datetime="2019-07-27T07:26:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>开始写博客啦！</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/07/27/my-first-blog/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/07/24/hello-world/" target="_blank">Hello World</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/07/24/hello-world/" class="archive-article-date">
-        <time datetime="2019-07-24T09:35:40.202Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<p> Quick Start</p>
-<h3><span id="create-a-new-post">Create a new post</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3><span id="run-server">Run server</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3><span id="generate-static-files">Generate static files</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/07/24/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -952,8 +424,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
