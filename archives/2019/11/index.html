@@ -6,26 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>串的模式匹配算法 | Hexo</title>
+  <title>Archives: 2019/11 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
-<meta property="og:type" content="article">
-<meta property="og:title" content="串的模式匹配算法">
-<meta property="og:url" content="http://yoursite.com/2019/10/27/串的模式匹配算法/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2019/11/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/5.png">
-<meta property="og:updated_time" content="2019-10-31T12:11:02.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="串的模式匹配算法">
-<meta name="twitter:description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/1.png">
+<meta name="twitter:title" content="Hexo">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -184,218 +174,54 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-串的模式匹配算法" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class=" article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/11/17/一元二次多项式的相加/" class="archive-article-date">
+        <time datetime="2019-11-17T13:24:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-17</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      串的模式匹配算法
+    <h1 itemprop="name">
+	
+	      <a class="archive-article-title" href="/2019/11/17/一元二次多项式的相加/" target="_blank">一元二次多项式的相加</a>
+        
     </h1>
   
 
 
-  
-  
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
+        <div class="article-info info-on-right">
+          
+          
 
-<a href="/2019/10/27/串的模式匹配算法/" class="archive-article-date">
-        <time datetime="2019-10-27T05:46:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1><span id="1模式匹配简单算法">1.模式匹配简单算法</span></h1><p>Index(S,T,pos);<br>初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。<br>操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int Index (<span class="built_in">String</span> S, <span class="built_in">String</span> T, int pos) &#123;</span><br><span class="line"> <span class="comment">// T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0</span></span><br><span class="line">  <span class="keyword">if</span> (pos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    n = StrLength(S);  m = StrLength(T);  i = pos;</span><br><span class="line">    <span class="keyword">while</span> ( i &lt;= n-m+<span class="number">1</span>) &#123;</span><br><span class="line">        SubString (sub, S, i, m);<span class="comment">//表示在S串中取从第i位置开始的m长度字串并存在sub里</span></span><br><span class="line">        <span class="keyword">if</span> (StrCompare(sub,T) != <span class="number">0</span>)   ++i ;<span class="comment">//比较，不成功则往后移</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> i ;</span><br><span class="line">    &#125; <span class="comment">// while</span></span><br><span class="line">  &#125; <span class="comment">// if</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;          <span class="comment">// S中不存在与T相等的子串</span></span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre></td></tr></table></figure></p>
-<p>如果我们不采用串的基本操作的话，还可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int Index(SString S, SString T, int pos) &#123;</span><br><span class="line"><span class="comment">// 返回子串T在主串S中第pos个字符之后的位置。若不存在，</span></span><br><span class="line"><span class="comment">// 则函数值为0。其中，T非空，1≤pos≤StrLength(S)。</span></span><br><span class="line">　i = pos;   j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (S[i] == T[j]) &#123; ++i;  ++j; &#125;   <span class="comment">// 继续比较后继字符</span></span><br><span class="line">      <span class="keyword">else</span> &#123; i = i-j+<span class="number">2</span>;   j = <span class="number">1</span>; &#125;     <span class="comment">// 指针后退重新开始匹配</span></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre></td></tr></table></figure></p>
-<p>将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可<br>设上次一比较在S串中的起始位置为x则  x+j-1=i<br>所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2<br>匹配成功，同样返回首位置，否则返回零<br>上述算法时间复杂度最坏都达到了O(m*n);<br><a id="more"></a></p>
-<h1><span id="2模式匹配的改进算法kmp算法">2.模式匹配的改进算法(KMP算法)</span></h1><p>KMP算法的改进在于：<br>每当一趟匹配过程中出现字符比较不相等时，不需回溯i指针，而是利用已经得到的“部分匹配”的结果将模式向右“滑动”尽可能远的一段距离后，继续进行比较，i不动，j向前移<br>举个例子<br>比较s=‘acabaabaabcacaabc’  t=‘abaabc’<br><img src="1.png" alt="xxx"><br>第一次比较时比较到第二个发现不同，于是将j指针移回a　　　<br><img src="2.png" alt="xxx"></p>
-<p>接着进行比较，比较到t中的c时发现不一样，但此前已经比较过两次ac,无需再比一次，所以将j指针移到t中的第三个a即可</p>
-<p><img src="3.png" alt="xxx"></p>
-<p><img src="4.png" alt="xxx"><br>这样就比完了，比上一种方法要少比很多次，效率提高了不少<br>在用这种方法时，我们需要知道每次比较不一样时j指针需要回到t串中的那个位置，所以我们用next数组来存放回溯的位置，就串t=‘abaabc’来说，next[j]={0,1,1,2,2,3};j从1开始<br>即<br><img src="5.png" alt="xxx"></p>
-<p>算法实现如下<br>由于我们模式串的数据是从第一个开始存放，为了不浪费空间，这里把模式串的长度放在t[0]里面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int Index_KMP(SString S, SString T, int pos) &#123;</span><br><span class="line">     <span class="comment">//  1≤pos≤StrLength(S)</span></span><br><span class="line">     i = pos;   j = <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">if</span> (j == <span class="number">0</span> || S[i] == T[j]) &#123; ++i;  ++j; &#125;</span><br><span class="line">                                               <span class="comment">// 继续比较后继字符</span></span><br><span class="line">        <span class="keyword">else</span>  j = next[j];         <span class="comment">// 模式串向右移动</span></span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];    <span class="comment">// 匹配成功</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index_KMP</span></span><br></pre></td></tr></table></figure></p>
-<p>next函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_next(SString &amp;T, int &amp;next[] ) &#123;</span><br><span class="line">     <span class="comment">// 求模式串T的next函数值并存入数组next</span></span><br><span class="line">     i = <span class="number">1</span>;   next[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">           <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j])</span><br><span class="line">                 &#123;++i;  ++j; next[i] = j; &#125;</span><br><span class="line">           <span class="keyword">else</span>  j = next[j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="comment">// get_next</span></span><br></pre></td></tr></table></figure>
-<p>此外，如果不匹配时发现前面已经比较过的，和将要比较的那个是完全一样的话，就没有比下去的必要了，例如模式串为 aaaab时，如果j=3发现不同，按上一种方法，则应移到j=2经行比较，但j=2时也是a，再比较就相当于多比了一次，这样就有了改进的空间。<br>代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_nextval(SString &amp;T, int &amp;nextval[]) &#123;</span><br><span class="line">      i = <span class="number">1</span>;   nextval[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">          <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j]) &#123;</span><br><span class="line">              ++i;  ++j;</span><br><span class="line">              <span class="keyword">if</span> (T[i] != T[j])  next[i] = j;</span><br><span class="line">              <span class="keyword">else</span>  nextval[i] = nextval[j];</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span>  j = nextval[j];</span><br><span class="line">     &#125;</span><br><span class="line">  &#125; <span class="comment">// get_nextval</span></span><br></pre></td></tr></table></figure>
-<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
-
-    
-
-    
-    <div class="page-reward">
-      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
-        <div class="tooltip tooltip-east">
-          <span class="tooltip-item">
-            赏
-          </span>
-          <span class="tooltip-content">
-            <span class="tooltip-text">
-              <span class="tooltip-inner">
-                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
-                    class="icon icon-quo-right"></i></p>
-                <div class="reward-box">
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/alipay.jpg">
-                    <span class="reward-type">支付宝</span>
-                  </div>
-                  
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/weixin.png">
-                    <span class="reward-type">微信</span>
-                  </div>
-                  
-                </div>
-              </span>
-            </span>
-          </span>
         </div>
-      </a>
-    </div>
-    
-
-    
-      <div> 
-        <ul class="post-copyright">
-          <li>
-            <strong>本文作者：</strong>
-            AmazingZ6
-          </li>
-          <li>
-            <strong>本文链接：</strong>
-            <a href="http://yoursite.com/2019/10/27/串的模式匹配算法/" title="串的模式匹配算法" target="_blank">http://yoursite.com/2019/10/27/串的模式匹配算法/</a>
-          </li>
-          <li>
-            <strong>版权声明： </strong>
-            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
-          </li>
-        </ul>
-      </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/27/串的模式匹配算法/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/11/17/一元二次多项式的相加/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一元二次多项式的相加
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/09/18/JAVAString类常用方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVAString类常用方法</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -434,8 +260,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
