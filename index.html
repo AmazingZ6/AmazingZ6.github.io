@@ -180,6 +180,81 @@
             
 
   
+    <article id="w-公交路图的初始化以及找到两站点间换乘不超过一次的路径" class="article article-type-w  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/12/08/公交路图的初始化以及找到两站点间换乘不超过一次的路径/" target="_blank">公交路图的初始化以及找到两站点间换乘不超过一次的路径</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/12/08/公交路图的初始化以及找到两站点间换乘不超过一次的路径/" class="archive-article-date">
+        <time datetime="2019-12-08T09:29:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>直接上代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef struct ArcNode<span class="comment">//邻接结点</span></span><br><span class="line">&#123;</span><br><span class="line">    int adjvex;<span class="comment">//邻接元素的下标</span></span><br><span class="line">    int type;<span class="comment">//表示是第几条线路</span></span><br><span class="line">    ArcNode *next;</span><br><span class="line">&#125;ArcNode;</span><br><span class="line"></span><br><span class="line">typedef struct VNode<span class="comment">//结点</span></span><br><span class="line">&#123;</span><br><span class="line">    int data;<span class="comment">//结点数据</span></span><br><span class="line">    ArcNode *firstarc;<span class="comment">//头节点</span></span><br><span class="line">&#125;VNode;</span><br><span class="line"></span><br><span class="line">typedef struct<span class="comment">//邻接表</span></span><br><span class="line">&#123;</span><br><span class="line">    VNode vertices[<span class="number">20</span>];</span><br><span class="line">    int vexnm,arcnum;<span class="comment">//分别存放节点个数和边的个数</span></span><br><span class="line">&#125;ALGraph;</span><br><span class="line"></span><br><span class="line">int num;<span class="comment">//线路个数</span></span><br><span class="line">int XianLu[<span class="number">20</span>][<span class="number">20</span>];<span class="comment">//存放具体的线路</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Creat(ALGraph *p)<span class="comment">//初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">"请依次输入顶点和边的个数:"</span>&lt;&lt;endl;</span><br><span class="line">    int a,b;</span><br><span class="line">    int Data;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    p-&gt;vexnm=a;</span><br><span class="line">    p-&gt;arcnum=b;</span><br><span class="line">    cout&lt;&lt;<span class="string">"请依次输入顶点信息:"</span>&lt;&lt;endl;<span class="comment">//键入结点信息</span></span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;p-&gt;vexnm;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;Data;</span><br><span class="line">        p-&gt;vertices[i].data=Data;</span><br><span class="line">        p-&gt;vertices[i].firstarc=NULL;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">"请输入线路个数"</span>&lt;&lt;endl;<span class="comment">//键入线路信息</span></span><br><span class="line">    cin&gt;&gt;num;</span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">1</span>;i&lt;=num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">"请输入第"</span>&lt;&lt;i&lt;&lt;<span class="string">"条线路的长度"</span>&lt;&lt;endl;</span><br><span class="line">        int length;</span><br><span class="line">        cin&gt;&gt;length;</span><br><span class="line">        cout&lt;&lt;<span class="string">"请依次输入每条线路经过的站点"</span>&lt;&lt;endl;</span><br><span class="line">        XianLu[i][<span class="number">0</span>]=length;</span><br><span class="line">        <span class="keyword">for</span>(int j=<span class="number">1</span>;j&lt;=length;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            int c;</span><br><span class="line">            cin&gt;&gt;c;</span><br><span class="line">            XianLu[i][j]=c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">1</span>;i&lt;=num;i++)<span class="comment">//将每条线路的每条路径都加入邻接表当中</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=<span class="number">1</span>;j&lt;XianLu[i][<span class="number">0</span>];j++)</span><br><span class="line">        &#123;</span><br><span class="line">            ArcNode *temp;</span><br><span class="line">            temp=<span class="keyword">new</span> ArcNode;</span><br><span class="line">            temp-&gt;adjvex=XianLu[i][j+<span class="number">1</span>];</span><br><span class="line">            temp-&gt;type=i;</span><br><span class="line">            temp-&gt;next=p-&gt;vertices[XianLu[i][j]].firstarc;</span><br><span class="line">            p-&gt;vertices[XianLu[i][j]].firstarc=temp;</span><br><span class="line"></span><br><span class="line">            temp=<span class="keyword">new</span> ArcNode;</span><br><span class="line">            temp-&gt;adjvex=XianLu[i][j];</span><br><span class="line">            temp-&gt;type=i;</span><br><span class="line">            temp-&gt;next=p-&gt;vertices[XianLu[i][j+<span class="number">1</span>]].firstarc;</span><br><span class="line">            p-&gt;vertices[XianLu[i][j+<span class="number">1</span>]].firstarc=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Show(ALGraph *p)<span class="comment">//输出邻接表</span></span><br><span class="line">&#123;</span><br><span class="line">    int i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;p-&gt;vexnm;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ArcNode *temp=<span class="keyword">new</span> ArcNode;</span><br><span class="line">        temp=p-&gt;vertices[i].firstarc;</span><br><span class="line">        <span class="keyword">while</span>(temp)</span><br><span class="line">        &#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">'['</span>&lt;&lt;p-&gt;vertices[i].data&lt;&lt;<span class="string">','</span>&lt;&lt;p-&gt;vertices[temp-&gt;adjvex].data&lt;&lt;<span class="string">']'</span>&lt;&lt;temp-&gt;type&lt;&lt;<span class="string">"号线  "</span>;</span><br><span class="line">            temp=temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> ShowPath(int i,int a,int b)<span class="comment">//输出线路i中的从a到b的线路信息</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(int k=<span class="number">1</span>;k&lt;=XianLu[i][<span class="number">0</span>];k++)</span><br><span class="line">    &#123;</span><br><span class="line">        int ans[<span class="number">20</span>];<span class="comment">//用这个数组储存路径</span></span><br><span class="line">        int h=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(XianLu[i][k]==a)<span class="comment">//如果a先出现，则按顺序输出路径</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans[h++]=XianLu[i][k];</span><br><span class="line">            <span class="keyword">while</span>(XianLu[i][k]!=b)</span><br><span class="line">            &#123;</span><br><span class="line">                k++;</span><br><span class="line">            ans[h++]=XianLu[i][k];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(int f=<span class="number">0</span>;f&lt;h;f++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(f==<span class="number">0</span>) cout&lt;&lt;ans[f];</span><br><span class="line">                <span class="keyword">else</span> cout&lt;&lt;<span class="string">"-&gt;"</span>&lt;&lt;ans[f];</span><br><span class="line">            &#125;</span><br><span class="line">                cout&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(XianLu[i][k]==b)<span class="comment">//如果b先出现，则按逆序输出路径</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans[h++]=XianLu[i][k];</span><br><span class="line">            <span class="keyword">while</span>(XianLu[i][k]!=a)</span><br><span class="line">            &#123;</span><br><span class="line">                k++;</span><br><span class="line">                ans[h++]=XianLu[i][k];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(int f=h<span class="number">-1</span>;f&gt;=<span class="number">0</span>;f--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(f==h<span class="number">-1</span>) cout&lt;&lt;ans[f];</span><br><span class="line">                <span class="keyword">else</span> cout&lt;&lt;<span class="string">"-&gt;"</span>&lt;&lt;ans[f];</span><br><span class="line">            &#125;</span><br><span class="line">            cout&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> find(ALGraph *p)<span class="comment">//找到a到b的转换乘不超过一次的路径</span></span><br><span class="line">&#123;</span><br><span class="line">    int a,b;</span><br><span class="line">    cout&lt;&lt;<span class="string">"请输入您的起点与终点站："</span>&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">1</span>;i&lt;=num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(int j=<span class="number">1</span>;j&lt;=XianLu[i][<span class="number">0</span>];j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a==XianLu[i][j])<span class="comment">//找到起点所在的线路</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(int m=<span class="number">1</span>;m&lt;=num;m++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">for</span>(int n=<span class="number">1</span>;n&lt;=XianLu[m][<span class="number">0</span>];n++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span>(b==XianLu[m][n])<span class="comment">//找到终点所在的线路</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span>(i==m)<span class="comment">//在同一条线路之中</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                cout&lt;&lt;<span class="string">"不用转线,线路为："</span>&lt;&lt;endl;</span><br><span class="line">                                ShowPath(i,a,b);</span><br><span class="line">                                <span class="keyword">return</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span><span class="comment">//不在同一线路中时则寻找是否能换乘一次</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="keyword">for</span>(int x=<span class="number">1</span>;x&lt;=XianLu[i][<span class="number">0</span>];x++)</span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="keyword">for</span>(int y=<span class="number">1</span>;y&lt;=XianLu[m][<span class="number">0</span>];y++)</span><br><span class="line">                                    &#123;</span><br><span class="line">                                        <span class="keyword">if</span>(XianLu[i][x]==XianLu[m][y])<span class="comment">//如果a,b所在线路中有重复的交集（即重复结点），则可以换乘一次</span></span><br><span class="line">                                        &#123;</span><br><span class="line">                                            <span class="keyword">if</span>(XianLu[i][x]==a||XianLu[m][y]==b)cout&lt;&lt;<span class="string">"不用转线,线路为："</span>&lt;&lt;endl;<span class="comment">//排除先找到前面线路的a或b站点的情况</span></span><br><span class="line">                                            <span class="keyword">else</span></span><br><span class="line">                                            &#123;</span><br><span class="line">                                                cout&lt;&lt;<span class="string">"存在换乘一次的路线，在"</span>&lt;&lt;XianLu[i][x]&lt;&lt;<span class="string">"站点换乘"</span>&lt;&lt;endl;</span><br><span class="line">                                                cout&lt;&lt;<span class="string">"线路为："</span>&lt;&lt;endl;</span><br><span class="line">                                            &#125;</span><br><span class="line">                                            <span class="keyword">if</span>(XianLu[i][x]!=a)</span><br><span class="line">                                            ShowPath(i,a,XianLu[i][x]);<span class="comment">//输出a到中间结点</span></span><br><span class="line">                                            <span class="keyword">if</span>(XianLu[m][y]!=b)</span><br><span class="line">                                            ShowPath(m,XianLu[m][y],b);<span class="comment">//输出b到中间结点</span></span><br><span class="line">                                            <span class="keyword">return</span>;</span><br><span class="line">                                        &#125;</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">"不存在最大换乘次数为一的路线"</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ALGraph s;</span><br><span class="line">    Creat(&amp;s);</span><br><span class="line">    cout&lt;&lt;<span class="string">"邻接表为:"</span>&lt;&lt;endl;</span><br><span class="line">    Show(&amp;s);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        find(&amp;s);<span class="comment">//实现多次查找</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试数据：<br>7 9<br>0 1 2 3 4 5 6<br>3<br>4<br>0 5 4 3<br>4<br>0 5 6 3<br>4<br>2 1 6 3</p>
+<p><img src="1.PNG" alt="xxx"><br><img src="2.PNG" alt="xxx"></p>
+<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/12/08/公交路图的初始化以及找到两站点间换乘不超过一次的路径/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -910,78 +985,6 @@
 
 
   
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/07/27/my-first-blog/" target="_blank">my first blog</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/07/27/my-first-blog/" class="archive-article-date">
-        <time datetime="2019-07-27T07:26:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>开始写博客啦！</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/07/27/my-first-blog/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1133,11 +1136,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
