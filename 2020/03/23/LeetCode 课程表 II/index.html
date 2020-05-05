@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="名称：210. 课程表 II 题目描述：现在你总共有 n 门课需要选，记为 0 到 n-1。 在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们: [0,1] 给定课程总量以及它们的先决条件，返回你为了学完所有课程所安排的学习顺序。 可能会有多个正确的顺序，你只要返回一种就可以了。如果不可能完成所有课程，返回一个空数组。 示例 1:12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-23T05:34:08.375Z">
+<meta property="og:updated_time" content="2020-05-04T08:11:14.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 课程表 II">
 <meta name="twitter:description" content="名称：210. 课程表 II 题目描述：现在你总共有 n 门课需要选，记为 0 到 n-1。 在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们: [0,1] 给定课程总量以及它们的先决条件，返回你为了学完所有课程所安排的学习顺序。 可能会有多个正确的顺序，你只要返回一种就可以了。如果不可能完成所有课程，返回一个空数组。 示例 1:12">
@@ -215,7 +215,7 @@
 <p>示例 1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 2, [[1,0]] </span><br><span class="line">输出: [0,1]</span><br><span class="line">解释: 总共有 2 门课程。要学习课程 1，你需要先完成课程 0。因此，正确的课程顺序为 [0,1] 。</span><br></pre></td></tr></table></figure></p>
 <p>示例 2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: 4, [[1,0],[2,0],[3,1],[3,2]]</span><br><span class="line">输出: [0,1,2,3] or [0,2,1,3]</span><br><span class="line">解释: 总共有 4 门课程。要学习课程 3，你应该先完成课程 1 和课程 2。并且课程 1 和课程 2 都应该排在课程 0 之后。</span><br><span class="line">     因此，一个正确的课程顺序是 [0,1,2,3] 。另一个正确的排序是 [0,2,1,3] 。</span><br></pre></td></tr></table></figure></p>
 <p>解题思路：首先是要判断是否可以完成全部的课程，很明显，我们应该用拓扑排序来做，那么数据结构我们就应该采用图（用map来存），再加上一个简单的bfs即可解出此题。<br>c++代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; findOrder(int numCourses, vector&lt;vector&lt;int&gt;&gt;&amp; prerequisites) &#123;</span><br><span class="line">        vector&lt;int&gt; result;</span><br><span class="line">        vector&lt;int&gt; fake;</span><br><span class="line">        vector&lt;int&gt; degree(numCourses , 0);</span><br><span class="line">        unordered_map&lt;int, vector&lt;int&gt;&gt; map;</span><br><span class="line">        for(vector&lt;int&gt; prerequisite : prerequisites) &#123;</span><br><span class="line">            map[prerequisite[1]].push_back(prerequisite[0]);</span><br><span class="line">            degree[prerequisite[0]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        queue&lt;int&gt; q;//用来做拓扑排序的队列</span><br><span class="line">        for(int i = 0; i &lt; numCourses ; i++)&#123;</span><br><span class="line">            if(degree[i] == 0)&#123;</span><br><span class="line">                q.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while(!q.empty())&#123;</span><br><span class="line">            int cur = q.front();</span><br><span class="line">            result.push_back(cur);//把每次的结果存起来，最终得到的就是顺序</span><br><span class="line">            q.pop();</span><br><span class="line">            for(int next : map[cur])&#123;</span><br><span class="line">                degree[next]--;</span><br><span class="line">                if(degree[next] == 0)</span><br><span class="line">                    q.push(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return result.size() == numCourses ? result : fake;//fake是一个空的数组，如果找不到就输出空数组</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
+<p>我的个人博客 amazingz6.github.io<br>我的bilibili <a href="https://space.bilibili.com/66908429" target="_blank" rel="noopener">https://space.bilibili.com/66908429</a><br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
 
     
 
@@ -532,11 +532,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">

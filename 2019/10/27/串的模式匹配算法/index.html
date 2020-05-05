@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/27/串的模式匹配算法/5.png">
-<meta property="og:updated_time" content="2019-10-31T12:11:02.810Z">
+<meta property="og:updated_time" content="2020-05-04T08:11:26.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="串的模式匹配算法">
 <meta name="twitter:description" content="1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。123456789101112int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符">
@@ -225,7 +225,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_next(SString &amp;T, int &amp;next[] ) &#123;</span><br><span class="line">     <span class="comment">// 求模式串T的next函数值并存入数组next</span></span><br><span class="line">     i = <span class="number">1</span>;   next[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">           <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j])</span><br><span class="line">                 &#123;++i;  ++j; next[i] = j; &#125;</span><br><span class="line">           <span class="keyword">else</span>  j = next[j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="comment">// get_next</span></span><br></pre></td></tr></table></figure>
 <p>此外，如果不匹配时发现前面已经比较过的，和将要比较的那个是完全一样的话，就没有比下去的必要了，例如模式串为 aaaab时，如果j=3发现不同，按上一种方法，则应移到j=2经行比较，但j=2时也是a，再比较就相当于多比了一次，这样就有了改进的空间。<br>代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> get_nextval(SString &amp;T, int &amp;nextval[]) &#123;</span><br><span class="line">      i = <span class="number">1</span>;   nextval[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">          <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j]) &#123;</span><br><span class="line">              ++i;  ++j;</span><br><span class="line">              <span class="keyword">if</span> (T[i] != T[j])  next[i] = j;</span><br><span class="line">              <span class="keyword">else</span>  nextval[i] = nextval[j];</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span>  j = nextval[j];</span><br><span class="line">     &#125;</span><br><span class="line">  &#125; <span class="comment">// get_nextval</span></span><br></pre></td></tr></table></figure>
-<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
+<p>我的个人博客 amazingz6.github.io<br>我的bilibili <a href="https://space.bilibili.com/66908429" target="_blank" rel="noopener">https://space.bilibili.com/66908429</a><br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
 
     
 
@@ -542,11 +542,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">

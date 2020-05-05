@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=) 1.JAVA数据输出格式的控制12String.format.(&quot;格式串&quot;，数值数据）//方法一System.out.print(&quot;格式串&quot;，数值数据) //方法二 2.用float时数后要加F1float a=3.4F; 3.数字不能自动转化为Boolean4.字符检测的方法1234567char ch=&apos;a&apos;;Characte">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-17T12:49:28.761Z">
+<meta property="og:updated_time" content="2020-05-04T08:09:45.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础知识">
 <meta name="twitter:description" content="本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=) 1.JAVA数据输出格式的控制12String.format.(&quot;格式串&quot;，数值数据）//方法一System.out.print(&quot;格式串&quot;，数值数据) //方法二 2.用float时数后要加F1float a=3.4F; 3.数字不能自动转化为Boolean4.字符检测的方法1234567char ch=&apos;a&apos;;Characte">
@@ -224,7 +224,7 @@
 <h1><span id="12和equals的区别">12.”==”和equals的区别</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s1=<span class="string">"abc"</span>;  <span class="comment">//方法以</span></span><br><span class="line"><span class="built_in">String</span> s2=<span class="string">"abc"</span>;</span><br><span class="line"><span class="built_in">String</span> s3=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>); <span class="comment">//方法二</span></span><br><span class="line"><span class="built_in">String</span> s4=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(s1==s2); </span><br><span class="line">System.out.println(s1.equals(s2));</span><br><span class="line">System.out.println(s3==s4);</span><br><span class="line">System.out.println(s3.equals(s4));</span><br></pre></td></tr></table></figure>
 <p>得到的结果为true,true,false,true.<br>方法一属于常量式创建，会存放一个在一个叫String pool 的地方，再次创建时会直接引用存在的相同变量<br>而方法二属于对象式创建，是运行时在Heap内存里面创建对象，每new一次都一定会创建对象<br>而“==”是比较两者的地址是否一样，所以第三个为false<br>equals是比较变量是否一样。</p>
 <h1><span id="13也能用于浮点型变量">13.%也能用于浮点型变量</span></h1><h1><span id="14类型转换">14.类型转换</span></h1><p>当没有信息丢失时，变量可被自动升级为一个较长的形式（如：int至long的升级）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">long bigval = <span class="number">6</span>;  <span class="comment">// 6 is an int type, OK</span></span><br><span class="line">int smallval = <span class="number">99</span>L;  <span class="comment">// 99L is a long, error </span></span><br><span class="line">double z = <span class="number">12.414</span>F;  <span class="comment">// 12.414F is float, OK</span></span><br><span class="line">float z1 = <span class="number">12.414</span>;  <span class="comment">// 12.414 is double, error</span></span><br><span class="line"><span class="comment">//但升级也可能会导致出错</span></span><br><span class="line">short  a，b，c</span><br><span class="line">a=<span class="number">1</span>；b=<span class="number">2</span>；c= a+b；<span class="comment">//上述程序会因为在操作short之前提升每个short至int而出错。</span></span><br><span class="line"><span class="comment">//然而，如果c被声明为一个int，或按如下操作进行类型转换：</span></span><br><span class="line">c = (short)(a+b);<span class="comment">//则上述代码将会成功通过</span></span><br></pre></td></tr></table></figure></p>
-<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositorie" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositorie</a></p>
+<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a><br>我的bilibili <a href="https://space.bilibili.com/66908429" target="_blank" rel="noopener">https://space.bilibili.com/66908429</a></p>
 
     
 
@@ -552,11 +552,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
