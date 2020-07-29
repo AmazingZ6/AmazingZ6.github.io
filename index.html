@@ -180,6 +180,106 @@
             
 
   
+    <article id="post-基本JAVA-WEB项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2020/07/29/基本JAVA-WEB项目/" target="_blank">基本JAVA_WEB项目</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/07/29/基本JAVA-WEB项目/" class="archive-article-date">
+        <time datetime="2020-07-29T07:42:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1><span id="javaweb实训学习">Javaweb实训学习</span></h1><p>由于疫情原因只能呆在家，但也阻止不了学校的实习呀，本次实习采用网上教学的方式,老师讲的东西有点多，在这里总结一下。</p>
+<h2><span id="1准备工作">1，准备工作</span></h2><p>安装好JDK,Mysql,eclipse或idea,navicat,tomcat（最基础的版本，没有用到框架）</p>
+<h2><span id="2大致流程">2,大致流程</span></h2><p>1,需求分析</p>
+<p>对你的目标项目做一个大致分析，找出需要可能需要实现的功能。        </p>
+<p>2,页面设计</p>
+<p>设计出最终项目的所有静态页面，在实际项目中一般用于做展示。</p>
+<p>3，数据库设计</p>
+<p>根据你要实现的功能设计出对应的数据库表结构</p>
+<p>4，实际代码编写</p>
+<p>将代码部署到tomcat上，在本地进行查看与调试</p>
+<h2><span id="3详细流程以kfc网页端点餐为例">3，详细流程（以KFC网页端点餐为例）</span></h2><p>1，需求分析</p>
+<p>要点餐，首先要登陆，然后要将要点的东西加入购物车，最后进行结算。</p>
+<p>想要快速的找到商品，分类与搜索是必须要的，同时需要能够查看到商品详情。</p>
+<p>对于购物车中的货物可以经行勾选，勾中才会结算，同时在购物车页面实现商品数量的加减</p>
+<p>对于之前的订单可以在历史订单中找到，在历史订单详情页中找到自己之前买了啥</p>
+<p>2，页面设计</p>
+<p>包含登陆页面，主页面，商品页，商品详情页，购物车页面，历史订单页，订单详情页</p>
+<p>在设计这些页面时会用到jstl以及er表达式，需要添加依赖包以及在jsp文件开始加上一段说明</p>
+<p>3，数据库设计</p>
+<p>要能登陆，需要user表经行登陆判断</p>
+<p>显示商品，需要一个food表，以及foodtype商品分类表</p>
+<p>显示订单需要order表，以及orderdetail订单详情表</p>
+<p>这里在实际中对于外键并没有直接设置，而是在创建一个键，用0，1表示这个数据是否存在，便于数据的删除，但在这里为了简便，没有经行类似的设置。</p>
+<p>4，实际代码编写</p>
+<p>在eclipse创建一个JAVA项目</p>
+<p>首先是与数据库建立连接,即JDBC,需要提前导入JDBC对应的的依赖包，在properties中配置好信息后，创建一个工具类来封装JDBC的方法来建立连接，然后创建实体层entity来与数据库中的表相对应，DAO层写入对应的方法（这里的方法只能是直接用sql语句就能完成的方法），然后在DAOImpl中实现这些方法，正常流程是再创建service层来封装更高级的方法，由于这个项目的方法需求比较简单，所以直接调用DAO层方法来实现就行。在conroller层中编写servlet与用户的需求经行对接，正常时是调用service层方法，这里为了简单直接调用DAO层方法。</p>
+<p><img src="1.PNG" alt="xxx"></p>
+<p><a href="https://pan.baidu.com/s/1Oa_UYstTzfb2cQwVSRa_Og" target="_blank" rel="noopener">代码下载</a> 提取码adsi</p>
+<p>我的个人博客 amazingz6.github.io<br>我的bilibili <a href="https://space.bilibili.com/66908429" target="_blank" rel="noopener">https://space.bilibili.com/66908429</a><br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/07/29/基本JAVA-WEB项目/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode-字符串转换整数-atoi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -965,82 +1065,6 @@
 
 
   
-    <article id="post-计算三重积分的四种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/11/计算三重积分的四种方法/" target="_blank">计算三重积分的四种方法</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/11/计算三重积分的四种方法/" class="archive-article-date">
-        <time datetime="2019-09-11T09:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>以后可能会经常使用，在这里总结一下</p>
-<h1><span id="先一后二法">先一后二法</span></h1><p>$\iiint _{\Omega }f\left( x,y,z\right) dv=\int ^{b}_{a}dx\int ^{y_{2}\left( x\right) }_{y_{1}\left( x\right) }dy\int ^{z_{2}\left( x,y\right) }_{z_{1}\left( x,y\right) }f\left( x,y,z\right) dz$</p>
-<h1><span id="先二后一法">先二后一法</span></h1><p>$\begin{aligned}\iiint _{\Omega }f\left( x,y,z\right) dv=\int ^{b}_{a}dz\iint _{Dz}f\left( x,y,z\right) dxdy\end{aligned}$</p>
-<h1><span id="利用柱面坐标计算">利用柱面坐标计算</span></h1><p>$\begin{cases}x=\rho \cos \theta \\ y=\rho \sin \theta \\ z=z\end{cases}\iiint _{\Omega }f\left( x,y,z\right) dv=\begin{aligned}\iiint _{\Omega }f\left( \rho \cos \theta ,\rho \sin \theta ,z\right) \rho d\rho d\theta dz\end{aligned}$</p>
-<h1><span id="利用球面坐标计算">利用球面坐标计算</span></h1><p>$\begin{cases}x=r\sin \varphi \cos \theta \\ y=r\sin \varphi \sin \theta \\ z=r\cos \varphi \end{cases}\begin{aligned}\iiint _{\Omega }f\left( x,y,z\right) dv=\iiint _{\Omega }f\left( r\sin \varphi \cos \theta ,r\sin \varphi \sin \theta ,r\cos y\right) r^{2}\sin \varphi drdyd\theta \end{aligned}$</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/11/计算三重积分的四种方法/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1192,11 +1216,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JAVA基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
