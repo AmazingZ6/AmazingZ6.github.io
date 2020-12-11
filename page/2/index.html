@@ -180,6 +180,105 @@
             
 
   
+    <article id="post-JAVA基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/09/17/JAVA基础知识/" target="_blank">JAVA基础知识</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/09/17/JAVA基础知识/" class="archive-article-date">
+        <time datetime="2019-09-17T02:56:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=)</p>
+<h1><span id="1java数据输出格式的控制">1.JAVA数据输出格式的控制</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.format.(<span class="string">"格式串"</span>，数值数据）<span class="comment">//方法一</span></span><br><span class="line">System.out.print(<span class="string">"格式串"</span>，数值数据) <span class="comment">//方法二</span></span><br></pre></td></tr></table></figure>
+<h1><span id="2用float时数后要加f">2.用float时数后要加F</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float a=<span class="number">3.4</span>F;</span><br></pre></td></tr></table></figure>
+<h1><span id="3数字不能自动转化为boolean">3.数字不能自动转化为Boolean</span></h1><h1><span id="4字符检测的方法">4.字符检测的方法</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char ch=<span class="string">'a'</span>;</span><br><span class="line">Character.isLetter(ch) -- ch是否是字母</span><br><span class="line">Character.isDigit(ch)  -- ch是否是数字</span><br><span class="line">Character.isLetterOrDigit(ch) -- ch是否是字母或数字</span><br><span class="line">Character.isWhitespace(ch) -- ch是否是空格</span><br><span class="line">Character.isLowerCase(ch) -- ch是否是小写字母</span><br><span class="line">Character.isUpperCase(ch) -- ch是否是大写字母</span><br></pre></td></tr></table></figure>
+<h1><span id="5自定义符号常量加final">5.自定义符号常量加final</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final double PI=<span class="number">3.14159</span>;</span><br></pre></td></tr></table></figure>
+<h1><span id="6在方法外定义的变量会自动初始化">6.在方法外定义的变量会自动初始化</span></h1><h1><span id="7string加其他类型变量时会将其他类型转化为字符类型">7.String加其他类型变量时会将其他类型转化为字符类型</span></h1><h1><span id="8字符串转数值">8.字符串转数值</span></h1><p>方法1：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i = Integer.parseInt(<span class="string">"123"</span>);       (常用)</span><br><span class="line">double d = Double.parseDouble(<span class="string">"1.23"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>方法2：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i =Integer.valueOf(<span class="string">"123"</span>).intValue();</span><br></pre></td></tr></table></figure></p>
+<h1><span id="9数值转字符串">9.数值转字符串</span></h1><p> 方法1：<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s=<span class="built_in">String</span>.valueOf(value);</span><br></pre></td></tr></table></figure></p>
+<p> 其中value为任一种数字类型。</p>
+<p>方法2：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s = Integer.toString(<span class="number">123</span>);</span><br></pre></td></tr></table></figure></p>
+<p>方法3：最直接<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s = <span class="string">""</span> + value;  其中value为任意一种数字类型。</span><br></pre></td></tr></table></figure></p>
+<h1><span id="10字符数组转字符串">10.字符数组转字符串</span></h1> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> char[ ] c=&#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>&#125;;</span><br><span class="line"><span class="built_in">String</span> str=<span class="keyword">new</span> <span class="built_in">String</span>(c);</span><br></pre></td></tr></table></figure>
+<h1><span id="11字符串转字符数组">11.字符串转字符数组</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> str=<span class="string">"abc"</span>;</span><br><span class="line">char[ ]  c=str.toCharArray();</span><br></pre></td></tr></table></figure>
+<h1><span id="12和equals的区别">12.”==”和equals的区别</span></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> s1=<span class="string">"abc"</span>;  <span class="comment">//方法以</span></span><br><span class="line"><span class="built_in">String</span> s2=<span class="string">"abc"</span>;</span><br><span class="line"><span class="built_in">String</span> s3=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>); <span class="comment">//方法二</span></span><br><span class="line"><span class="built_in">String</span> s4=<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(s1==s2); </span><br><span class="line">System.out.println(s1.equals(s2));</span><br><span class="line">System.out.println(s3==s4);</span><br><span class="line">System.out.println(s3.equals(s4));</span><br></pre></td></tr></table></figure>
+<p>得到的结果为true,true,false,true.<br>方法一属于常量式创建，会存放一个在一个叫String pool 的地方，再次创建时会直接引用存在的相同变量<br>而方法二属于对象式创建，是运行时在Heap内存里面创建对象，每new一次都一定会创建对象<br>而“==”是比较两者的地址是否一样，所以第三个为false<br>equals是比较变量是否一样。</p>
+<h1><span id="13也能用于浮点型变量">13.%也能用于浮点型变量</span></h1><h1><span id="14类型转换">14.类型转换</span></h1><p>当没有信息丢失时，变量可被自动升级为一个较长的形式（如：int至long的升级）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">long bigval = <span class="number">6</span>;  <span class="comment">// 6 is an int type, OK</span></span><br><span class="line">int smallval = <span class="number">99</span>L;  <span class="comment">// 99L is a long, error </span></span><br><span class="line">double z = <span class="number">12.414</span>F;  <span class="comment">// 12.414F is float, OK</span></span><br><span class="line">float z1 = <span class="number">12.414</span>;  <span class="comment">// 12.414 is double, error</span></span><br><span class="line"><span class="comment">//但升级也可能会导致出错</span></span><br><span class="line">short  a，b，c</span><br><span class="line">a=<span class="number">1</span>；b=<span class="number">2</span>；c= a+b；<span class="comment">//上述程序会因为在操作short之前提升每个short至int而出错。</span></span><br><span class="line"><span class="comment">//然而，如果c被声明为一个int，或按如下操作进行类型转换：</span></span><br><span class="line">c = (short)(a+b);<span class="comment">//则上述代码将会成功通过</span></span><br></pre></td></tr></table></figure></p>
+<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a href="https://blog.csdn.net/qq_44105654" target="_blank" rel="noopener">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a href="https://www.jianshu.com/u/607ef08e5825" target="_blank" rel="noopener">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a href="https://github.com/AmazingZ6?tab=repositories" target="_blank" rel="noopener">https://github.com/AmazingZ6?tab=repositories</a><br>我的bilibili <a href="https://space.bilibili.com/66908429" target="_blank" rel="noopener">https://space.bilibili.com/66908429</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JAVA基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/09/17/JAVA基础知识/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-计算三重积分的四种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -819,11 +918,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
