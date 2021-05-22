@@ -126,37 +126,37 @@
     
     <a href="/" class="navbar-menu-item">
     
-    首页
+    Home
     
     </a>
     
     <a href="/archives" class="navbar-menu-item">
     
-    归档
+    Archive
     
     </a>
     
     <a href="/tags" class="navbar-menu-item">
     
-    标签
+    Tags
     
     </a>
     
     <a href="/categories" class="navbar-menu-item">
     
-    分类
+    Categories
     
     </a>
     
     <a href="/about" class="navbar-menu-item">
     
-    关于
+    About
     
     </a>
     
     <a href="/links" class="navbar-menu-item">
     
-    友链
+    Friends
     
     </a>
     
@@ -174,6 +174,33 @@
       <div class="container">
         <div class="columns">
           <main class="main-column">
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/07/30/c-java-python大数加法/">
+      <h1 class="post-title">
+        c++ java python大数加法
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      转自：https://blog.csdn.net/weixin_43871885/article/details/97797871 
+c++代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;iostream&amp;gt;#include &amp;lt;cstring&amp;gt;#include &amp;lt;algorithm&amp;gt;using namespace std;#define MAXN 1000int a[MAXN],b[MAXN];int main(int argc, const char * argv[])&amp;#123;    string str1,str2;//保存输入    long int len1,len2;    long int i,j,k;    int up;    /*输入流程*/    cin&amp;gt;&amp;gt;str1&amp;gt;&amp;gt;str2;    /*初始化各量*/    len1 = str1.length();    len2 = str2.length();    memset(a, 0, sizeof(a));    memset(b, 0, sizeof(b));    /*注意，必须倒着保存数据*/    for (i = len1 - 1, k = 0; i != -1; -- i)    &amp;#123;        a[k] = str1[i] - &amp;#x27;0&amp;#x27;;        k++;    &amp;#125;    for (j = len2 - 1, k = 0; j != -1; -- j)    &amp;#123;        b[k] = str2[j] - &amp;#x27;0&amp;#x27;;        k++;    &amp;#125;    for (i = 0, up = 0; i &amp;lt; MAXN; ++ i)    &amp;#123;        a[i] = a[i] + b[i] + up;        up = a[i] / 10;        a[i] %= 10;    &amp;#125;    for (i = MAXN - 1; i != -1; -- i)    &amp;#123;        if (a[i])        &amp;#123;            break;        &amp;#125;    &amp;#125;    for (k = i; k != -1; --k)    &amp;#123;        cout&amp;lt;&amp;lt;a[k];    &amp;#125;    return 0;&amp;#125;
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-07-30T09:39:01.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-07-30</span>
+        </time>
+        
+      </div>
+      <a href="/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/">Read More </a>
+    </div>
+  </article>
+</div>
+
 <div class="card">
   
   <article class="card card-content">
@@ -196,7 +223,7 @@
         </time>
         
       </div>
-      <a href="/2019/07/27/my-first-blog/">继续阅读 </a>
+      <a href="/2019/07/27/my-first-blog/">Read More </a>
     </div>
   </article>
 </div>
@@ -222,7 +249,7 @@
         </time>
         
       </div>
-      <a href="/2019/07/24/hello-world/">继续阅读 </a>
+      <a href="/2019/07/24/hello-world/">Read More </a>
     </div>
   </article>
 </div>
@@ -234,7 +261,7 @@
     <a href="/page/2/" class="nav-link">
       <i class="iconfont icon-left nav-prev-icon"></i>
       <div>
-        <div class="nav-label">上一页</div>
+        <div class="nav-label">Prev</div>
         
       </div>
     </a>
@@ -253,16 +280,16 @@
 <p class="author-description">大三在读，考研狗</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>22</span>
-    <span>文章</span>
+    <span>23</span>
+    <span>Posts</span>
   </a>
   <a class="author-categories-count" href="/categories">
     <span>0</span>
-    <span>分类</span>
+    <span>Categories</span>
   </a>
   <a class="author-tags-count" href="/tags">
     <span>6</span>
-    <span>标签</span>
+    <span>Tags</span>
   </a>
 </div>
 
@@ -274,7 +301,7 @@
   
   <article class="card card-content categories-widget">
     <div class="categories-card">
-  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>Categories</div>
   <div class="categories-list">
     
   </div>
@@ -283,18 +310,18 @@
   
   <article class="card card-content tags-widget">
     <div class="tags-card">
-  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>hot tags</div>
   <div class="tags-list">
     
     <a href="/tags/考研/" title="考研"><div class="tags-list-item">考研</div></a>
     
-    <a href="/tags/随笔/" title="随笔"><div class="tags-list-item">随笔</div></a>
-    
     <a href="/tags/树莓派/" title="树莓派"><div class="tags-list-item">树莓派</div></a>
     
-    <a href="/tags/算法/" title="算法"><div class="tags-list-item">算法</div></a>
+    <a href="/tags/随笔/" title="随笔"><div class="tags-list-item">随笔</div></a>
     
     <a href="/tags/LeetCode/" title="LeetCode"><div class="tags-list-item">LeetCode</div></a>
+    
+    <a href="/tags/算法/" title="算法"><div class="tags-list-item">算法</div></a>
     
     <a href="/tags/JAVA基础知识/" title="JAVA基础知识"><div class="tags-list-item">JAVA基础知识</div></a>
     
@@ -305,7 +332,7 @@
   
   <article class="card card-content widescreen-archive archive-widget">
     <div class="archive-card">
-  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>Archive</div>
   <div class="archive-card-list">
     
     
@@ -334,9 +361,13 @@
     
       
         
+      
+    
+      
+        
           <a href="/archives/2021" class="archive-card-list-item">
               2021
-              <span class="archive-card-list-item-badge">5</span>
+              <span class="archive-card-list-item-badge">6</span>
           </a>
         
         
@@ -433,8 +464,13 @@
   
   <article class="card card-content">
     <div class="recent-posts-card">
-  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>Recent Posts</div>
   <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-05-22</div>
+        <a href="/2021/05/22/考研5/"><div class="recent-posts-item-content">考研5</div></a>
+      </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-05-09</div>
@@ -451,11 +487,6 @@
         <a href="/2021/04/19/考研之旅003/"><div class="recent-posts-item-content">考研003</div></a>
       </div>
     
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-04-04</div>
-        <a href="/2021/04/04/考研之旅002/"><div class="recent-posts-item-content">考研002</div></a>
-      </div>
-    
   </div>
 </div>
   </article>
@@ -463,7 +494,7 @@
   
   <article class="card card-content">
     <div class="archive-card">
-  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>Archive</div>
   <div class="archive-card-list">
     
     
@@ -492,9 +523,13 @@
     
       
         
+      
+    
+      
+        
           <a href="/archives/2021" class="archive-card-list-item">
               2021
-              <span class="archive-card-list-item-badge">5</span>
+              <span class="archive-card-list-item-badge">6</span>
           </a>
         
         
