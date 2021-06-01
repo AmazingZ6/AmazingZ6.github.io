@@ -126,37 +126,37 @@
     
     <a href="/" class="navbar-menu-item">
     
-    首页
+    Home
     
     </a>
     
     <a href="/archives" class="navbar-menu-item">
     
-    归档
+    Archive
     
     </a>
     
     <a href="/tags" class="navbar-menu-item">
     
-    标签
+    Tags
     
     </a>
     
     <a href="/categories" class="navbar-menu-item">
     
-    分类
+    Categories
     
     </a>
     
     <a href="/about" class="navbar-menu-item">
     
-    关于
+    About
     
     </a>
     
     <a href="/links" class="navbar-menu-item">
     
-    友链
+    Friends
     
     </a>
     
@@ -174,6 +174,40 @@
       <div class="container">
         <div class="columns">
           <main class="main-column">
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/08/05/树莓派小车基本功能的实现/">
+      <h1 class="post-title">
+        树莓派小车基本功能的实现
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。下面我将对本次实训经行一个简单的回顾
+1.小车的组装首先我们需要一下材料树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡然后按照电路图将小车的零部件一个一个组装起来即可唯一需要注意的是引脚的对应如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色框里的物理接口
+下图为组装好的小车
+
+2.SOCKET编程那么要如何实现电脑端与小车的通信呢，这时候就需要用到socket编程了，它可以通过IP地址实现两地之间的通信
+
+套接字（socket）是一个抽象层，应用程序可以通过它发送或接收数据，可对其进行像对文件一样的打开、读写和关闭等操作。套接字允许应用程序将I/O插入到网络中，并与网络中的其他应用程序进行通信。网络套接字是IP地址与端口的组合
+
+首先我们要实现最基本的本地通信下面附上最基本的本地通信的代码
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-08-05T09:40:00.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-08-05</span>
+        </time>
+        
+      </div>
+      <a href="/2019/08/05/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%B0%8F%E8%BD%A6%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/">Read More </a>
+    </div>
+  </article>
+</div>
+
 <div class="card">
   
   <article class="card card-content">
@@ -196,7 +230,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
         </time>
         
       </div>
-      <a href="/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/">继续阅读 </a>
+      <a href="/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/">Read More </a>
     </div>
   </article>
 </div>
@@ -223,7 +257,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
         </time>
         
       </div>
-      <a href="/2019/07/27/my-first-blog/">继续阅读 </a>
+      <a href="/2019/07/27/my-first-blog/">Read More </a>
     </div>
   </article>
 </div>
@@ -249,7 +283,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
         </time>
         
       </div>
-      <a href="/2019/07/24/hello-world/">继续阅读 </a>
+      <a href="/2019/07/24/hello-world/">Read More </a>
     </div>
   </article>
 </div>
@@ -261,7 +295,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
     <a href="/page/2/" class="nav-link">
       <i class="iconfont icon-left nav-prev-icon"></i>
       <div>
-        <div class="nav-label">上一页</div>
+        <div class="nav-label">Prev</div>
         
       </div>
     </a>
@@ -280,16 +314,16 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
 <p class="author-description">大三在读，考研狗</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>23</span>
-    <span>文章</span>
+    <span>24</span>
+    <span>Posts</span>
   </a>
   <a class="author-categories-count" href="/categories">
     <span>0</span>
-    <span>分类</span>
+    <span>Categories</span>
   </a>
   <a class="author-tags-count" href="/tags">
     <span>6</span>
-    <span>标签</span>
+    <span>Tags</span>
   </a>
 </div>
 
@@ -301,7 +335,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
   
   <article class="card card-content categories-widget">
     <div class="categories-card">
-  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>Categories</div>
   <div class="categories-list">
     
   </div>
@@ -310,7 +344,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
   
   <article class="card card-content tags-widget">
     <div class="tags-card">
-  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>hot tags</div>
   <div class="tags-list">
     
     <a href="/tags/考研/" title="考研"><div class="tags-list-item">考研</div></a>
@@ -332,7 +366,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
   
   <article class="card card-content widescreen-archive archive-widget">
     <div class="archive-card">
-  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>Archive</div>
   <div class="archive-card-list">
     
     
@@ -365,9 +399,13 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
     
       
         
+      
+    
+      
+        
           <a href="/archives/2021" class="archive-card-list-item">
               2021
-              <span class="archive-card-list-item-badge">6</span>
+              <span class="archive-card-list-item-badge">7</span>
           </a>
         
         
@@ -464,8 +502,13 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
   
   <article class="card card-content">
     <div class="recent-posts-card">
-  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>Recent Posts</div>
   <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-06-01</div>
+        <a href="/2021/06/01/考研6/"><div class="recent-posts-item-content">考研6</div></a>
+      </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-05-22</div>
@@ -482,11 +525,6 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
         <a href="/2021/04/25/人的三个20岁/"><div class="recent-posts-item-content">人的三个20岁</div></a>
       </div>
     
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-04-19</div>
-        <a href="/2021/04/19/考研之旅003/"><div class="recent-posts-item-content">考研003</div></a>
-      </div>
-    
   </div>
 </div>
   </article>
@@ -494,7 +532,7 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
   
   <article class="card card-content">
     <div class="archive-card">
-  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>Archive</div>
   <div class="archive-card-list">
     
     
@@ -527,9 +565,13 @@ c++代码12345678910111213141516171819202122232425262728293031323334353637383940
     
       
         
+      
+    
+      
+        
           <a href="/archives/2021" class="archive-card-list-item">
               2021
-              <span class="archive-card-list-item-badge">6</span>
+              <span class="archive-card-list-item-badge">7</span>
           </a>
         
         
