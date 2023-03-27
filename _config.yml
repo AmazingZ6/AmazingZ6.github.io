@@ -112,3 +112,6 @@ deploy:
     type: git
     repository: git@github.com:amazingz6/amazingz6.github.io.git       
     branch: master
+    
+mathjax:
+  enable: true

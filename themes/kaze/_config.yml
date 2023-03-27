@@ -4,7 +4,7 @@ title: 你好，陌生人
 author: amazzl
 logo_img: /img/touxiang.jpg # put the logo on the ${blog_path}/source/img/${picname}.png or use urls
 author_img: /img/touxiang.jpg
-author_description: 大三在读，考研狗
+author_description: 研一在读
 #------------------------
 # Navbar config
 #------------------------
@@ -159,7 +159,7 @@ comment:
 # choose true to use latex by mathjax or katex
 # warning: latex rendering will put lots of loading burden on page loading
 latex:
-  enable: false
+  enable: true
   engine: mathjax # mathjax | katex
   # for better rendering effect, when you choose mathjax, you can use it directly but you will lose some effect
   # so you can use hexo-renderer-kramed
