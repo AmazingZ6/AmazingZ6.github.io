@@ -1,0 +1,9 @@
+ 图片格式：<img src="" width="60%" alt=""/>或<img src="图片网址" height="高" width="长">
+ 
+目录显示  [toc]
+
+
+我的个人博客 amazingz6.github.io
+我的CSDN https://blog.csdn.net/qq_44105654
+我的简书 https://www.jianshu.com/u/607ef08e5825
+我的github https://github.com/AmazingZ6?tab=repositories	
