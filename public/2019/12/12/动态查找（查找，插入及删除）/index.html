@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <meta name="description" content="Hexo">
+  <link rel="icon" href="/img/touxiang.jpg">
+  <title>动态查找（查找，插入及删除）</title>
+  
+  
+  <meta property="og:title" content="动态查找（查找，插入及删除）">
+  
+  
+  <meta property="og:url" content="http://yoursite.com/2019/12/12/%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9F%A5%E6%89%BE%EF%BC%8C%E6%8F%92%E5%85%A5%E5%8F%8A%E5%88%A0%E9%99%A4%EF%BC%89/index.html">
+  
+  
+  <meta property="og:img" content="/img/touxiang.jpg">
+  
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:published_time" content="2019-12-12">
+  <meta property="og:article:modified_time" content="2020-05-04">
+  <meta property="og:article:author" content="amazzl">
+  
+  
+  
+  
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+<link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="/img/touxiang.jpg" alt="logo">
+      
+      <span class="navbar-logo-dsc">你好，陌生人</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">
+    
+    首页
+    
+    </a>
+    
+    <a href="/archives" class="navbar-menu-item">
+    
+    归档
+    
+    </a>
+    
+    <a href="/tags" class="navbar-menu-item">
+    
+    标签
+    
+    </a>
+    
+    <a href="/categories" class="navbar-menu-item">
+    
+    分类
+    
+    </a>
+    
+    <a href="/about" class="navbar-menu-item">
+    
+    关于
+    
+    </a>
+    
+    <a href="/links" class="navbar-menu-item">
+    
+    友链
+    
+    </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+    <a class="navbar-menu-item searchnavbar" id="search"><i class="iconfont icon-search" style="font-size: 1.2rem; font-weight: 400;"></i></a>
+  </div>
+</nav>
+    
+    <div id="local-search" style="display: none;">
+      <input class="navbar-menu-item" id="search-input" placeholder="请输入搜索内容...">
+      <div id="search-content"></div>
+    </div>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      动态查找（查找，插入及删除）
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2019-12-12T10:59:31.000Z">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2019-12-12</span>
+    </time>
+    
+    
+    <span class="dot"></span>
+    <span>1.1k 字</span>
+    
+  </div>
+  
+  </header>
+  <div id="section" class="post-content">
+    <p>看代码啦<br><pre class="highlight"><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef struct Zl<span class="comment">//二叉查找表的结点</span></span><br><span class="line">&#123;</span><br><span class="line">    char data;<span class="comment">//结点的值</span></span><br><span class="line">    int count;<span class="comment">//结点出现的次数</span></span><br><span class="line">    Zl *lchild,*rchild;<span class="comment">//左右孩子</span></span><br><span class="line">&#125;Zl;</span><br><span class="line"></span><br><span class="line">bool Search(Zl *T,char key,Zl *f,Zl* &amp;p)<span class="comment">//查找操作</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(T==NULL)<span class="comment">//此时找不到</span></span><br><span class="line">    &#123;</span><br><span class="line">        p=f;<span class="comment">//记住最后访问的结点</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data==key)<span class="comment">//找到了</span></span><br><span class="line">    &#123;</span><br><span class="line">        p=T;<span class="comment">//记录找到的结点</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data&gt;key)<span class="comment">//如果目标值小于当前值则到左子树进行查找</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> Search(T-&gt;lchild,key,T,p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//大于则到右子树进行查找</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> Search(T-&gt;rchild,key,T,p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool Insert(Zl* &amp;T,char elem)<span class="comment">//插入操作，也是建立二叉查找树的操作</span></span><br><span class="line">&#123;</span><br><span class="line">    Zl *p,*f;<span class="comment">//p用来记住要找的结点，f指向当前节点的双亲结点</span></span><br><span class="line">    p=NULL;</span><br><span class="line">    f=NULL;</span><br><span class="line">    <span class="keyword">if</span>(Search(T,elem,f,p)==<span class="literal">true</span>)<span class="comment">//找到了</span></span><br><span class="line">    &#123;</span><br><span class="line">        p-&gt;count++;<span class="comment">//个数加一</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//没找到则插入</span></span><br><span class="line">    &#123;</span><br><span class="line">        Zl *temp;</span><br><span class="line">        temp=<span class="keyword">new</span> Zl;</span><br><span class="line">        temp-&gt;data=elem;</span><br><span class="line">        temp-&gt;lchild=temp-&gt;rchild=NULL;</span><br><span class="line">        temp-&gt;count=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!p) T=temp;<span class="comment">//数为空时直接将值赋给根节点</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(elem&lt;p-&gt;data)<span class="comment">//小于时则插入到左子树</span></span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;lchild=temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">//大于时则插入到右子树</span></span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;rchild=temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool Delete(Zl* &amp;p)<span class="comment">//删除p指针指向的结点</span></span><br><span class="line">&#123;</span><br><span class="line">    Zl* q;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;lchild==NULL&amp;&amp;p-&gt;rchild==NULL)<span class="comment">//既没有左子树也没有右子树时</span></span><br><span class="line">    &#123;</span><br><span class="line">        q=p;</span><br><span class="line">        p=NULL;</span><br><span class="line">        free(q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;lchild==NULL)<span class="comment">//只有右子树时</span></span><br><span class="line">    &#123;</span><br><span class="line">        q=p;</span><br><span class="line">        p=p-&gt;rchild;<span class="comment">//直接将p结点的右子树接到p结点的位置</span></span><br><span class="line">        free(q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;rchild==NULL)<span class="comment">//只有左子树时</span></span><br><span class="line">    &#123;</span><br><span class="line">        q=p;</span><br><span class="line">        p=p-&gt;lchild;<span class="comment">//直接将p结点的左子树接到p结点的位置</span></span><br><span class="line">        free(q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//既有左子树也有右子树时</span></span><br><span class="line">    &#123;</span><br><span class="line">        q=p;</span><br><span class="line">        Zl *temp;</span><br><span class="line">        temp=p-&gt;lchild;</span><br><span class="line">        <span class="keyword">while</span>(temp-&gt;rchild)<span class="comment">//找到左子树中最右的结点，即中序遍历序列中上一个访问的结点</span></span><br><span class="line">        &#123;</span><br><span class="line">            q=temp;</span><br><span class="line">            temp=temp-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;data=temp-&gt;data;<span class="comment">//将根节点置为找到的结点，然后删除找到的结点，该节点一定没有右子树</span></span><br><span class="line">        <span class="keyword">if</span>(p!=q)</span><br><span class="line">            q-&gt;rchild=temp-&gt;lchild;<span class="comment">//将删除结点的左子树接到他的双亲结点的右子树上</span></span><br><span class="line">        <span class="keyword">else</span><span class="comment">//p=q时，说明p的左子树无右孩子，直接接上即可</span></span><br><span class="line">            p-&gt;lchild=temp-&gt;lchild;</span><br><span class="line">        free(temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool DeleteBST(Zl* &amp;T,char key)<span class="comment">//删除树中所有等于key的结点</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(!T) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;data==key) <span class="keyword">return</span> Delete(T);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data&gt;key) <span class="keyword">return</span> DeleteBST(T-&gt;lchild,key);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> DeleteBST(T-&gt;rchild,key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MidOrderTraverse(Zl *p)<span class="comment">//中序遍历输出</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        MidOrderTraverse(p-&gt;lchild);</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;[&#x27;</span>&lt;&lt;p-&gt;data&lt;&lt;<span class="string">&#x27;:&#x27;</span>&lt;&lt;p-&gt;count&lt;&lt;<span class="string">&#x27;]&#x27;</span>&lt;&lt;endl;</span><br><span class="line">        MidOrderTraverse(p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> XainOrderTraverse(Zl *p)<span class="comment">//先序遍历输出</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;[&#x27;</span>&lt;&lt;p-&gt;data&lt;&lt;<span class="string">&#x27;:&#x27;</span>&lt;&lt;p-&gt;count&lt;&lt;<span class="string">&#x27;]&#x27;</span>&lt;&lt;endl;</span><br><span class="line">        MidOrderTraverse(p-&gt;lchild);</span><br><span class="line">        MidOrderTraverse(p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> HouOrderTraverse(Zl *p)<span class="comment">//后序遍历输出</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(p!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        MidOrderTraverse(p-&gt;lchild);</span><br><span class="line">        MidOrderTraverse(p-&gt;rchild);</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;[&#x27;</span>&lt;&lt;p-&gt;data&lt;&lt;<span class="string">&#x27;:&#x27;</span>&lt;&lt;p-&gt;count&lt;&lt;<span class="string">&#x27;]&#x27;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Clean(Zl *first)<span class="comment">//释放二叉查找树</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(first!=NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        free(first);</span><br><span class="line">        Clean(first-&gt;lchild);</span><br><span class="line">        Clean(first-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Zl *T;</span><br><span class="line">    T=NULL;</span><br><span class="line">    char s[<span class="number">100</span>];</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入待统计的内容&quot;</span>&lt;&lt;endl;</span><br><span class="line">    gets(s);<span class="comment">//用gets接收来接收空格</span></span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;strlen(s);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Insert(T,s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    DeleteBST(T,<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;1.前序遍历输出&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;2.中序遍历输出&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;3.后序遍历输出&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;0.退出&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请选择菜单项：&quot;</span>&lt;&lt;endl;</span><br><span class="line">    int a;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)</span><br><span class="line">            XainOrderTraverse(T);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">2</span>)</span><br><span class="line">            MidOrderTraverse(T);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">3</span>)</span><br><span class="line">            HouOrderTraverse(T);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Clean(T);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre><br>测试数据：<br><pre class="highlight"><span class="line">Every man loves what he is good at.</span><br></pre><br>运行结果:<br><img src="1.PNG" alt="xxx" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="1.PNG" class="lozad post-image"></p>
+<p>我的个人博客 amazingz6.github.io<br>我的bilibili <a target="_blank" rel="noopener" href="https://space.bilibili.com/66908429">https://space.bilibili.com/66908429</a><br>我的CSDN <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44105654">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a target="_blank" rel="noopener" href="https://www.jianshu.com/u/607ef08e5825">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a target="_blank" rel="noopener" href="https://github.com/AmazingZ6?tab=repositories">https://github.com/AmazingZ6?tab=repositories</a></p>
+
+  </div>
+  <div>
+  
+  <div class="post-note note-warning copyright" style="margin-top: 42px">
+    <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://yoursite.com/about">amazzl</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://yoursite.com/2019/12/12/%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9F%A5%E6%89%BE%EF%BC%8C%E6%8F%92%E5%85%A5%E5%8F%8A%E5%88%A0%E9%99%A4%EF%BC%89/">http://yoursite.com/2019/12/12/%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9F%A5%E6%89%BE%EF%BC%8C%E6%8F%92%E5%85%A5%E5%8F%8A%E5%88%A0%E9%99%A4%EF%BC%89/</a></p>
+    <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+  </div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  <div class="nav-item-prev">
+    <a href="/2020/03/23/LeetCode 课程表 II/" class="nav-link">
+      <i class="iconfont icon-left nav-prev-icon"></i>
+      <div>
+        <div class="nav-label">上一篇</div>
+        
+        <div class="nav-title">LeetCode 课程表 II </div>
+        
+      </div>
+    </a>
+  </div>
+  
+  
+  <div class="nav-item-next">
+    <a href="/2019/12/01/二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+
+</div></main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="/img/touxiang.jpg" class="author-img">
+
+<p class="author-name">amazzl</p>
+<p class="author-description">大三在读，考研狗</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>36</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>0</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>7</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+
+    </div>
+  </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="/tags/考研/" title="考研"><div class="tags-list-item">考研</div></a>
+    
+    <a href="/tags/LeetCode/" title="LeetCode"><div class="tags-list-item">LeetCode</div></a>
+    
+    <a href="/tags/随笔/" title="随笔"><div class="tags-list-item">随笔</div></a>
+    
+    <a href="/tags/数据结构/" title="数据结构"><div class="tags-list-item">数据结构</div></a>
+    
+    <a href="/tags/树莓派/" title="树莓派"><div class="tags-list-item">树莓派</div></a>
+    
+    <a href="/tags/算法/" title="算法"><div class="tags-list-item">算法</div></a>
+    
+    <a href="/tags/JAVA基础知识/" title="JAVA基础知识"><div class="tags-list-item">JAVA基础知识</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-03-10</div>
+        <a href="/2022/03/10/Z字形变换/"><div class="recent-posts-item-content">Z字形变换</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-01-04</div>
+        <a href="/2022/01/04/考研初始结束/"><div class="recent-posts-item-content">考研初始结束</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-10</div>
+        <a href="/2021/10/10/平衡二叉树节点的删除/"><div class="recent-posts-item-content">平衡二叉树节点的删除</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-03</div>
+        <a href="/2021/10/03/考研10/"><div class="recent-posts-item-content">考研10</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2022
+        </span>
+        &nbsp;
+        <a href="/" class="footer-link">你好，陌生人 </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton"  aria-label="回到顶部">
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton" aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget" aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a role="button" id="searchbutton" class="basebutton searchwidget" aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a>
+
+  
+  
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('aria-label', 'illustration');
+      wrapper.style.cssText = 'width: 100%; display: flex; justify-content: center;';
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt;
+      wrapper.dataset.nolink = true;
+      img[i].before(wrapper);
+      wrapper.append(img[i]);
+      var divWrap = document.createElement('div');
+      divWrap.classList.add('gallery');
+      wrapper.before(divWrap);
+      divWrap.append(wrapper);
+    }
+    baguetteBox.run('.gallery');
+  }
+</script>
+<script>loadScript("/js/lib/lightbox/baguetteBox.min.js", addImgLayout)</script>
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

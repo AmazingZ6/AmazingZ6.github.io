@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <meta name="description" content="Hexo">
+  <link rel="icon" href="/img/touxiang.jpg">
+  <title>你好，陌生人</title>
+  
+  
+  <meta property="og:title" content="你好，陌生人">
+  
+  
+  <meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  
+  
+  <meta property="og:img" content="/img/touxiang.jpg">
+  
+  
+  
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="/img/touxiang.jpg" alt="logo">
+      
+      <span class="navbar-logo-dsc">你好，陌生人</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">
+    
+    首页
+    
+    </a>
+    
+    <a href="/archives" class="navbar-menu-item">
+    
+    归档
+    
+    </a>
+    
+    <a href="/tags" class="navbar-menu-item">
+    
+    标签
+    
+    </a>
+    
+    <a href="/categories" class="navbar-menu-item">
+    
+    分类
+    
+    </a>
+    
+    <a href="/about" class="navbar-menu-item">
+    
+    关于
+    
+    </a>
+    
+    <a href="/links" class="navbar-menu-item">
+    
+    友链
+    
+    </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+    <a class="navbar-menu-item searchnavbar" id="search"><i class="iconfont icon-search" style="font-size: 1.2rem; font-weight: 400;"></i></a>
+  </div>
+</nav>
+    
+    <div id="local-search" style="display: none;">
+      <input class="navbar-menu-item" id="search-input" placeholder="请输入搜索内容...">
+      <div id="search-content"></div>
+    </div>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2020/05/05/LeetCode-字符串转换整数-atoi/">
+      <h1 class="post-title">
+        LeetCode 字符串转换整数 (atoi)
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      LeetCode 字符串转换整数 (atoi)题目描述请你来实现一...
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2020-05-05T05:45:55.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2020-05-05</span>
+        </time>
+        
+      </div>
+      <a href="/2020/05/05/LeetCode-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2020/05/04/填写运算符问题/">
+      <h1 class="post-title">
+        填写运算符问题
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      填写运算符问题问题描述：输入任意五个数x1,x2,x3,x4,x5每两个相邻数之间填上一个运算...
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2020-05-04T07:11:26.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2020-05-04</span>
+        </time>
+        
+      </div>
+      <a href="/2020/05/04/%E5%A1%AB%E5%86%99%E8%BF%90%E7%AE%97%E7%AC%A6%E9%97%AE%E9%A2%98/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2020/04/23/颜色分类/">
+      <h1 class="post-title">
+        颜色分类
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      75.颜色分类题目描述：
+给定一个包含红色、白色和蓝色、共 n 个元素的数组 nums ，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、...
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2020-04-23T11:50:26.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2020-04-23</span>
+        </time>
+        
+      </div>
+      <a href="/2020/04/23/%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2020/03/23/LeetCode 课程表 II/">
+      <h1 class="post-title">
+        LeetCode 课程表 II
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      名称：210. 课程表 II
+题目描述：现在你总共有 n 门课需要选，记为 0 到 n-1。
+在选修某些课程之前需要一些先修...
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2020-03-23T05:32:51.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2020-03-23</span>
+        </time>
+        
+      </div>
+      <a href="/2020/03/23/LeetCode%20%E8%AF%BE%E7%A8%8B%E8%A1%A8%20II/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/12/12/动态查找（查找，插入及删除）/">
+      <h1 class="post-title">
+        动态查找（查找，插入及删除）
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      看代码啦#include&amp;lt;cstdio&amp;gt;#include&amp;lt;...
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-12-12T10:59:31.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-12-12</span>
+        </time>
+        
+      </div>
+      <a href="/2019/12/12/%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9F%A5%E6%89%BE%EF%BC%8C%E6%8F%92%E5%85%A5%E5%8F%8A%E5%88%A0%E9%99%A4%EF%BC%89/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/12/01/二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构/">
+      <h1 class="post-title">
+        二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      直接上代码（有注释）：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstdlib&amp;gt;#include&amp;lt;queue&amp;gt;using namespace std;int x=1;//节点编号typedef struct Zl//二叉树的节点&amp;#123;    char data;//数据域    struct Zl *lchild,*rchild;//指向左子树和右子树的指针    int index;//每个节点的编号&amp;#125;Zl;typedef struct Static//静态链表的结点&amp;#123;	char data;	//数据域	int lchild;  //指向左子树的指针域	int rchild;  //指向右子树的指针域&amp;#125;Static;Zl* PreOrderInitBTree()//先序建立二叉树&amp;#123;	Zl *T;	char temp;	cin&amp;gt;&amp;gt;temp;//由键盘输入结点数据域的值	if(temp ==&amp;#x27;0&amp;#x27;)  //若某一节点为叶子结点，则其左右子树均为NULL，0表示建空树	    T=NULL; 	else	&amp;#123;		T=new Zl;		T-&amp;gt;data=temp;		T-&amp;gt;index=x++;		T-&amp;gt;lchild=PreOrderInitBTree();//递归创建其左子树		T-&amp;gt;rchild=PreOrderInitBTree();//递归创建其右子树	&amp;#125;	return T;                              //返回根节点&amp;#125;void PreOrderTraverse(Zl *first)//先序遍历及输出二叉树&amp;#123;    if(first!=NULL)    &amp;#123;        cout&amp;lt;&amp;lt;first-&amp;gt;data;//先输出结点值        PreOrderTraverse(first-&amp;gt;lchild);        PreOrderTraverse(first-&amp;gt;rchild);    &amp;#125;&amp;#125;void MidOrderTraverse(Zl *first)//中序遍历并输出二叉树&amp;#123;    if(first!=NULL)    &amp;#123;        MidOrderTraverse(first-&amp;gt;lchild);        cout&amp;lt;&amp;lt;first-&amp;gt;data;//先遍历完左子树再输出结点值        MidOrderTraverse(first-&amp;gt;rchild);    &amp;#125;&amp;#125;void cengciTraverse(Zl *p)//层次遍历二叉树&amp;#123;    queue&amp;lt;Zl&amp;gt; qe;//用队列来存放结点    qe.push(*p);    while(qe.empty()==false)//只要结点不为空就继续    &amp;#123;        Zl temp=qe.front();//将将要出队的结点值储存在temp中        qe.pop();        if(temp.lchild!=NULL)            qe.push(*temp.lchild);//左孩子入队        if(temp.rchild!=NULL)            qe.push(*temp.rchild);//右孩子入队，按照先左后右的顺序入队，确保出队顺序        cout&amp;lt;&amp;lt;temp.data;//输出结点值    &amp;#125;&amp;#125;void Scopy(Static *s,Zl *p)//将动态二叉链表转化为静态链表&amp;#123;    s[p-&amp;gt;index].data=p-&amp;gt;data;//数据同步过来    if(p-&amp;gt;lchild==NULL)//左孩子为空时        s[p-&amp;gt;index].lchild=0;    else    &amp;#123;        s[p-&amp;gt;index].lchild=p-&amp;gt;lchild-&amp;gt;index;//同步左孩子信息        Scopy(s,p-&amp;gt;lchild);//递归同步左子树    &amp;#125;    if(p-&amp;gt;rchild==NULL)//左孩子为空时        s[p-&amp;gt;index].rchild=0;    else    &amp;#123;        s[p-&amp;gt;index].rchild=p-&amp;gt;rchild-&amp;gt;index;//同步右孩子信息        Scopy(s,p-&amp;gt;rchild);//递归同步右子树    &amp;#125;&amp;#125;void Destory(Zl *p)//删除单个结点&amp;#123;    free(p);&amp;#125;void Clean(Zl *first)//整表删除&amp;#123;    if(first!=NULL)    &amp;#123;        Clean(first-&amp;gt;lchild);        Clean(first-&amp;gt;rchild);    &amp;#125;    free(first);&amp;#125;int main()&amp;#123;    Zl *first;    cout&amp;lt;&amp;lt;&amp;quot;请按先序顺序输入二叉树序列，0代表空&amp;quot;&amp;lt;&amp;lt;endl;    first=PreOrderInitBTree();    cout&amp;lt;&amp;lt;&amp;quot;先序输出：&amp;quot;&amp;lt;&amp;lt;endl;    PreOrderTraverse(first);//先序遍历输出    cout&amp;lt;&amp;lt;endl;    cout&amp;lt;&amp;lt;&amp;quot;中序输出&amp;quot;&amp;lt;&amp;lt;endl;    MidOrderTraverse(first);//中序遍历输出    cout&amp;lt;&amp;lt;endl;    cout&amp;lt;&amp;lt;&amp;quot;层次遍历输出&amp;quot;&amp;lt;&amp;lt;endl;    cengciTraverse(first);//层次遍历输出    cout&amp;lt;&amp;lt;endl;    Static s[20];    Scopy(s,first);    cout&amp;lt;&amp;lt;&amp;quot;静态链表输出：&amp;quot;&amp;lt;&amp;lt;endl;    for(int i=1;i&amp;lt;x;i++)//输出静态链表    &amp;#123;        cout&amp;lt;&amp;lt;&amp;quot;下标为:&amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot; 数据:&amp;quot;&amp;lt;&amp;lt;s[i].data&amp;lt;&amp;lt;&amp;quot; 左孩子下标:&amp;quot;&amp;lt;&amp;lt;s[i].lchild&amp;lt;&amp;lt;&amp;quot; 右孩子下标:&amp;quot;&amp;lt;&amp;lt;s[i].rchild&amp;lt;&amp;lt;endl;//依次输出结点值及左子树编号和右子树编号    &amp;#125;    Clean(first);    return 0;&amp;#125;
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-12-01T13:58:19.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-12-01</span>
+        </time>
+        
+      </div>
+      <a href="/2019/12/01/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%85%88%E5%BA%8F%E5%88%9B%E5%BB%BA%E5%8F%8A%E9%81%8D%E5%8E%86%EF%BC%88%E5%8C%85%E5%90%AB%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%89%E5%92%8C%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/11/17/一元二次多项式的相加/">
+      <h1 class="post-title">
+        一元二次多项式的相加
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      这次我们话不多说，直接上代码，看代码注释即可
+#include&amp;lt;iostream&amp;gt;
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-11-17T13:24:09.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-11-17</span>
+        </time>
+        
+      </div>
+      <a href="/2019/11/17/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%8A%A0/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/10/27/串的模式匹配算法/">
+      <h1 class="post-title">
+        串的模式匹配算法
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      1.模式匹配简单算法Index(S,T,pos);初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。12345678910111213int Index (String S, String T, int pos) &amp;#123; // T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0  if (pos &amp;gt; 0) &amp;#123;    n = StrLength(S);  m = StrLength(T);  i = pos;    while ( i &amp;lt;= n-m+1) &amp;#123;        SubString (sub, S, i, m);//表示在S串中取从第i位置开始的m长度字串并存在sub里        if (StrCompare(sub,T) != 0)   ++i ;//比较，不成功则往后移        else return i ;    &amp;#125; // while  &amp;#125; // if  return 0;          // S中不存在与T相等的子串&amp;#125; // Index如果我们不采用串的基本操作的话，还可以这样写1234567891011int Index(SString S, SString T, int pos) &amp;#123;// 返回子串T在主串S中第pos个字符之后的位置。若不存在，// 则函数值为0。其中，T非空，1≤pos≤StrLength(S)。　i = pos;   j = 1;    while (i &amp;lt;= S[0] &amp;amp;&amp;amp; j &amp;lt;= T[0]) &amp;#123;      if (S[i] == T[j]) &amp;#123; ++i;  ++j; &amp;#125;   // 继续比较后继字符      else &amp;#123; i = i-j+2;   j = 1; &amp;#125;     // 指针后退重新开始匹配    &amp;#125;   if (j &amp;gt; T[0])  return  i-T[0];   else return 0;&amp;#125; // Index将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可设上次一比较在S串中的起始位置为x则  x+j-1=i所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2匹配成功，同样返回首位置，否则返回零上述算法时间复杂度最坏都达到了O(m*n);
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-10-27T05:46:14.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-10-27</span>
+        </time>
+        
+      </div>
+      <a href="/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/09/18/JAVAString类常用方法/">
+      <h1 class="post-title">
+        JAVAString类常用方法
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      1.创建新StringString concat(String s);&amp;#...
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-09-18T00:53:20.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-09-18</span>
+        </time>
+        
+      </div>
+      <a href="/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+<div class="card">
+  
+  <article class="card card-content">
+    <a href="/2019/09/17/JAVA基础知识/">
+      <h1 class="post-title">
+        JAVA基础知识
+      </h1>
+    </a>
+    <div class="card-excerpt">
+      
+      本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=)
+1.JAVA数据输出格式的控制
+      
+    </div>
+    <div class="card-post-footer">
+      <div class="post-meta">
+        <time datetime="2019-09-17T02:56:16.000Z">
+          <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+          <span>2019-09-17</span>
+        </time>
+        
+      </div>
+      <a href="/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">继续阅读 </a>
+    </div>
+  </article>
+</div>
+
+
+<div class="nav">
+  
+  <div class="nav-item-prev">
+    <a href="/page/2/" class="nav-link">
+      <i class="iconfont icon-left nav-prev-icon"></i>
+      <div>
+        <div class="nav-label">上一页</div>
+        
+      </div>
+    </a>
+  </div>
+  
+  
+  <div class="nav-item-next">
+    <a href="/page/4/" class="nav-link">
+      <div>
+        <div class="nav-label">下一页</div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+</main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="/img/touxiang.jpg" class="author-img">
+
+<p class="author-name">amazzl</p>
+<p class="author-description">大三在读，考研狗</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>36</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>0</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>7</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="/tags/考研/" title="考研"><div class="tags-list-item">考研</div></a>
+    
+    <a href="/tags/LeetCode/" title="LeetCode"><div class="tags-list-item">LeetCode</div></a>
+    
+    <a href="/tags/随笔/" title="随笔"><div class="tags-list-item">随笔</div></a>
+    
+    <a href="/tags/数据结构/" title="数据结构"><div class="tags-list-item">数据结构</div></a>
+    
+    <a href="/tags/树莓派/" title="树莓派"><div class="tags-list-item">树莓派</div></a>
+    
+    <a href="/tags/算法/" title="算法"><div class="tags-list-item">算法</div></a>
+    
+    <a href="/tags/JAVA基础知识/" title="JAVA基础知识"><div class="tags-list-item">JAVA基础知识</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+  <article class="card card-content widescreen-archive archive-widget">
+    <div class="archive-card">
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-list">
+    
+    
+    
+      
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/archives/2022" class="archive-card-list-item">
+              2022
+              <span class="archive-card-list-item-badge">2</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/archives/2021" class="archive-card-list-item">
+              2021
+              <span class="archive-card-list-item-badge">15</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/archives/2020" class="archive-card-list-item">
+              2020
+              <span class="archive-card-list-item-badge">7</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+    
+      <a href="/archives/2019" class="archive-card-list-item">
+          2019
+          <span class="archive-card-list-item-badge">12</span>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-03-10</div>
+        <a href="/2022/03/10/Z字形变换/"><div class="recent-posts-item-content">Z字形变换</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-01-04</div>
+        <a href="/2022/01/04/考研初始结束/"><div class="recent-posts-item-content">考研初始结束</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-10</div>
+        <a href="/2021/10/10/平衡二叉树节点的删除/"><div class="recent-posts-item-content">平衡二叉树节点的删除</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-03</div>
+        <a href="/2021/10/03/考研10/"><div class="recent-posts-item-content">考研10</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="archive-card">
+  <div class="archive-card-header"><i class="iconfont icon-wodebaobiao" style="padding-right: 2px;"></i>归档</div>
+  <div class="archive-card-list">
+    
+    
+    
+      
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/archives/2022" class="archive-card-list-item">
+              2022
+              <span class="archive-card-list-item-badge">2</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/archives/2021" class="archive-card-list-item">
+              2021
+              <span class="archive-card-list-item-badge">15</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/archives/2020" class="archive-card-list-item">
+              2020
+              <span class="archive-card-list-item-badge">7</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+    
+      <a href="/archives/2019" class="archive-card-list-item">
+          2019
+          <span class="archive-card-list-item-badge">12</span>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2022
+        </span>
+        &nbsp;
+        <a href="/" class="footer-link">你好，陌生人 </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton"  aria-label="回到顶部">
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton" aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget" aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a role="button" id="searchbutton" class="basebutton searchwidget" aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a>
+
+  
+  
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <meta name="description" content="Hexo">
+  <link rel="icon" href="/img/touxiang.jpg">
+  <title>串的模式匹配算法</title>
+  
+  
+  <meta property="og:title" content="串的模式匹配算法">
+  
+  
+  <meta property="og:url" content="http://yoursite.com/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/index.html">
+  
+  
+  <meta property="og:img" content="/img/touxiang.jpg">
+  
+  
+  <meta property="og:img" content="&lt;h1 id=&#34;1-模式匹配简单算法&#34;&gt;&lt;a href=&#34;#1-模式匹配简单算法&#34; class=&#34;headerlink&#34; title=&#34;1.模式匹配简单算法&#34;&gt;&lt;/a&gt;1.模式匹配简单算法&lt;/h1&gt;&lt;p&gt;Index(S,T,pos);&lt;br&gt;初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。&lt;br&gt;操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。&lt;br&gt;&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;int Index (&lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt; S, &lt;span class=&#34;built_in&#34;&gt;String&lt;/span&gt; T, int pos) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;comment&#34;&gt;// T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (pos &amp;gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    n = StrLength(S);  m = StrLength(T);  i = pos;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; ( i &amp;lt;= n-m+&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        SubString (sub, S, i, m);&lt;span class=&#34;comment&#34;&gt;//表示在S串中取从第i位置开始的m长度字串并存在sub里&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (StrCompare(sub,T) != &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)   ++i ;&lt;span class=&#34;comment&#34;&gt;//比较，不成功则往后移&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; i ;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125; &lt;span class=&#34;comment&#34;&gt;// while&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125; &lt;span class=&#34;comment&#34;&gt;// if&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;          &lt;span class=&#34;comment&#34;&gt;// S中不存在与T相等的子串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125; &lt;span class=&#34;comment&#34;&gt;// Index&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;如果我们不采用串的基本操作的话，还可以这样写&lt;br&gt;&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;int &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;Index&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;SString S, SString T, int pos&lt;/span&gt;)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 返回子串T在主串S中第pos个字符之后的位置。若不存在，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 则函数值为0。其中，T非空，1≤pos≤StrLength(S)。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;　i = pos;   j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (i &amp;lt;= S[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] &amp;amp;&amp;amp; j &amp;lt;= T[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (S[i] == T[j]) &amp;#123; ++i;  ++j; &amp;#125;   &lt;span class=&#34;comment&#34;&gt;// 继续比较后继字符&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123; i = i-j+&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;;   j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; &amp;#125;     &lt;span class=&#34;comment&#34;&gt;// 指针后退重新开始匹配&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (j &amp;gt; T[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;])  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;  i-T[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125; &lt;span class=&#34;comment&#34;&gt;// Index&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可&lt;br&gt;设上次一比较在S串中的起始位置为x则  x+j-1=i&lt;br&gt;所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2&lt;br&gt;匹配成功，同样返回首位置，否则返回零&lt;br&gt;上述算法时间复杂度最坏都达到了O(m*n);&lt;br&gt;">
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:published_time" content="2019-10-27">
+  <meta property="og:article:modified_time" content="2020-05-04">
+  <meta property="og:article:author" content="amazzl">
+  
+  
+  
+  
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+  <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+<link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="/img/touxiang.jpg" alt="logo">
+      
+      <span class="navbar-logo-dsc">你好，陌生人</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">
+    
+    首页
+    
+    </a>
+    
+    <a href="/archives" class="navbar-menu-item">
+    
+    归档
+    
+    </a>
+    
+    <a href="/tags" class="navbar-menu-item">
+    
+    标签
+    
+    </a>
+    
+    <a href="/categories" class="navbar-menu-item">
+    
+    分类
+    
+    </a>
+    
+    <a href="/about" class="navbar-menu-item">
+    
+    关于
+    
+    </a>
+    
+    <a href="/links" class="navbar-menu-item">
+    
+    友链
+    
+    </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+    <a class="navbar-menu-item searchnavbar" id="search"><i class="iconfont icon-search" style="font-size: 1.2rem; font-weight: 400;"></i></a>
+  </div>
+</nav>
+    
+    <div id="local-search" style="display: none;">
+      <input class="navbar-menu-item" id="search-input" placeholder="请输入搜索内容...">
+      <div id="search-content"></div>
+    </div>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      串的模式匹配算法
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2019-10-27T05:46:14.000Z">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2019-10-27</span>
+    </time>
+    
+    
+    <span class="dot"></span>
+    <span>1.1k 字</span>
+    
+  </div>
+  
+  </header>
+  <div id="section" class="post-content">
+    <h1><span id="1模式匹配简单算法">1.模式匹配简单算法</span></h1><p>Index(S,T,pos);<br>初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。<br>操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。<br><pre class="highlight"><span class="line">int Index (<span class="built_in">String</span> S, <span class="built_in">String</span> T, int pos) &#123;</span><br><span class="line"> <span class="comment">// T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0</span></span><br><span class="line">  <span class="keyword">if</span> (pos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    n = StrLength(S);  m = StrLength(T);  i = pos;</span><br><span class="line">    <span class="keyword">while</span> ( i &lt;= n-m+<span class="number">1</span>) &#123;</span><br><span class="line">        SubString (sub, S, i, m);<span class="comment">//表示在S串中取从第i位置开始的m长度字串并存在sub里</span></span><br><span class="line">        <span class="keyword">if</span> (StrCompare(sub,T) != <span class="number">0</span>)   ++i ;<span class="comment">//比较，不成功则往后移</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> i ;</span><br><span class="line">    &#125; <span class="comment">// while</span></span><br><span class="line">  &#125; <span class="comment">// if</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;          <span class="comment">// S中不存在与T相等的子串</span></span><br><span class="line">&#125; <span class="comment">// Index</span></span><br><span class="line"></span><br></pre><br>如果我们不采用串的基本操作的话，还可以这样写<br><pre class="highlight"><span class="line">int <span class="function"><span class="title">Index</span>(<span class="params">SString S, SString T, int pos</span>)</span> &#123;</span><br><span class="line"><span class="comment">// 返回子串T在主串S中第pos个字符之后的位置。若不存在，</span></span><br><span class="line"><span class="comment">// 则函数值为0。其中，T非空，1≤pos≤StrLength(S)。</span></span><br><span class="line">　i = pos;   j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (S[i] == T[j]) &#123; ++i;  ++j; &#125;   <span class="comment">// 继续比较后继字符</span></span><br><span class="line">      <span class="keyword">else</span> &#123; i = i-j+<span class="number">2</span>;   j = <span class="number">1</span>; &#125;     <span class="comment">// 指针后退重新开始匹配</span></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre><br>将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可<br>设上次一比较在S串中的起始位置为x则  x+j-1=i<br>所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2<br>匹配成功，同样返回首位置，否则返回零<br>上述算法时间复杂度最坏都达到了O(m*n);<br><span id="more"></span></p>
+<h1><span id="2模式匹配的改进算法kmp算法">2.模式匹配的改进算法(KMP算法)</span></h1><p>KMP算法的改进在于：<br>每当一趟匹配过程中出现字符比较不相等时，不需回溯i指针，而是利用已经得到的“部分匹配”的结果将模式向右“滑动”尽可能远的一段距离后，继续进行比较，i不动，j向前移<br>举个例子<br>比较s=‘acabaabaabcacaabc’  t=‘abaabc’<br><img src="1.png" alt="xxx" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="1.png" class="lozad post-image"><br>第一次比较时比较到第二个发现不同，于是将j指针移回a　　　<br><img src="2.png" alt="xxx" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="2.png" class="lozad post-image"></p>
+<p>接着进行比较，比较到t中的c时发现不一样，但此前已经比较过两次ac,无需再比一次，所以将j指针移到t中的第三个a即可</p>
+<p><img src="3.png" alt="xxx" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="3.png" class="lozad post-image"></p>
+<p><img src="4.png" alt="xxx" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="4.png" class="lozad post-image"><br>这样就比完了，比上一种方法要少比很多次，效率提高了不少<br>在用这种方法时，我们需要知道每次比较不一样时j指针需要回到t串中的那个位置，所以我们用next数组来存放回溯的位置，就串t=‘abaabc’来说，next[j]={0,1,1,2,2,3};j从1开始<br>即<br><img src="5.png" alt="xxx" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="5.png" class="lozad post-image"></p>
+<p>算法实现如下<br>由于我们模式串的数据是从第一个开始存放，为了不浪费空间，这里把模式串的长度放在t[0]里面<br><pre class="highlight"><span class="line">int <span class="function"><span class="title">Index_KMP</span>(<span class="params">SString S, SString T, int pos</span>)</span> &#123;</span><br><span class="line">     <span class="comment">//  1≤pos≤StrLength(S)</span></span><br><span class="line">     i = pos;   j = <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">if</span> (j == <span class="number">0</span> || S[i] == T[j]) &#123; ++i;  ++j; &#125;</span><br><span class="line">                                               <span class="comment">// 继续比较后继字符</span></span><br><span class="line">        <span class="keyword">else</span>  j = next[j];         <span class="comment">// 模式串向右移动</span></span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];    <span class="comment">// 匹配成功</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index_KMP</span></span><br></pre><br>next函数</p>
+<pre class="highlight"><span class="line"><span class="keyword">void</span> <span class="function"><span class="title">get_next</span>(<span class="params">SString &amp;T, int &amp;next[] </span>)</span> &#123;</span><br><span class="line">     <span class="comment">// 求模式串T的next函数值并存入数组next</span></span><br><span class="line">     i = <span class="number">1</span>;   next[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">           <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j])</span><br><span class="line">                 &#123;++i;  ++j; next[i] = j; &#125;</span><br><span class="line">           <span class="keyword">else</span>  j = next[j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="comment">// get_next</span></span><br></pre>
+<p>此外，如果不匹配时发现前面已经比较过的，和将要比较的那个是完全一样的话，就没有比下去的必要了，例如模式串为 aaaab时，如果j=3发现不同，按上一种方法，则应移到j=2经行比较，但j=2时也是a，再比较就相当于多比了一次，这样就有了改进的空间。<br>代码如下：</p>
+<pre class="highlight"><span class="line"><span class="keyword">void</span> <span class="function"><span class="title">get_nextval</span>(<span class="params">SString &amp;T, int &amp;nextval[]</span>)</span> &#123;</span><br><span class="line">      i = <span class="number">1</span>;   nextval[<span class="number">1</span>] = <span class="number">0</span>;   j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; T[<span class="number">0</span>]) &#123;</span><br><span class="line">          <span class="keyword">if</span> (j == <span class="number">0</span> || T[i] == T[j]) &#123;</span><br><span class="line">              ++i;  ++j;</span><br><span class="line">              <span class="keyword">if</span> (T[i] != T[j])  next[i] = j;</span><br><span class="line">              <span class="keyword">else</span>  nextval[i] = nextval[j];</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span>  j = nextval[j];</span><br><span class="line">     &#125;</span><br><span class="line">  &#125; <span class="comment">// get_nextval</span></span><br></pre>
+<p>我的个人博客 amazingz6.github.io<br>我的bilibili <a target="_blank" rel="noopener" href="https://space.bilibili.com/66908429">https://space.bilibili.com/66908429</a><br>我的CSDN <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44105654">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a target="_blank" rel="noopener" href="https://www.jianshu.com/u/607ef08e5825">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a target="_blank" rel="noopener" href="https://github.com/AmazingZ6?tab=repositories">https://github.com/AmazingZ6?tab=repositories</a></p>
+
+  </div>
+  <div>
+  
+  <div class="post-note note-warning copyright" style="margin-top: 42px">
+    <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://yoursite.com/about">amazzl</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://yoursite.com/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">http://yoursite.com/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</a></p>
+    <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+  </div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  <div class="nav-item-prev">
+    <a href="/2019/11/17/一元二次多项式的相加/" class="nav-link">
+      <i class="iconfont icon-left nav-prev-icon"></i>
+      <div>
+        <div class="nav-label">上一篇</div>
+        
+        <div class="nav-title">一元二次多项式的相加 </div>
+        
+      </div>
+    </a>
+  </div>
+  
+  
+  <div class="nav-item-next">
+    <a href="/2019/09/18/JAVAString类常用方法/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">JAVAString类常用方法 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1.模式匹配简单算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2.模式匹配的改进算法(KMP算法)</span></a></li></ol>
+</div></main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="/img/touxiang.jpg" class="author-img">
+
+<p class="author-name">amazzl</p>
+<p class="author-description">大三在读，考研狗</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>36</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>0</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>7</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1.模式匹配简单算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2.模式匹配的改进算法(KMP算法)</span></a></li></ol>
+    </div>
+  </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="/tags/考研/" title="考研"><div class="tags-list-item">考研</div></a>
+    
+    <a href="/tags/LeetCode/" title="LeetCode"><div class="tags-list-item">LeetCode</div></a>
+    
+    <a href="/tags/随笔/" title="随笔"><div class="tags-list-item">随笔</div></a>
+    
+    <a href="/tags/数据结构/" title="数据结构"><div class="tags-list-item">数据结构</div></a>
+    
+    <a href="/tags/树莓派/" title="树莓派"><div class="tags-list-item">树莓派</div></a>
+    
+    <a href="/tags/算法/" title="算法"><div class="tags-list-item">算法</div></a>
+    
+    <a href="/tags/JAVA基础知识/" title="JAVA基础知识"><div class="tags-list-item">JAVA基础知识</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1.模式匹配简单算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2.模式匹配的改进算法(KMP算法)</span></a></li></ol>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-03-10</div>
+        <a href="/2022/03/10/Z字形变换/"><div class="recent-posts-item-content">Z字形变换</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-01-04</div>
+        <a href="/2022/01/04/考研初始结束/"><div class="recent-posts-item-content">考研初始结束</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-10</div>
+        <a href="/2021/10/10/平衡二叉树节点的删除/"><div class="recent-posts-item-content">平衡二叉树节点的删除</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-03</div>
+        <a href="/2021/10/03/考研10/"><div class="recent-posts-item-content">考研10</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2022
+        </span>
+        &nbsp;
+        <a href="/" class="footer-link">你好，陌生人 </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton"  aria-label="回到顶部">
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton" aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget" aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a role="button" id="searchbutton" class="basebutton searchwidget" aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a>
+
+  
+  
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('aria-label', 'illustration');
+      wrapper.style.cssText = 'width: 100%; display: flex; justify-content: center;';
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt;
+      wrapper.dataset.nolink = true;
+      img[i].before(wrapper);
+      wrapper.append(img[i]);
+      var divWrap = document.createElement('div');
+      divWrap.classList.add('gallery');
+      wrapper.before(divWrap);
+      divWrap.append(wrapper);
+    }
+    baguetteBox.run('.gallery');
+  }
+</script>
+<script>loadScript("/js/lib/lightbox/baguetteBox.min.js", addImgLayout)</script>
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
