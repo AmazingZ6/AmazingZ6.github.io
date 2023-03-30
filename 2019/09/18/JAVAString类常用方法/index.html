@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JAVAString类常用方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.创建新String12345String concat(String s);&#x2F;&#x2F;返回一个新串，在原串后附加上s。String replace(String old, String new);&#x2F;&#x2F;返回一个新串，将原串中出现的old替换成new。String substring(int start, int end);&#x2F;&#x2F;返回一个新串，它是原串中从start到end的一部分。String toLo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVAString类常用方法">
+<meta property="og:url" content="http://amazzl.top/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.创建新String12345String concat(String s);&#x2F;&#x2F;返回一个新串，在原串后附加上s。String replace(String old, String new);&#x2F;&#x2F;返回一个新串，将原串中出现的old替换成new。String substring(int start, int end);&#x2F;&#x2F;返回一个新串，它是原串中从start到end的一部分。String toLo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-18T00:53:20.000Z">
+<meta property="article:modified_time" content="2019-09-18T00:54:00.000Z">
+<meta property="article:author" content="AmazingZ6">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://amazzl.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JAVAString类常用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2019-09-18T00:53:20.000Z" itemprop="datePublished">2019-09-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVAString类常用方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-创建新String"><a href="#1-创建新String" class="headerlink" title="1.创建新String"></a>1.创建新String</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String concat(String s);//返回一个新串，在原串后附加上s。</span><br><span class="line">String replace(String old, String new);//返回一个新串，将原串中出现的old替换成new。</span><br><span class="line">String substring(int start, int end);//返回一个新串，它是原串中从start到end的一部分。</span><br><span class="line">String toLowerCase();//返回一个新串，它将原串中的大写字母变成小写。</span><br><span class="line">String toUpperCase();//返回一个新串，它将原串中的小写字母变成大写。</span><br></pre></td></tr></table></figure>
+<h1 id="2-查找方法"><a href="#2-查找方法" class="headerlink" title="2.查找方法"></a>2.查找方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean endsWith(String s);//如原串以s串为结尾，则返回true。</span><br><span class="line">boolean startsWith(String s);//如原串以s串为开始，则返回true。</span><br><span class="line">int indexOf(String s);//返回串中第一次出现s串的序号值。</span><br><span class="line">int indexOf(String s, int offset);//返回串中从offset开始查找，第一次出现s串的序号值。</span><br></pre></td></tr></table></figure>
+<h1 id="3-比较方法"><a href="#3-比较方法" class="headerlink" title="3.比较方法"></a>3.比较方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean equals(String s);//如果原串与s串相等，则返回true。</span><br><span class="line">boolean equalsIgnoreCase(String s);//如果在忽略大小写的情况下，原串与s串相等，则返回true。</span><br><span class="line">int  compareTo(String s);//进行字典序比较，如果原串小于s串则返回负数；如果原串大于s串则返回正数；如果原串等于s串则返回零。</span><br></pre></td></tr></table></figure>
+<h1 id="4-其它方法"><a href="#4-其它方法" class="headerlink" title="4.其它方法"></a>4.其它方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str.split(&quot;,&quot;);//根据字符来拆分字符串，当我们需要以‘|’、‘：’、‘+’、‘.’、‘^’等特殊字符作为拆分条件的话，则需要加上 \\ 转义字符</span><br><span class="line">charAt(int index)//返回index处的字符。</span><br><span class="line">int length()//返回串的长度。</span><br><span class="line">str.trim();//裁除首、尾空格符</span><br><span class="line">str.contains(&quot;&quot;);//是否包含 &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="clfuhdayr0002pouu1i4rbm63" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          串的模式匹配算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JAVA基础知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 13.33px;">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.33px;">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 20px;">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 13.33px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/">差分隐私定义</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">PyTorch学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/">差分隐私之组合定理</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">Z字形变换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 AmazingZ6<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

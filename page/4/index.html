@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://amazzl.top/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="AmazingZ6">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://amazzl.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-一元二次多项式的相加" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/17/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%8A%A0/" class="article-date">
+  <time datetime="2019-11-17T13:24:09.000Z" itemprop="datePublished">2019-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/17/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%8A%A0/">一元二次多项式的相加</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这次我们话不多说，直接上代码，看代码注释即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef struct <span class="title class_">Zlnb</span>&#123;</span><br><span class="line">    double x; <span class="comment">//系数</span></span><br><span class="line">    int y;  <span class="comment">//指数</span></span><br><span class="line">    struct <span class="title class_">Zlnb</span> *next; <span class="comment">//指针域</span></span><br><span class="line">&#125;<span class="title class_">Zl</span>;<span class="comment">//节点名称</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">PrintPoly</span>(<span class="title class_">Zl</span> *s)<span class="comment">//打印单个项</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(s-&gt;y==<span class="number">0</span>)<span class="comment">//指数等于零时，直接输出系数</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;s-&gt;x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s-&gt;x==<span class="number">1</span>)<span class="comment">//系数为1时，1省略</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;y==<span class="number">1</span>)<span class="comment">//指数为1时省略不写</span></span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;x&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;x^&quot;</span>&lt;&lt;s-&gt;y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s-&gt;x==-<span class="number">1</span>)<span class="comment">//系数为1时，-1省略</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;y==<span class="number">1</span>)<span class="comment">//指数为1时省略不写</span></span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;-x&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;-x^&quot;</span>&lt;&lt;s-&gt;y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;y==<span class="number">1</span>)<span class="comment">//指数为1时省略不写</span></span><br><span class="line">            cout&lt;&lt;s-&gt;x&lt;&lt;<span class="string">&quot;x&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout&lt;&lt;s-&gt;x&lt;&lt;<span class="string">&quot;x^&quot;</span>&lt;&lt;s-&gt;y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">PrintPolyn</span>(<span class="title class_">Zl</span> *first)<span class="comment">//利用PrintPoly打印整个多项式</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Zl</span> *temp=first-&gt;next;<span class="comment">//表头没有数据，表头的下一个才是多项式的第一个项</span></span><br><span class="line">    <span class="keyword">while</span>(temp-&gt;next!=<span class="variable constant_">NULL</span>)<span class="comment">//遍历，从第一个打印到倒数第二个</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">PrintPoly</span>(temp);</span><br><span class="line">        temp=temp-&gt;next;</span><br><span class="line">        <span class="keyword">if</span>(temp-&gt;x&gt;<span class="number">0</span>)</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;+&quot;</span>;<span class="comment">//只有一个项时此循环不执行，所以直接打印加号即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title class_">PrintPoly</span>(temp);<span class="comment">//打印最后一个</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">ListInsert</span>(<span class="title class_">Zl</span> *first,<span class="title class_">Zl</span> *s)<span class="comment">//插入，将s节点插入到最后</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Zl</span> *temp=first;</span><br><span class="line">    <span class="keyword">while</span>(temp-&gt;next!=<span class="variable constant_">NULL</span>)<span class="comment">//循环找到最后一个节点</span></span><br><span class="line">        temp=temp-&gt;next;</span><br><span class="line">    temp-&gt;next=s;<span class="comment">//插入s</span></span><br><span class="line">    s-&gt;next=<span class="variable constant_">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Zl</span>* <span class="title class_">InputData</span>(int k)<span class="comment">//输入函数，采用先输入系数后输入次数的方法，k代表是第几个多项式</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Zl</span> *first=<span class="keyword">new</span> <span class="title class_">Zl</span>;<span class="comment">//创建多项式链表的头指针</span></span><br><span class="line">    first-&gt;next=<span class="variable constant_">NULL</span>;<span class="comment">//头指针初始化</span></span><br><span class="line">    int a;</span><br><span class="line">    int com[<span class="number">100</span>];</span><br><span class="line">    <span class="title function_">printf</span>(<span class="string">&quot;请输入第%d个多项式的项数：&quot;</span>,k);</span><br><span class="line">    cin&gt;&gt;a;<span class="comment">//接受多项式的项数</span></span><br><span class="line">    <span class="keyword">if</span>(a&lt;=<span class="number">0</span>)<span class="comment">//确保项数大于0</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;系数输入错误，请关闭程序重新输入&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">1</span>;i&lt;=a;i++)<span class="comment">//循环接收多项式的每个项</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">Zl</span> *p=<span class="keyword">new</span> <span class="title class_">Zl</span>;<span class="comment">//用p存下即将读取的数据</span></span><br><span class="line">        p-&gt;next=<span class="variable constant_">NULL</span>;</span><br><span class="line">        double m;</span><br><span class="line">        int n;</span><br><span class="line">        <span class="title function_">printf</span>(<span class="string">&quot;请输入第%d项的系数：&quot;</span>,i);</span><br><span class="line">        cin&gt;&gt;m;</span><br><span class="line">        <span class="keyword">if</span>(!m)<span class="comment">//系数不能等于0</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;系数输入错误，请关闭程序重新输入&quot;</span>&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_">printf</span>(<span class="string">&quot;请输入第%d项的次数：&quot;</span>,i);</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        com[i]=n;</span><br><span class="line">        <span class="keyword">for</span>(int j=<span class="number">1</span>;j&lt;i;j++)<span class="comment">//循环遍历是否有重复项出现</span></span><br><span class="line">            <span class="keyword">if</span>(n==com[j])</span><br><span class="line">            &#123;</span><br><span class="line">                cout&lt;&lt;<span class="string">&quot;次数输入重复，请关闭程序重新输入&quot;</span>&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        p-&gt;x=m;<span class="comment">//赋值</span></span><br><span class="line">        p-&gt;y=n;</span><br><span class="line">        <span class="title class_">ListInsert</span>(first,p);<span class="comment">//将p插入多项式中</span></span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">printf</span>(<span class="string">&quot;该多项式可表示为：&quot;</span>);</span><br><span class="line">    <span class="title class_">PrintPolyn</span>(first);<span class="comment">//打印多项式</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> first;<span class="comment">//返回多项式的首地址</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Zl</span>* <span class="title class_">AddPolyn</span>(<span class="title class_">Zl</span> *a,<span class="title class_">Zl</span>*b)<span class="comment">//两个多项式相加的函数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Zl</span> *first=<span class="keyword">new</span> <span class="title class_">Zl</span>;<span class="comment">//创建一个新的链表来存两多项式相加得到的结果</span></span><br><span class="line">    first-&gt;next=<span class="variable constant_">NULL</span>;</span><br><span class="line">    <span class="title class_">Zl</span> *m=a-&gt;next;<span class="comment">//注意，这里表头没有存放数据，表头的下一个才存放的是多项式第一个项</span></span><br><span class="line">    <span class="title class_">Zl</span> *n=b-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(m!=<span class="variable constant_">NULL</span>&amp;&amp;n!=<span class="variable constant_">NULL</span>)<span class="comment">//有一个表空了就跳出循环</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">Zl</span> *temp=<span class="keyword">new</span> <span class="title class_">Zl</span>;<span class="comment">//和上面的p一样，暂存得到的数据</span></span><br><span class="line">        temp-&gt;next=<span class="variable constant_">NULL</span>;</span><br><span class="line">        int num=m-&gt;y-n-&gt;y;<span class="comment">//判断指数的大小</span></span><br><span class="line">        <span class="keyword">if</span>(num&lt;<span class="number">0</span>)<span class="comment">//m的指数小于n</span></span><br><span class="line">        &#123;</span><br><span class="line">            temp-&gt;x=m-&gt;x;</span><br><span class="line">            temp-&gt;y=m-&gt;y;</span><br><span class="line">            <span class="title class_">ListInsert</span>(first,temp);<span class="comment">//因为m指数小于n，将m的当前项复制过来插入结果链表</span></span><br><span class="line">            m=m-&gt;next;<span class="comment">//指针后移</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(num&gt;<span class="number">0</span>)<span class="comment">//m的指数大于n</span></span><br><span class="line">        &#123;</span><br><span class="line">            temp-&gt;x=n-&gt;x;</span><br><span class="line">            temp-&gt;y=n-&gt;y;</span><br><span class="line">            <span class="title class_">ListInsert</span>(first,temp);<span class="comment">//因为m指数大于n，将n的当前项复制过来插入结果链表</span></span><br><span class="line">            n=n-&gt;next;<span class="comment">//指针后移</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">//m的指数等于n</span></span><br><span class="line">        &#123;<span class="comment">//</span></span><br><span class="line">            double ans=m-&gt;x+n-&gt;x;</span><br><span class="line">            <span class="keyword">if</span>(ans!=<span class="number">0</span>)&#123;<span class="comment">//系数和不等于0时系数相加作为新的系数插入结果链表中</span></span><br><span class="line">                temp-&gt;x=ans;</span><br><span class="line">                temp-&gt;y=m-&gt;y;</span><br><span class="line">                <span class="title class_">ListInsert</span>(first,temp);</span><br><span class="line">            &#125;<span class="comment">//系数和不等于零时直接指针后移即可，由于两种情况都会后移，所以可以合并</span></span><br><span class="line">            m=m-&gt;next;</span><br><span class="line">            n=n-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title class_">Zl</span> *templist=<span class="keyword">new</span> <span class="title class_">Zl</span>;<span class="comment">//创建一个临时链表来将存放可能的剩下的项</span></span><br><span class="line">    templist-&gt;next=<span class="variable constant_">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(m!=<span class="variable constant_">NULL</span>)<span class="comment">//当m链表还有剩余项时</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">Zl</span> *p=m;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="variable constant_">NULL</span>)<span class="comment">//循环遍历剩下的项</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="title class_">Zl</span> *temp=<span class="keyword">new</span> <span class="title class_">Zl</span>;</span><br><span class="line">            temp-&gt;x=p-&gt;x;</span><br><span class="line">            temp-&gt;y=p-&gt;y;</span><br><span class="line">            temp-&gt;next=<span class="variable constant_">NULL</span>;<span class="comment">//用temp暂存当前项</span></span><br><span class="line">            <span class="title class_">ListInsert</span>(templist,temp);<span class="comment">//插入temp</span></span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title class_">Zl</span> *temp=first;</span><br><span class="line">        <span class="keyword">while</span>(temp-&gt;next!=<span class="variable constant_">NULL</span>)<span class="comment">//循环找到结果链表的最后一项</span></span><br><span class="line">            temp=temp-&gt;next;</span><br><span class="line">        temp-&gt;next=templist-&gt;next;<span class="comment">//直接将临时链表接在结果链表后面即可</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="variable constant_">NULL</span>)<span class="comment">//当n链表还有剩余项时，步骤与上面的情况一样</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">Zl</span> *p=n;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="variable constant_">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="title class_">Zl</span> *temp=<span class="keyword">new</span> <span class="title class_">Zl</span>;</span><br><span class="line">            temp-&gt;x=p-&gt;x;</span><br><span class="line">            temp-&gt;y=p-&gt;y;</span><br><span class="line">            temp-&gt;next=<span class="variable constant_">NULL</span>;</span><br><span class="line">            <span class="title class_">ListInsert</span>(templist,temp);</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title class_">Zl</span> *temp=first;</span><br><span class="line">        <span class="keyword">while</span>(temp-&gt;next!=<span class="variable constant_">NULL</span>)</span><br><span class="line">            temp=temp-&gt;next;</span><br><span class="line">        temp-&gt;next=templist-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> first;<span class="comment">//返回结果链表的头指针</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">FreePolyn</span>(<span class="title class_">Zl</span> *s)<span class="comment">//释空间</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Zl</span> *p=s;</span><br><span class="line">    <span class="keyword">while</span>(s!=<span class="variable constant_">NULL</span>)<span class="comment">//遍历链表一个一个释放空间</span></span><br><span class="line">    &#123;</span><br><span class="line">        s=s-&gt;next;</span><br><span class="line">        <span class="title function_">free</span>(p);</span><br><span class="line">        p=s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int <span class="title function_">main</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;/*注意:系数为浮点类型，指数为整数（可为负）类型&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请按指数从小到大的顺序输入多项式。*/&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="title class_">Zl</span> *a;<span class="comment">//用来存放多项式1</span></span><br><span class="line">    <span class="title class_">Zl</span> *b;<span class="comment">//用来存放多项式2</span></span><br><span class="line">    <span class="title class_">Zl</span> *c;<span class="comment">//用来存放结果多项式</span></span><br><span class="line">    a=<span class="title class_">InputData</span>(<span class="number">1</span>);<span class="comment">//输入多项式1</span></span><br><span class="line">    b=<span class="title class_">InputData</span>(<span class="number">2</span>);<span class="comment">//输入多项式2</span></span><br><span class="line">    c=<span class="title class_">AddPolyn</span>(a,b);<span class="comment">//相加</span></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;多项式之和为：&quot;</span>;</span><br><span class="line">    <span class="title class_">PrintPolyn</span>(c);<span class="comment">//打印结果</span></span><br><span class="line">    <span class="title class_">FreePolyn</span>(a);<span class="comment">//依次释放链表空间</span></span><br><span class="line">    <span class="title class_">FreePolyn</span>(b);</span><br><span class="line">    <span class="title class_">FreePolyn</span>(c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行测试和结果：<br><img src="1.PNG" alt="xxx"></p>
+<p>我的个人博客 amazingz6.github.io<br>我的bilibili <a target="_blank" rel="noopener" href="https://space.bilibili.com/66908429">https://space.bilibili.com/66908429</a><br>我的CSDN <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44105654">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a target="_blank" rel="noopener" href="https://www.jianshu.com/u/607ef08e5825">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a target="_blank" rel="noopener" href="https://github.com/AmazingZ6?tab=repositories">https://github.com/AmazingZ6?tab=repositories</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/11/17/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%8A%A0/" data-id="clfuhdaz9000lpouu7e5m4jmt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-串的模式匹配算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2019-10-27T05:46:14.000Z" itemprop="datePublished">2019-10-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">串的模式匹配算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-模式匹配简单算法"><a href="#1-模式匹配简单算法" class="headerlink" title="1.模式匹配简单算法"></a>1.模式匹配简单算法</h1><p>Index(S,T,pos);<br>初始条件：串S和T存在，T是非空串，1≤pos≤StrLength(S)。<br>操作结果：若主串S中存在和串T值相同的子串返回它在主串S中第pos个字符之后第一次出现的位置；否则函数值为0。                    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int <span class="title class_">Index</span> (<span class="title class_">String</span> S, <span class="title class_">String</span> T, int pos) &#123;</span><br><span class="line"> <span class="comment">// T为非空串。若主串S中第pos个字符之后存在与 T相等的子串，则返回第一个这样的子串在S中的位置，否则返回0</span></span><br><span class="line">  <span class="keyword">if</span> (pos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    n = <span class="title class_">StrLength</span>(S);  m = <span class="title class_">StrLength</span>(T);  i = pos;</span><br><span class="line">    <span class="keyword">while</span> ( i &lt;= n-m+<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="title class_">SubString</span> (sub, S, i, m);<span class="comment">//表示在S串中取从第i位置开始的m长度字串并存在sub里</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="title class_">StrCompare</span>(sub,T) != <span class="number">0</span>)   ++i ;<span class="comment">//比较，不成功则往后移</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> i ;</span><br><span class="line">    &#125; <span class="comment">// while</span></span><br><span class="line">  &#125; <span class="comment">// if</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;          <span class="comment">// S中不存在与T相等的子串</span></span><br><span class="line">&#125; <span class="comment">// Index</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果我们不采用串的基本操作的话，还可以这样写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int <span class="title class_">Index</span>(<span class="title class_">SString</span> S, <span class="title class_">SString</span> T, int pos) &#123;</span><br><span class="line"><span class="comment">// 返回子串T在主串S中第pos个字符之后的位置。若不存在，</span></span><br><span class="line"><span class="comment">// 则函数值为0。其中，T非空，1≤pos≤StrLength(S)。</span></span><br><span class="line">　i = pos;   j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (S[i] == T[j]) &#123; ++i;  ++j; &#125;   <span class="comment">// 继续比较后继字符</span></span><br><span class="line">      <span class="keyword">else</span> &#123; i = i-j+<span class="number">2</span>;   j = <span class="number">1</span>; &#125;     <span class="comment">// 指针后退重新开始匹配</span></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>])  <span class="keyword">return</span>  i-T[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// Index</span></span><br></pre></td></tr></table></figure>
+<p>将S串于T串一个字符一个字符的进行比较，一旦不同则将i退到开始上一次开始比较的位置的下一个，j直接退到T串的串首即可<br>设上次一比较在S串中的起始位置为x则  x+j-1=i<br>所以x=i-j+1则下一个位置为i-j+2，所以是i=i-j+2<br>匹配成功，同样返回首位置，否则返回零<br>上述算法时间复杂度最坏都达到了O(m*n);</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/10/27/%E4%B8%B2%E7%9A%84%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" data-id="clfuhdaza000npouu7v4u391h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JAVAString类常用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2019-09-18T00:53:20.000Z" itemprop="datePublished">2019-09-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">JAVAString类常用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-创建新String"><a href="#1-创建新String" class="headerlink" title="1.创建新String"></a>1.创建新String</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String concat(String s);//返回一个新串，在原串后附加上s。</span><br><span class="line">String replace(String old, String new);//返回一个新串，将原串中出现的old替换成new。</span><br><span class="line">String substring(int start, int end);//返回一个新串，它是原串中从start到end的一部分。</span><br><span class="line">String toLowerCase();//返回一个新串，它将原串中的大写字母变成小写。</span><br><span class="line">String toUpperCase();//返回一个新串，它将原串中的小写字母变成大写。</span><br></pre></td></tr></table></figure>
+<h1 id="2-查找方法"><a href="#2-查找方法" class="headerlink" title="2.查找方法"></a>2.查找方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean endsWith(String s);//如原串以s串为结尾，则返回true。</span><br><span class="line">boolean startsWith(String s);//如原串以s串为开始，则返回true。</span><br><span class="line">int indexOf(String s);//返回串中第一次出现s串的序号值。</span><br><span class="line">int indexOf(String s, int offset);//返回串中从offset开始查找，第一次出现s串的序号值。</span><br></pre></td></tr></table></figure>
+<h1 id="3-比较方法"><a href="#3-比较方法" class="headerlink" title="3.比较方法"></a>3.比较方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean equals(String s);//如果原串与s串相等，则返回true。</span><br><span class="line">boolean equalsIgnoreCase(String s);//如果在忽略大小写的情况下，原串与s串相等，则返回true。</span><br><span class="line">int  compareTo(String s);//进行字典序比较，如果原串小于s串则返回负数；如果原串大于s串则返回正数；如果原串等于s串则返回零。</span><br></pre></td></tr></table></figure>
+<h1 id="4-其它方法"><a href="#4-其它方法" class="headerlink" title="4.其它方法"></a>4.其它方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str.split(&quot;,&quot;);//根据字符来拆分字符串，当我们需要以‘|’、‘：’、‘+’、‘.’、‘^’等特殊字符作为拆分条件的话，则需要加上 \\ 转义字符</span><br><span class="line">charAt(int index)//返回index处的字符。</span><br><span class="line">int length()//返回串的长度。</span><br><span class="line">str.trim();//裁除首、尾空格符</span><br><span class="line">str.contains(&quot;&quot;);//是否包含 &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="clfuhdayr0002pouu1i4rbm63" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JAVA基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time datetime="2019-09-17T02:56:16.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">JAVA基础知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=)</p>
+<h1 id="1-JAVA数据输出格式的控制"><a href="#1-JAVA数据输出格式的控制" class="headerlink" title="1.JAVA数据输出格式的控制"></a>1.JAVA数据输出格式的控制</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span>.<span class="property">format</span>.(<span class="string">&quot;格式串&quot;</span>，数值数据）<span class="comment">//方法一</span></span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">print</span>(<span class="string">&quot;格式串&quot;</span>，数值数据) <span class="comment">//方法二</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-用float时数后要加F"><a href="#2-用float时数后要加F" class="headerlink" title="2.用float时数后要加F"></a>2.用float时数后要加F</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float a=<span class="number">3.</span>4F;</span><br></pre></td></tr></table></figure>
+<h1 id="3-数字不能自动转化为Boolean"><a href="#3-数字不能自动转化为Boolean" class="headerlink" title="3.数字不能自动转化为Boolean"></a>3.数字不能自动转化为Boolean</h1><h1 id="4-字符检测的方法"><a href="#4-字符检测的方法" class="headerlink" title="4.字符检测的方法"></a>4.字符检测的方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char ch=<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isLetter</span>(ch) -- ch是否是字母</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isDigit</span>(ch)  -- ch是否是数字</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isLetterOrDigit</span>(ch) -- ch是否是字母或数字</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isWhitespace</span>(ch) -- ch是否是空格</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isLowerCase</span>(ch) -- ch是否是小写字母</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isUpperCase</span>(ch) -- ch是否是大写字母</span><br></pre></td></tr></table></figure>
+<h1 id="5-自定义符号常量加final"><a href="#5-自定义符号常量加final" class="headerlink" title="5.自定义符号常量加final"></a>5.自定义符号常量加final</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final double <span class="variable constant_">PI</span>=<span class="number">3.14159</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="6-在方法外定义的变量会自动初始化"><a href="#6-在方法外定义的变量会自动初始化" class="headerlink" title="6.在方法外定义的变量会自动初始化"></a>6.在方法外定义的变量会自动初始化</h1><h1 id="7-String加其他类型变量时会将其他类型转化为字符类型"><a href="#7-String加其他类型变量时会将其他类型转化为字符类型" class="headerlink" title="7.String加其他类型变量时会将其他类型转化为字符类型"></a>7.String加其他类型变量时会将其他类型转化为字符类型</h1><h1 id="8-字符串转数值"><a href="#8-字符串转数值" class="headerlink" title="8.字符串转数值"></a>8.字符串转数值</h1><p>方法1：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i = <span class="title class_">Integer</span>.<span class="built_in">parseInt</span>(<span class="string">&quot;123&quot;</span>);       (常用)</span><br><span class="line">double d = <span class="title class_">Double</span>.<span class="title function_">parseDouble</span>(<span class="string">&quot;1.23&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>方法2：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i =<span class="title class_">Integer</span>.<span class="title function_">valueOf</span>(<span class="string">&quot;123&quot;</span>).<span class="title function_">intValue</span>(); </span><br></pre></td></tr></table></figure>
+<h1 id="9-数值转字符串"><a href="#9-数值转字符串" class="headerlink" title="9.数值转字符串"></a>9.数值转字符串</h1><p> 方法1：<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s=<span class="title class_">String</span>.<span class="title function_">valueOf</span>(value); </span><br></pre></td></tr></table></figure><br> 其中value为任一种数字类型。</p>
+<p>方法2：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s = <span class="title class_">Integer</span>.<span class="title function_">toString</span>(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+<p>方法3：最直接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s = <span class="string">&quot;&quot;</span> + value;  其中value为任意一种数字类型。</span><br></pre></td></tr></table></figure>
+<h1 id="10-字符数组转字符串"><a href="#10-字符数组转字符串" class="headerlink" title="10.字符数组转字符串"></a>10.字符数组转字符串</h1> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> char[ ] c=&#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;</span><br><span class="line"><span class="title class_">String</span> str=<span class="keyword">new</span> <span class="title class_">String</span>(c);</span><br></pre></td></tr></table></figure>
+<h1 id="11-字符串转字符数组"><a href="#11-字符串转字符数组" class="headerlink" title="11.字符串转字符数组"></a>11.字符串转字符数组</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> str=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line">char[ ]  c=str.<span class="title function_">toCharArray</span>(); </span><br></pre></td></tr></table></figure>
+<h1 id="12-”-”和equals的区别"><a href="#12-”-”和equals的区别" class="headerlink" title="12.”==”和equals的区别"></a>12.”==”和equals的区别</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s1=<span class="string">&quot;abc&quot;</span>;  <span class="comment">//方法以</span></span><br><span class="line"><span class="title class_">String</span> s2=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="title class_">String</span> s3=<span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;abc&quot;</span>); <span class="comment">//方法二</span></span><br><span class="line"><span class="title class_">String</span> s4=<span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s1==s2); </span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s1.<span class="title function_">equals</span>(s2));</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s3==s4);</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s3.<span class="title function_">equals</span>(s4));            </span><br></pre></td></tr></table></figure>
+<p>得到的结果为true,true,false,true.<br>方法一属于常量式创建，会存放一个在一个叫String pool 的地方，再次创建时会直接引用存在的相同变量<br>而方法二属于对象式创建，是运行时在Heap内存里面创建对象，每new一次都一定会创建对象<br>而“==”是比较两者的地址是否一样，所以第三个为false<br>equals是比较变量是否一样。</p>
+<h1 id="13-也能用于浮点型变量"><a href="#13-也能用于浮点型变量" class="headerlink" title="13.%也能用于浮点型变量"></a>13.%也能用于浮点型变量</h1><h1 id="14-类型转换"><a href="#14-类型转换" class="headerlink" title="14.类型转换"></a>14.类型转换</h1><p>当没有信息丢失时，变量可被自动升级为一个较长的形式（如：int至long的升级）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">long bigval = <span class="number">6</span>;  <span class="comment">// 6 is an int type, OK</span></span><br><span class="line">int smallval = 99L;  <span class="comment">// 99L is a long, error </span></span><br><span class="line">double z = <span class="number">12.</span>414F;  <span class="comment">// 12.414F is float, OK</span></span><br><span class="line">float z1 = <span class="number">12.414</span>;  <span class="comment">// 12.414 is double, error</span></span><br><span class="line"><span class="comment">//但升级也可能会导致出错</span></span><br><span class="line">short  a，b，c</span><br><span class="line">a=<span class="number">1</span>；b=<span class="number">2</span>；c= a+b；<span class="comment">//上述程序会因为在操作short之前提升每个short至int而出错。</span></span><br><span class="line"><span class="comment">//然而，如果c被声明为一个int，或按如下操作进行类型转换：</span></span><br><span class="line">c = (short)(a+b);<span class="comment">//则上述代码将会成功通过</span></span><br></pre></td></tr></table></figure>
+<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44105654">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a target="_blank" rel="noopener" href="https://www.jianshu.com/u/607ef08e5825">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a target="_blank" rel="noopener" href="https://github.com/AmazingZ6?tab=repositories">https://github.com/AmazingZ6?tab=repositories</a><br>我的bilibili <a target="_blank" rel="noopener" href="https://space.bilibili.com/66908429">https://space.bilibili.com/66908429</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clfuhdayu0003pouu40eafpxp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-计算三重积分的四种方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/11/%E8%AE%A1%E7%AE%97%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2019-09-11T09:00:08.000Z" itemprop="datePublished">2019-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/11/%E8%AE%A1%E7%AE%97%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/">计算三重积分的四种方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以后可能会经常使用，在这里总结一下</p>
+<h1 id="先一后二法"><a href="#先一后二法" class="headerlink" title="先一后二法"></a>先一后二法</h1><p>$\iiint <em>{\Omega }f\left( x,y,z\right) dv=\int ^{b}</em>{a}dx\int ^{y_{2}\left( x\right) }<em>{y</em>{1}\left( x\right) }dy\int ^{z_{2}\left( x,y\right) }<em>{z</em>{1}\left( x,y\right) }f\left( x,y,z\right) dz$</p>
+<h1 id="先二后一法"><a href="#先二后一法" class="headerlink" title="先二后一法"></a>先二后一法</h1><p>$\begin{aligned}\iiint <em>{\Omega }f\left( x,y,z\right) dv=\int ^{b}</em>{a}dz\iint _{Dz}f\left( x,y,z\right) dxdy\end{aligned}$</p>
+<h1 id="利用柱面坐标计算"><a href="#利用柱面坐标计算" class="headerlink" title="利用柱面坐标计算"></a>利用柱面坐标计算</h1><p>$\begin{cases}x=\rho \cos \theta \ y=\rho \sin \theta \ z=z\end{cases}\iiint _{\Omega }f\left( x,y,z\right) dv=\begin{aligned}\iiint _{\Omega }f\left( \rho \cos \theta ,\rho \sin \theta ,z\right) \rho d\rho d\theta dz\end{aligned}$</p>
+<h1 id="利用球面坐标计算"><a href="#利用球面坐标计算" class="headerlink" title="利用球面坐标计算"></a>利用球面坐标计算</h1><p>$\begin{cases}x=r\sin \varphi \cos \theta \ y=r\sin \varphi \sin \theta \ z=r\cos \varphi \end{cases}\begin{aligned}\iiint _{\Omega }f\left( x,y,z\right) dv=\iiint _{\Omega }f\left( r\sin \varphi \cos \theta ,r\sin \varphi \sin \theta ,r\cos y\right) r^{2}\sin \varphi drdyd\theta \end{aligned}$</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/09/11/%E8%AE%A1%E7%AE%97%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/" data-id="clfuhdb040025pouu8g2hdhmt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Eclipse的安装-HelloWorld的实现以及jdk的下载与环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/05/Eclipse%E7%9A%84%E5%AE%89%E8%A3%85-HelloWorld%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8Ajdk%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2019-09-05T14:03:14.000Z" itemprop="datePublished">2019-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/05/Eclipse%E7%9A%84%E5%AE%89%E8%A3%85-HelloWorld%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8Ajdk%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Eclipse的安装,HelloWorld的实现以及jdk的下载与环境配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上了第一节JAVA课后，老师然我们自己下去安装Eclipse以及JAVA的jdk，也是费了我一番功夫，在这里简单总结一下，希望能帮助到大家</p>
+<h1 id="1-Eclipse的下载与安装"><a href="#1-Eclipse的下载与安装" class="headerlink" title="1.Eclipse的下载与安装"></a>1.Eclipse的下载与安装</h1><p>直接百度搜索Eclipse，下面第一个就是官网，进入官网我们选择downlaoad packages<br><img src="1.png" alt="xxx"><br>然后选择对应的要下载的版本，我这里选的是Windows</p>
+<p><img src="2.png" alt="xxx"></p>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/05/Eclipse%E7%9A%84%E5%AE%89%E8%A3%85-HelloWorld%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8Ajdk%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/09/05/Eclipse%E7%9A%84%E5%AE%89%E8%A3%85-HelloWorld%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%BB%A5%E5%8F%8Ajdk%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="clfuhdayl0001pouubgi79ffb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-树莓派小车基本功能的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/05/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%B0%8F%E8%BD%A6%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2019-08-05T09:40:00.000Z" itemprop="datePublished">2019-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/05/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%B0%8F%E8%BD%A6%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/">树莓派小车基本功能的实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在2019年暑假，大一的我参加了学校组织的为期15天的实训，实训内容就是树莓派小车的基本功能的实现，包括移动，拍照，录像等。<br>下面我将对本次实训经行一个简单的回顾</p>
+<h1 id="1-小车的组装"><a href="#1-小车的组装" class="headerlink" title="1.小车的组装"></a>1.小车的组装</h1><p>首先我们需要一下材料<br>树莓派，小车零件，杜邦线，电池盒，L298N电机驱动模块，TF卡/SD卡<br>然后按照电路图将小车的零部件一个一个组装起来即可<br>唯一需要注意的是引脚的对应<br><img src="111.jpg" alt="xxx"><br>如图所示，程序里的引脚的标号为黄色框里的编号，横向对应红色框里的物理接口</p>
+<p>下图为组装好的小车</p>
+<p><img src="3426615-a8a227ec96464665.jpg" alt="xxx"></p>
+<h1 id="2-SOCKET编程"><a href="#2-SOCKET编程" class="headerlink" title="2.SOCKET编程"></a>2.SOCKET编程</h1><p>那么要如何实现电脑端与小车的通信呢，这时候就需要用到socket编程了，它可以通过IP地址实现两地之间的通信</p>
+<blockquote>
+<p>套接字（socket）是一个抽象层，应用程序可以通过它发送或接收数据，可对其进行像对文件一样的打开、读写和关闭等操作。套接字允许应用程序将I/O插入到网络中，并与网络中的其他应用程序进行通信。网络套接字是IP地址与端口的组合</p>
+</blockquote>
+<p>首先我们要实现最基本的本地通信<br>下面附上最基本的本地通信的代码</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/08/05/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%B0%8F%E8%BD%A6%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/08/05/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%B0%8F%E8%BD%A6%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/" data-id="clfuhdazn0016pouuer2j667m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-java-python大数加法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/" class="article-date">
+  <time datetime="2019-07-30T09:39:01.000Z" itemprop="datePublished">2019-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/">c++ java python大数加法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43871885/article/details/97797871">https://blog.csdn.net/weixin_43871885/article/details/97797871</a> </p>
+<h3 id="c-代码"><a href="#c-代码" class="headerlink" title="c++代码"></a>c++代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define <span class="variable constant_">MAXN</span> <span class="number">1000</span></span><br><span class="line">int a[<span class="variable constant_">MAXN</span>],b[<span class="variable constant_">MAXN</span>];</span><br><span class="line">int <span class="title function_">main</span>(<span class="params">int argc, <span class="keyword">const</span> char * argv[]</span>)</span><br><span class="line">&#123;</span><br><span class="line">    string str1,str2;<span class="comment">//保存输入</span></span><br><span class="line">    long int len1,len2;</span><br><span class="line">    long int i,j,k;</span><br><span class="line">    int up;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*输入流程*/</span></span><br><span class="line">    cin&gt;&gt;str1&gt;&gt;str2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*初始化各量*/</span></span><br><span class="line">    len1 = str1.<span class="title function_">length</span>();</span><br><span class="line">    len2 = str2.<span class="title function_">length</span>();</span><br><span class="line">    <span class="title function_">memset</span>(a, <span class="number">0</span>, <span class="title function_">sizeof</span>(a));</span><br><span class="line">    <span class="title function_">memset</span>(b, <span class="number">0</span>, <span class="title function_">sizeof</span>(b));</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*注意，必须倒着保存数据*/</span></span><br><span class="line">    <span class="keyword">for</span> (i = len1 - <span class="number">1</span>, k = <span class="number">0</span>; i != -<span class="number">1</span>; -- i)</span><br><span class="line">    &#123;</span><br><span class="line">        a[k] = str1[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (j = len2 - <span class="number">1</span>, k = <span class="number">0</span>; j != -<span class="number">1</span>; -- j)</span><br><span class="line">    &#123;</span><br><span class="line">        b[k] = str2[j] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, up = <span class="number">0</span>; i &lt; <span class="variable constant_">MAXN</span>; ++ i)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i] = a[i] + b[i] + up;</span><br><span class="line">        up = a[i] / <span class="number">10</span>;</span><br><span class="line">        a[i] %= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="variable constant_">MAXN</span> - <span class="number">1</span>; i != -<span class="number">1</span>; -- i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (k = i; k != -<span class="number">1</span>; --k)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/07/30/c-java-python%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/" data-id="clfuhdaz3000cpouu79gx3mgs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/27/my-first-blog/" class="article-date">
+  <time datetime="2019-07-27T07:26:09.000Z" itemprop="datePublished">2019-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/27/my-first-blog/">my first blog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开始写博客啦！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/07/27/my-first-blog/" data-id="clfuhdaz7000hpouu011zf795" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 13.33px;">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.33px;">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 20px;">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 13.33px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/">差分隐私定义</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">PyTorch学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/">差分隐私之组合定理</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">Z字形变换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 AmazingZ6<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

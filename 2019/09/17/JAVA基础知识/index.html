@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JAVA基础知识 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本人刚学JAVA，写个博客来给自己巩固一下基本知识 (&#x3D;・ω・&#x3D;) 1.JAVA数据输出格式的控制12String.format.(&quot;格式串&quot;，数值数据）&#x2F;&#x2F;方法一System.out.print(&quot;格式串&quot;，数值数据) &#x2F;&#x2F;方法二 2.用float时数后要加F1float a&#x3D;3.4F; 3.数字不能自动转化为Boolean4.字符检测的方法1234567">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA基础知识">
+<meta property="og:url" content="http://amazzl.top/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本人刚学JAVA，写个博客来给自己巩固一下基本知识 (&#x3D;・ω・&#x3D;) 1.JAVA数据输出格式的控制12String.format.(&quot;格式串&quot;，数值数据）&#x2F;&#x2F;方法一System.out.print(&quot;格式串&quot;，数值数据) &#x2F;&#x2F;方法二 2.用float时数后要加F1float a&#x3D;3.4F; 3.数字不能自动转化为Boolean4.字符检测的方法1234567">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-17T02:56:16.000Z">
+<meta property="article:modified_time" content="2020-05-04T08:09:46.000Z">
+<meta property="article:author" content="AmazingZ6">
+<meta property="article:tag" content="JAVA基础知识">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://amazzl.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JAVA基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="article-date">
+  <time datetime="2019-09-17T02:56:16.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA基础知识
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人刚学JAVA，写个博客来给自己巩固一下基本知识 (=・ω・=)</p>
+<h1 id="1-JAVA数据输出格式的控制"><a href="#1-JAVA数据输出格式的控制" class="headerlink" title="1.JAVA数据输出格式的控制"></a>1.JAVA数据输出格式的控制</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span>.<span class="property">format</span>.(<span class="string">&quot;格式串&quot;</span>，数值数据）<span class="comment">//方法一</span></span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">print</span>(<span class="string">&quot;格式串&quot;</span>，数值数据) <span class="comment">//方法二</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-用float时数后要加F"><a href="#2-用float时数后要加F" class="headerlink" title="2.用float时数后要加F"></a>2.用float时数后要加F</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float a=<span class="number">3.</span>4F;</span><br></pre></td></tr></table></figure>
+<h1 id="3-数字不能自动转化为Boolean"><a href="#3-数字不能自动转化为Boolean" class="headerlink" title="3.数字不能自动转化为Boolean"></a>3.数字不能自动转化为Boolean</h1><h1 id="4-字符检测的方法"><a href="#4-字符检测的方法" class="headerlink" title="4.字符检测的方法"></a>4.字符检测的方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char ch=<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isLetter</span>(ch) -- ch是否是字母</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isDigit</span>(ch)  -- ch是否是数字</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isLetterOrDigit</span>(ch) -- ch是否是字母或数字</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isWhitespace</span>(ch) -- ch是否是空格</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isLowerCase</span>(ch) -- ch是否是小写字母</span><br><span class="line"><span class="title class_">Character</span>.<span class="title function_">isUpperCase</span>(ch) -- ch是否是大写字母</span><br></pre></td></tr></table></figure>
+<h1 id="5-自定义符号常量加final"><a href="#5-自定义符号常量加final" class="headerlink" title="5.自定义符号常量加final"></a>5.自定义符号常量加final</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final double <span class="variable constant_">PI</span>=<span class="number">3.14159</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="6-在方法外定义的变量会自动初始化"><a href="#6-在方法外定义的变量会自动初始化" class="headerlink" title="6.在方法外定义的变量会自动初始化"></a>6.在方法外定义的变量会自动初始化</h1><h1 id="7-String加其他类型变量时会将其他类型转化为字符类型"><a href="#7-String加其他类型变量时会将其他类型转化为字符类型" class="headerlink" title="7.String加其他类型变量时会将其他类型转化为字符类型"></a>7.String加其他类型变量时会将其他类型转化为字符类型</h1><h1 id="8-字符串转数值"><a href="#8-字符串转数值" class="headerlink" title="8.字符串转数值"></a>8.字符串转数值</h1><p>方法1：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i = <span class="title class_">Integer</span>.<span class="built_in">parseInt</span>(<span class="string">&quot;123&quot;</span>);       (常用)</span><br><span class="line">double d = <span class="title class_">Double</span>.<span class="title function_">parseDouble</span>(<span class="string">&quot;1.23&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>方法2：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i =<span class="title class_">Integer</span>.<span class="title function_">valueOf</span>(<span class="string">&quot;123&quot;</span>).<span class="title function_">intValue</span>(); </span><br></pre></td></tr></table></figure>
+<h1 id="9-数值转字符串"><a href="#9-数值转字符串" class="headerlink" title="9.数值转字符串"></a>9.数值转字符串</h1><p> 方法1：<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s=<span class="title class_">String</span>.<span class="title function_">valueOf</span>(value); </span><br></pre></td></tr></table></figure><br> 其中value为任一种数字类型。</p>
+<p>方法2：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s = <span class="title class_">Integer</span>.<span class="title function_">toString</span>(<span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+<p>方法3：最直接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s = <span class="string">&quot;&quot;</span> + value;  其中value为任意一种数字类型。</span><br></pre></td></tr></table></figure>
+<h1 id="10-字符数组转字符串"><a href="#10-字符数组转字符串" class="headerlink" title="10.字符数组转字符串"></a>10.字符数组转字符串</h1> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> char[ ] c=&#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;</span><br><span class="line"><span class="title class_">String</span> str=<span class="keyword">new</span> <span class="title class_">String</span>(c);</span><br></pre></td></tr></table></figure>
+<h1 id="11-字符串转字符数组"><a href="#11-字符串转字符数组" class="headerlink" title="11.字符串转字符数组"></a>11.字符串转字符数组</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> str=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line">char[ ]  c=str.<span class="title function_">toCharArray</span>(); </span><br></pre></td></tr></table></figure>
+<h1 id="12-”-”和equals的区别"><a href="#12-”-”和equals的区别" class="headerlink" title="12.”==”和equals的区别"></a>12.”==”和equals的区别</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">String</span> s1=<span class="string">&quot;abc&quot;</span>;  <span class="comment">//方法以</span></span><br><span class="line"><span class="title class_">String</span> s2=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line"><span class="title class_">String</span> s3=<span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;abc&quot;</span>); <span class="comment">//方法二</span></span><br><span class="line"><span class="title class_">String</span> s4=<span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s1==s2); </span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s1.<span class="title function_">equals</span>(s2));</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s3==s4);</span><br><span class="line"><span class="title class_">System</span>.<span class="property">out</span>.<span class="title function_">println</span>(s3.<span class="title function_">equals</span>(s4));            </span><br></pre></td></tr></table></figure>
+<p>得到的结果为true,true,false,true.<br>方法一属于常量式创建，会存放一个在一个叫String pool 的地方，再次创建时会直接引用存在的相同变量<br>而方法二属于对象式创建，是运行时在Heap内存里面创建对象，每new一次都一定会创建对象<br>而“==”是比较两者的地址是否一样，所以第三个为false<br>equals是比较变量是否一样。</p>
+<h1 id="13-也能用于浮点型变量"><a href="#13-也能用于浮点型变量" class="headerlink" title="13.%也能用于浮点型变量"></a>13.%也能用于浮点型变量</h1><h1 id="14-类型转换"><a href="#14-类型转换" class="headerlink" title="14.类型转换"></a>14.类型转换</h1><p>当没有信息丢失时，变量可被自动升级为一个较长的形式（如：int至long的升级）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">long bigval = <span class="number">6</span>;  <span class="comment">// 6 is an int type, OK</span></span><br><span class="line">int smallval = 99L;  <span class="comment">// 99L is a long, error </span></span><br><span class="line">double z = <span class="number">12.</span>414F;  <span class="comment">// 12.414F is float, OK</span></span><br><span class="line">float z1 = <span class="number">12.414</span>;  <span class="comment">// 12.414 is double, error</span></span><br><span class="line"><span class="comment">//但升级也可能会导致出错</span></span><br><span class="line">short  a，b，c</span><br><span class="line">a=<span class="number">1</span>；b=<span class="number">2</span>；c= a+b；<span class="comment">//上述程序会因为在操作short之前提升每个short至int而出错。</span></span><br><span class="line"><span class="comment">//然而，如果c被声明为一个int，或按如下操作进行类型转换：</span></span><br><span class="line">c = (short)(a+b);<span class="comment">//则上述代码将会成功通过</span></span><br></pre></td></tr></table></figure>
+<p>我的个人博客 amazingz6.github.io<br>我的CSDN <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44105654">https://blog.csdn.net/qq_44105654</a><br>我的简书 <a target="_blank" rel="noopener" href="https://www.jianshu.com/u/607ef08e5825">https://www.jianshu.com/u/607ef08e5825</a><br>我的github <a target="_blank" rel="noopener" href="https://github.com/AmazingZ6?tab=repositories">https://github.com/AmazingZ6?tab=repositories</a><br>我的bilibili <a target="_blank" rel="noopener" href="https://space.bilibili.com/66908429">https://space.bilibili.com/66908429</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2019/09/17/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" data-id="clfuhdayu0003pouu40eafpxp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/18/JAVAString%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JAVAString类常用方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/11/%E8%AE%A1%E7%AE%97%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">计算三重积分的四种方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 13.33px;">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.33px;">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 20px;">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 13.33px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/">差分隐私定义</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">PyTorch学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/">差分隐私之组合定理</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">Z字形变换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 AmazingZ6<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

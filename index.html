@@ -113,7 +113,501 @@
 
 
   
+    <article id="post-差分隐私定义" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/" class="article-date">
+  <time datetime="2023-03-29T11:31:08.000Z" itemprop="datePublished">2023-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/">差分隐私定义</a>
+    </h1>
+  
 
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="差分隐私学习001"><a href="#差分隐私学习001" class="headerlink" title="差分隐私学习001"></a>差分隐私学习001</h1><h2 id="1-普通差分隐私的定义"><a href="#1-普通差分隐私的定义" class="headerlink" title="1 普通差分隐私的定义"></a>1 普通差分隐私的定义</h2><p>差分隐私中使用KL散度（KL-Divergence）来衡量隐私</p>
+<p>所谓KL散度，开始是用于度量我们拟合的损失与与实际观察到的损失的差距，也可以用于表示当某分布q(x)被用于近似p(x)时的信息损失，它表示如下。<br>$$<br>D(p||q)=\sum_{x \in y}p(x)log{p(x)\over q(x)}<br>$$<br>也就是说，q(x)能在多大程度上表达p(x)所包含的信息，KL散度越大，表示q(x)能表示的p(x)越少，则表达效果越差。</p>
+<p>但是我们需要的不是这两个分布的整体差异，我们只需要这两个分布在差距最大的情况下能够满足就行。</p>
+<p>所以有了MAX-Divergence, 即<br>$$<br>D_\infty(p||q)=\underset {S\subseteq Supp(Y)}{max} [ln{Pr(Y \in S) \over Pr(Z \in S)}]<br>$$</p>
+<p>上式经过变形整理可得<br>$$<br>Pr[M(x)\in S] \leq e^\varepsilon Pr[M(x^\prime)\in S]<br>$$</p>
+<p>但是上述差分隐私定义太过严格，所以为了算法的实用性，引入了松弛版本的差分隐私（δ-Approximate Max Divergence），定义如下<br>$$<br>D^{\delta}_\infty(p||q)=\underset {S\subseteq Supp(Y):Pr[Y \in S]\geq \delta}{max} [ln{Pr(Y \in S) - \delta \over Pr(Z \in S)}]<br>$$<br>新的隐私参数δ，代表了定义的失败概率，即有1-δ的概率，我们将得到与普通差分隐私相同的保证；有δ的概率，我们将得不到隐私保证。换言之，上述式子将分子减去了一个δ，相当于有了一定的放缩空间。</p>
+<p>也就是说，有δ的概率，任何事情都可能发生，甚至是整个数据集的泄露，因此，我们通常要求δ非常小,通常为<br>$$<br>1\over n^2<br>$$<br>或更小，其中n为数据集的大小。</p>
+<p>因此，我们将看到，实际使用中的(ϵ,δ)差分隐私不会像刚刚说的那样的整个数据集的泄露，相反，一般来说，失败所付出的代价是极小的。</p>
+<p>差分隐私所要求的就是需要上述散度小于或等于隐私界限，即<br>$$<br>D^{\delta}_\infty(p||q) \leq \varepsilon<br>$$<br> ϵ参数被称为隐私参数或隐私预算，用户可以通过改变它来调整该定义提供的 “隐私量”。ϵ越小，就要求对于相邻输入提供越相似的输出，以此来达到更好的隐私水平，ϵ很大时，就使得相邻输入的输出的相似性要求很小，因此提供的隐私水平较低。</p>
+<p>同样，上式整理可得<br>$$<br>Pr[M(x)\in S] \leq e^\varepsilon Pr[M(x^\prime)\in S]+\delta<br>$$</p>
+<h2 id="2-贝叶斯差分隐私定义"><a href="#2-贝叶斯差分隐私定义" class="headerlink" title="2 贝叶斯差分隐私定义"></a>2 贝叶斯差分隐私定义</h2><p>参照普通差分隐私，贝叶斯差分隐私普通定义如下<br>$$<br>Pr[M(x)\in S] \leq e^{\varepsilon_\mu} Pr[M(x^\prime)\in S]+\delta_\mu<br>$$<br>还有一种定义是<br>$$<br>Pr[L(w,X,X^\prime)\geq \varepsilon_\mu] \leq \delta_\mu<br>$$<br>其中</p>
+<p>$$<br>F(x)=f(x)+Lap({s\over\epsilon})<br>$$</p>
+<p>参考资料</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139114240">差分隐私（一） Differential Privacy 简介 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139114240#ref_1_0">^</a>The Algorithmic Foundations of Differential Privacy <a target="_blank" rel="noopener" href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf">https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/" data-id="clfuhdazk0012pouu79gsghuv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-PyTorch学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-03-29T11:26:56.000Z" itemprop="datePublished">2023-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">PyTorch学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PyTorch学习"><a href="#PyTorch学习" class="headerlink" title="PyTorch学习"></a>PyTorch学习</h1><p>学着学着就发现自己的这方面的基础还是太差了，所以决定学一下PyTorch基础，相信绝对不会亏！！！</p>
+<p><em>下面都是一个简单的介绍或者说总结，详细内容请看官方文档<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/index.html">PyTorch documentation</a>，这个非常重要</em></p>
+<h2 id="1-数据加载"><a href="#1-数据加载" class="headerlink" title="1.数据加载"></a>1.数据加载</h2><p>主要用到两个函数</p>
+<p>datasets</p>
+<p>DataLoader()</p>
+<p>datasets是用来获取或者说读取数据的，不过现在一般都是使用torchvision.datasets来进行数据集的下载</p>
+<p>DataLoader()则用来对数据做一些设置，例如按照batch_size来分堆，我们使用数据主要就是使用DataLoader()函数获得的对象，它能把数据和标签分别存起来，后面直接调用，例如img, target = test_data[0]</p>
+<h2 id="2-网络模型骨架（nn-Module）"><a href="#2-网络模型骨架（nn-Module）" class="headerlink" title="2.网络模型骨架（nn.Module）"></a>2.网络模型骨架（nn.Module）</h2><p>需要重写nn.Module类，主要重写两个函数，一个初始化函数，一个forward函数,下面讲的都是常用的。</p>
+<h3 id="2-1卷积层"><a href="#2-1卷积层" class="headerlink" title="2.1卷积层"></a>2.1卷积层</h3><p>我们常用的是<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html#torch.nn.Conv2d"><code>nn.Conv2d</code></a>（2d表示对2维数据，即图像进行操作），主要确定以下参数</p>
+<ul>
+<li>in_channels：输入通道数量</li>
+<li>out_channels：指定输出通道数量</li>
+<li>kernel_size：卷积核大小</li>
+<li>stride：步长</li>
+<li>padding：周围填充</li>
+</ul>
+<h3 id="2-2池化层"><a href="#2-2池化层" class="headerlink" title="2.2池化层"></a>2.2池化层</h3><p>这里以最大池化层为例</p>
+<p>常用<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.MaxPool2d.html#torch.nn.MaxPool2d"><code>nn.MaxPool2d</code></a>，主要确定以下参数</p>
+<ul>
+<li><em>kernel_size</em>：卷积核大小</li>
+<li><em>stride</em>：步长</li>
+</ul>
+<h3 id="2-3非线性激活层（Non-linear-Activations）"><a href="#2-3非线性激活层（Non-linear-Activations）" class="headerlink" title="2.3非线性激活层（Non-linear Activations）"></a>2.3非线性激活层（Non-linear Activations）</h3><p>用来给网络里加入一些非线性特征，常用有ReLU,SIGMOID函数</p>
+<h3 id="2-4-线性层（linear）"><a href="#2-4-线性层（linear）" class="headerlink" title="2.4 线性层（linear）"></a>2.4 线性层（linear）</h3><p>又叫全连接层，常用<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear"><code>nn.Linear</code></a>函数实现，可以把数据集的特征压缩指定值，使用之前通常需要用Flatten()变到一维，最后输出的维度就是所有可能的结果的数量，分别代表着每种结果的概率，通常需要确定以下值</p>
+<ul>
+<li>in_features：输入样本大小</li>
+<li>out_features：输出样本大小</li>
+<li>bias：如果设置为False，则图层不会学习附加偏差。默认值是True，表示增加学习偏置。</li>
+</ul>
+<h3 id="2-5-SEQUENTIAL（torch-nn-Sequential）"><a href="#2-5-SEQUENTIAL（torch-nn-Sequential）" class="headerlink" title="2.5 SEQUENTIAL（torch.nn.Sequential）"></a>2.5 SEQUENTIAL（torch.nn.Sequential）</h3><p>把网络放在一起，让代码更加整洁</p>
+<h2 id="3-lossfunction"><a href="#3-lossfunction" class="headerlink" title="3 lossfunction"></a>3 lossfunction</h2><p>主要有两个作用</p>
+<p>1.计算实际输出与目标之间的差距</p>
+<p>2.为我们更新输出提供一定的依据（反向传播），给每个卷积核设置了一个梯度（grad）</p>
+<p>第一次时模型还没有梯度参数，在进行一次loss.backward()后，模型就可以得到梯度这个重要的参数。</p>
+<p>常用的有交叉熵函数<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss"><code>nn.CrossEntropyLoss</code></a></p>
+<h2 id="4优化器（optimizer）"><a href="#4优化器（optimizer）" class="headerlink" title="4优化器（optimizer）"></a>4优化器（optimizer）</h2><p>常用函数有optimizer.zero_grad()，放在梯度计算之前，防止上次残留的梯度对这次的计算造成影响。</p>
+<p>以及optimizer.step()，通过梯度来对模型参数进行更新（例如卷积核的大小等）</p>
+<h2 id="5模型的保存与加载"><a href="#5模型的保存与加载" class="headerlink" title="5模型的保存与加载"></a>5模型的保存与加载</h2><p>可以torch.save()来保存模型，然后通过torch.load()加载模型</p>
+<p>也可以通过torch.save()来保存model.state_dict()，然后通过model.load_state_dice()来加载模型</p>
+<p>资料来源<a target="_blank" rel="noopener" href="https://github.com/xiaotudui/PyTorch-Tutorial">xiaotudui/pytorch-tutorial: PyTorch深度学习快速入门教程（绝对通俗易懂！） (github.com)</a>，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="clfuhdaz10008pouuea6j5ztl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-差分隐私之组合定理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/" class="article-date">
+  <time datetime="2023-03-27T07:08:04.000Z" itemprop="datePublished">2023-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/">差分隐私之组合定理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="差分隐私之组合定理"><a href="#差分隐私之组合定理" class="headerlink" title="差分隐私之组合定理"></a>差分隐私之组合定理</h1><p>  在了解组合定理前，先要知道差分隐私的三个基本属性，这些是组合定理的基础</p>
+<h2 id="顺序组合-Sequential-Composition"><a href="#顺序组合-Sequential-Composition" class="headerlink" title="顺序组合(Sequential Composition)"></a>顺序组合(Sequential Composition)</h2><p>   差别隐私的第一个主要属性是顺序组合，它限定了在同一输入数据上释放差别隐私机制的多个结果的总隐私成本。形式上，差分隐私的顺序组合定义如下：</p>
+<ul>
+<li><p>如果$F_1(x)$ 满足$(\epsilon_1,0)-dp$</p>
+</li>
+<li><p>并且$F_2(x)$ 满足$(\epsilon_2,0)-dp$</p>
+</li>
+<li><p>那么对于机制$G(x)=(F_1(x),F_2(x))$，它满足$(\epsilon_1+\epsilon_2,0)-dp$</p>
+<p>  顺序组合是差分隐私的一个重要属性，因为它是能够多次查询数据的基础。当对单一数据集进行多个独立分析时，顺序组合也很重要，因为它允许个人约束他们参与所有这些分析所产生的总隐私成本。顺序组合给出的隐私成本约束是一个上限，多个特定的不同的隐私方法的实际隐私成本可能小于此，但绝不会大于此。</p>
+</li>
+</ul>
+<h2 id="平行组合-Parallel-Composition"><a href="#平行组合-Parallel-Composition" class="headerlink" title="平行组合(Parallel Composition)"></a>平行组合(Parallel Composition)</h2><p>​    差分隐私的第二个重要属性被称为平行组合。并行组合可以被看作是顺序组合的替代品，它是计算多个数据发布的总隐私成本的第二种方式。并行组合是基于将你的数据集分割成不相干的块，并在每个块上分别运行不同的隐私机制的想法。由于这些块是不相连的，每个人的数据正好出现在一个块中，因此，即使总共有k个块（因此有k个机制的运行），该机制对每个人的数据正好运行一次。从形式上看。</p>
+<ul>
+<li><p>如果$F(x)$ 满足$(\epsilon,0)-dp$</p>
+</li>
+<li><p>如果我们将一个数据集$X$分为$k$个不相关的子块，即$x_1\cup…\cup x_k=X$</p>
+</li>
+<li><p>那么对于所有分开的机制$F(x_1),…,F(x_k)$满足$(\epsilon,0)-dp$</p>
+<p>  从效果上看，这是一个比顺序组合要好得多的约束。由于我们运行$F k$次，顺序组合会说这个程序满足$(\epsilon,0)-dp$差分隐私。也就是说，总的隐私成本只有ϵ。</p>
+<p>  形式上的定义与我们的直觉相吻合，如果数据集中的每个参与者都为$X$贡献了一行，那么这一行将正好出现在$x_1,…,x_k$的一个块中。这意味着$F$只会 “看到 “这个参与者的数据一次，这意味着$ϵ$的隐私成本对该个体是合适的。由于这一属性对所有个人都适用,所以每部分的隐私成本都是$ϵ$。</p>
+</li>
+</ul>
+<h2 id="后处理-Post-processing"><a href="#后处理-Post-processing" class="headerlink" title="后处理(Post-processing)"></a>后处理(Post-processing)</h2><p>   我们在这里要讨论的差异化隐私的第三个属性称为后处理。这个想法很简单：通过以某种方式对数据进行后处理，对于处理后的数据来讲，差分隐私对于数据的隐私保护效果依然存在，即</p>
+<ul>
+<li><p>如果$F(x)$ 满足$(\epsilon,0)-dp$</p>
+</li>
+<li><p>那么对于任何（确定的或随机的）函数$g$，$g(F(X))$满足$(\epsilon,0)-dp$</p>
+<p>  后处理属性意味着无论对不同隐私机制的输出进行什么计算，它都是安全的，不存在因此带来的隐私保护的危险，特别是，在机制的输出中进行可能减少噪音或改善信号的后处理是没有问题的（例如，对于不应该返回负面结果的查询，用零替换负面结果）。事实上，许多复杂的差分隐私算法都利用后处理来减少噪音并提高其结果的准确性。        </p>
+<p>  后处理属性的另一个含义是，差分隐私提供了对基于辅助信息的隐私攻击的抵抗。例如，函数g可能包含关于数据集元素的辅助信息，并试图利用这些信息进行链接攻击，此时后处理属性就能够保证，这种攻击的有效性受到隐私参数ϵ的限制，而不考虑g中包含的辅助信息。</p>
+</li>
+</ul>
+<h2 id="组合定理（Composition-Theorem）"><a href="#组合定理（Composition-Theorem）" class="headerlink" title="组合定理（Composition Theorem）"></a>组合定理（Composition Theorem）</h2><p>之前的文章说的都是对于单个函数而言，而在实际情况中，往往不是只有单个的查询的，所以就有了组合定理，即Composition Theorem，它探讨的就是在多个函数时，要满足什么样的隐私呢？</p>
+<p>如果我们已知一个随机函数的隐私损失，则k 个随机函数总的隐私损失是多少呢？通过上面的叙述，我们地发现，在每一个随机函数所加的噪声（noise）相互独立时，隐私损失是可以累加的，即简单组合定理（Simple Composition）。</p>
+<h3 id="简单组合定理"><a href="#简单组合定理" class="headerlink" title="简单组合定理"></a>简单组合定理</h3><p>简单组合定理定义如下：</p>
+<p>如果$M_i$是$(\epsilon,0)-dp$ 的随机函数，那么一个组合 (M1,M2,…,Mk) 满足$(\sum_{i=1}^k\epsilon,0)-dp$.</p>
+<p>如果$M_i$是$(\epsilon_i,\delta_i)-dp$ 的随机函数，那么一个组合 (M1,M2,…,Mk) 满足$(\sum_{i=1}^k\epsilon_i,\sum_{i=1}^k\delta_i)-dp$.</p>
+<p> 上述方法可以得到一个简单的上界，但是显然这是不够的，因为隐私损失是一个随机变量，要获得多个随机变量累加的上界，绝对不是简单的把每一个随机变量的上界累加就可以得到的。注意到<strong>随机变量除了本身的值有一个范围，他的期望也有一个范围</strong>。<strong>如果同时考虑这两个范围，那么就很可能得到一个更紧的上界</strong>。</p>
+<h3 id="进阶组合定理（Advanced-Composition）"><a href="#进阶组合定理（Advanced-Composition）" class="headerlink" title="进阶组合定理（Advanced Composition）"></a>进阶组合定理（Advanced Composition）</h3><p>它的定义如下</p>
+<p>对于$\forall\epsilon,\delta,\delta^\prime\geq0$,如果$M_i$是$(\epsilon,\delta)-dp$ 的随机函数，那么$(M_1,M_2…,M_k)$满足$(\epsilon^\prime,k\delta+\delta^\prime)-dp$ ，其中$\epsilon^\prime=\sqrt{2kln({1\over\epsilon^\prime})}\epsilon+k\epsilon(e^\epsilon-1)$</p>
+<p>可以看到，总的$\epsilon$不再像Simple Composition一样随着随机函数的数量$k$线性增长，而是随着$\sqrt{k}$线性增长，因此Advanced Composition在$k$较大时显著好于Simple Composition。</p>
+<h2 id="Moments-Accountant"><a href="#Moments-Accountant" class="headerlink" title="Moments Accountant"></a>Moments Accountant</h2><p>但是对于差分隐私组合来讲，要获得多个随机变量累加的上界，绝对不是简单的把每一个随机变量的上界累加就可以得到的。随机变量除了本身的值有一个范围，他的期望也有一个范围。如果同时考虑这两个范围，那么就很可能得到一个更紧的上界。</p>
+<p>于是Abadi等人提出了具有更紧上界的Moments Accountant，为了证明这个上界，首先需要证明每一个随机函数的矩生成函数的上界。Abadi et al.针对高斯分布的特例，使用了二项展开的方法，证明了前三项远大于其他的项和前三项的上界。之后他们又证明了矩生成函数的上界可以像隐私损失一样累加（在噪声独立的情况下）。最终，他们导出了一个更紧的composition隐私损失的上界。由于他们的研究着重于深度学习，因此给出的定理是以SGD为基础的。</p>
+<p>Moments Accountant定义如下：</p>
+<p>假设SGD的随机选择概率为 q ，训练轮数为 T ，那么存在常数 c1,c2 使得 ∀ε&lt;c1  ,∀δ&gt;0 ，若Gaussian Mechanism的标准差 σ 满足</p>
+<p>$\sigma\geq c_2q \sqrt {Tlog({1\over\delta})}$</p>
+<p>则这一系列 T 个 Gaussian Mechanism Mi 所构成的composition满足 $(\epsilon_i,\delta_i)-dp$ </p>
+<p>这个方法也是目前最先进的差分隐私核算方法。</p>
+<p>参考文献</p>
+<p><a target="_blank" rel="noopener" href="https://programming-dp.com/notebooks/ch4.html#post-processing">Properties of Differential Privacy — Programming Differential Privacy (programming-dp.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/264779199">差分隐私之Composition Theorem（一） - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/" data-id="clfuhdazj0010pouu187v9gi7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Z字形变换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" class="article-date">
+  <time datetime="2022-03-10T14:14:48.000Z" itemprop="datePublished">2022-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">Z字形变换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="6-Z-字形变换"><a href="#6-Z-字形变换" class="headerlink" title="6. Z 字形变换"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zigzag-conversion/">6. Z 字形变换</a></h1><p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zigzag-conversion">https://leetcode-cn.com/problems/zigzag-conversion</a></p>
+<p>题目描述：</p>
+<p>将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。</p>
+<p>比如输入字符串为 “PAYPALISHIRING” 行数为 3 时，排列如下：</p>
+<p>P   A   H   N<br>A P L S I I G<br>Y   I   R<br>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：”PAHNAPLSIIGYIR”。</p>
+<p>请你实现这个将字符串进行指定行数变换的函数：</p>
+<p>string convert(string s, int numRows);</p>
+<p>示例 1：</p>
+<p>输入：s = “PAYPALISHIRING”, numRows = 3<br>输出：”PAHNAPLSIIGYIR”<br>示例 2：<br>输入：s = “PAYPALISHIRING”, numRows = 4<br>输出：”PINALSIGYAHRPI”<br>解释：<br>P     I    N<br>A   L S  I G<br>Y A   H R<br>P     I<br>示例 3：</p>
+<p>输入：s = “A”, numRows = 1<br>输出：”A”</p>
+<p>提示：</p>
+<p>1 &lt;= s.length &lt;= 1000<br>s 由英文字母（小写和大写）、’,’ 和 ‘.’ 组成<br>1 &lt;= numRows &lt;= 1000</p>
+<p>题解：我的想法是，既然最后是按行来读取，那么就可以依次获取每一行的数据放入结果中，那么就需要给每一个元素来一个编号，编号就代表着这个元素的行数，所以可以用一个和s一样长的数组来字母每个元素在那一行，而他们的行数是一串循环的数字，如当总共三行时，行数就依次为0，1，2，1，0，（从0开始），c++代码如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="type">int</span> len = s.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> p[len];</span><br><span class="line">        string ans = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;<span class="comment">//这里构造行数数组</span></span><br><span class="line">            <span class="keyword">if</span>(flag == <span class="number">0</span>)</span><br><span class="line">                p[i] = x++;</span><br><span class="line">            <span class="keyword">else</span> p[i] = x--;</span><br><span class="line">            <span class="keyword">if</span>(x == numRows - <span class="number">1</span>) flag = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(x == <span class="number">0</span>) flag = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; numRows; k++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(p[i] == k)</span><br><span class="line">                    ans += s[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" data-id="clfuhdaz2000bpouuaz4b1l8q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-考研初始结束" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/04/%E8%80%83%E7%A0%94%E5%88%9D%E5%A7%8B%E7%BB%93%E6%9D%9F/" class="article-date">
+  <time datetime="2022-01-04T03:14:30.000Z" itemprop="datePublished">2022-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/04/%E8%80%83%E7%A0%94%E5%88%9D%E5%A7%8B%E7%BB%93%E6%9D%9F/">考研初始结束</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="初始结束"><a href="#初始结束" class="headerlink" title="初始结束"></a>初始结束</h1><p>距离考研初始结束已经过去八天，为什么现在才更新呢，因为我玩了8天哈哈。现在来总结一下考研初始吧。</p>
+<h3 id="政治："><a href="#政治：" class="headerlink" title="政治："></a>政治：</h3><p>对于从小到大都害怕语文的我来讲，政治就只剩下死记硬背，考前三天只背了一套多一点（花了时间，但就是没背下来），最后两天像是掌握了背书技巧一样，直接给背完了，然而政治大题第一题第一问就直接给我整蒙了，偶然与必然，对于这个我只记得选择题选项中出现的偶然寓于必然，没办法，只能硬扯扯了一大堆。后面的题多多少少都背了点，然后就是抄材料。说实话这是我最没把握的一课，上海还是大旱区，希望能多给我点分吧555。</p>
+<h3 id="英语："><a href="#英语：" class="headerlink" title="英语："></a>英语：</h3><p>考英语二的我觉得英语二有点过于简单了，做完了还有一个小时，对的机构答案，选择题就完型错二个，阅读错一个，后面的题我也拿不准，有点后悔作文没有好好准备，希望别扣太多分，这样的话80分应该问题不大。</p>
+<h3 id="数学："><a href="#数学：" class="headerlink" title="数学："></a>数学：</h3><p>今年的数学二整体来讲我也觉得特别简单，就是那个证明题是真不会，记错时间，以为十一点交卷，结果在那坐半天也没收卷子，才意识到十一点半交卷，然后在那干坐半个小时，对的机构答案，除了证明题没做，别的全对，就是有个填空题看错了题目，定积分看成了不定积分，结果把空写满了，发现错误后没办法，只能把正确答案写在横线左下方，希望阅卷老师不要扣我分。关于那个证明题，考完才看到网上说这是1800上面的原题，奈何自己1800是上学期做的，已经过去太长时间了，一点印象都没有，看了下答案，发现自己前半部分思路是对的，就是没有接着往下做（以为是错的，因为看到函数的自变量不一样，没有想到用中值定理），有点可惜。</p>
+<h3 id="专业课："><a href="#专业课：" class="headerlink" title="专业课："></a>专业课：</h3><p>今年的专业课相对来说也是比较简单的（当然没去年简单），唯一考的偏一点的就是那个c程序变成可执行程序的四个过程，我只写了编译和链接，希望少扣点分，然后34记成了add了，这个之前记得很熟的，奈何考前时间全背政治去了，专业课忘的有点多（麻了），这个故事告诉我们政治一定要提早背，不要像我一样考前再抱佛脚。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>今天开始要准备复试了，考完之后以为自己会疯玩，但不知为何，有点玩不下去了，感觉游戏也没以前好玩了，现在开始边玩便准备吧，也没有必要太认真，同时也要开始锻炼了，把考研期间累坏的身体给补回来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2022/01/04/%E8%80%83%E7%A0%94%E5%88%9D%E5%A7%8B%E7%BB%93%E6%9D%9F/" data-id="clfuhdazy001vpouuh0kf7ali" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-平衡二叉树节点的删除" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/10/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%9A%84%E5%88%A0%E9%99%A4/" class="article-date">
+  <time datetime="2021-10-10T14:06:31.000Z" itemprop="datePublished">2021-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/10/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%9A%84%E5%88%A0%E9%99%A4/">平衡二叉树节点的删除</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于平衡二叉树节点的删除"><a href="#关于平衡二叉树节点的删除" class="headerlink" title="关于平衡二叉树节点的删除"></a>关于平衡二叉树节点的删除</h1><p>前几天做到了一个平衡二叉树删除节点的题目，看了看王道，没有找到，我就默认跟二叉排序树一样，没右子树直接删除，左子树接上，有右子树就找右子树中序第一个节点接上，结果做错了，然后就去网上查找，找到了正确的方法，这里记录一下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2021/10/10/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%9A%84%E5%88%A0%E9%99%A4/" data-id="clfuhdazm0014pouu702vew4q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-考研10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/03/%E8%80%83%E7%A0%9410/" class="article-date">
+  <time datetime="2021-10-03T14:11:52.000Z" itemprop="datePublished">2021-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/03/%E8%80%83%E7%A0%9410/">考研10</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于考研的第10篇博客"><a href="#关于考研的第10篇博客" class="headerlink" title="关于考研的第10篇博客"></a>关于考研的第10篇博客</h1><p>距离考研还有82天，也是十一假期的最后一天，今天父母来来送了点冬天的衣服，然后吃了个饭，在枯燥的学习生活中也算是有了一点快乐，同时压力开始变大了，撑下去，加油！</p>
+<p>数学：正在查漏补缺，准备重点看下武忠祥老师的选题机巧课，看完之后开始做模拟卷，做就完了。</p>
+<p>专业课：专业课是我比较慌的，准备先吃透真题，搞清楚它要考什么，怎么考，然后再去把知识点系统的整理出来，进行背诵以及复习。</p>
+<p>英语：英二真题整体做下来还是比较简单的，所以并不是很担心，但要开始背作文模板了，每天背一点，到考前就有备无患了。</p>
+<p>政治：进度虽然有点慢，但正在光速追赶，帽子题快速过一遍，理解题快速查知识点，每天学一点，绰绰有余。</p>
+<p>考研人，加油！</p>
+<p>ps:突然对美的定义很感兴趣，想知道什么样才叫美呢，等考完研去找点书看一看。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2021/10/03/%E8%80%83%E7%A0%9410/" data-id="clfuhdazr001dpouu6v213gww" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-m叉树的双亲孩子节点之间的关系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/28/m%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E5%AD%A9%E5%AD%90%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" class="article-date">
+  <time datetime="2021-09-28T13:39:11.000Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/28/m%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E5%AD%A9%E5%AD%90%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">m叉树的双亲孩子节点编号之间的关系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="m叉树的双亲孩子节点编号之间的关系"><a href="#m叉树的双亲孩子节点编号之间的关系" class="headerlink" title="m叉树的双亲孩子节点编号之间的关系"></a>m叉树的双亲孩子节点编号之间的关系</h1><p>久违的知识博客！</p>
+<p>这个题过第一遍时没搞懂，现在再次看到这个题,我决定把它解决！</p>
+<p>已知双亲结点的编号为i（根节点为1），求这个结点的第一个孩子的编号。</p>
+<p>设树的高为h，则从第一层到h-1层的结点总数为(m^(h-1) - 1)/ (m - 1)</p>
+<p>则在h层的i之前的结点共有i - (m^(h-1) - 1)/ (m - 1) - 1个</p>
+<p>那么所求孩子结点的那一层在他前面共有节点 m * [ i - (m^(h-1) - 1)/ (m - 1) - 1]个结点</p>
+<p>而1到h层共有(m^h - 1)/ (m - 1)个结点</p>
+<p>所以要求的编号j = (m^h - 1)/ (m - 1) + m * [ i - (m^(h-1) - 1)/ (m - 1) - 1] + 1 = m * (i - 1) + 2</p>
+<p>即j = m * (i - 1) + 2</p>
+<p>如果已知孩子节点编号，求双亲节点编号，直接解一下即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2021/09/28/m%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E5%AD%A9%E5%AD%90%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" data-id="clfuhdaz8000jpouu3nkhg2lk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于自己考研以来的一些思考" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/09/17/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E8%80%83%E7%A0%94%E4%BB%A5%E6%9D%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" class="article-date">
+  <time datetime="2021-09-17T14:00:39.000Z" itemprop="datePublished">2021-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/17/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E8%80%83%E7%A0%94%E4%BB%A5%E6%9D%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">关于自己考研以来的一些思考</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1，保研"><a href="#1，保研" class="headerlink" title="1，保研"></a>1，保研</h1><p>这个其实是最近才有一个很真实的感受，我多么希望有人在大一就告诉我这些（虽然我大概率也不会听），本人成绩算是在上游，没挂过科（体育考了一次63哈哈），这次保研</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2021/09/17/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E8%80%83%E7%A0%94%E4%BB%A5%E6%9D%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" data-id="clfuhdaze000tpouu6gf645lt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -123,15 +617,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 13.33px;">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.33px;">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 20px;">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 13.33px;">随笔</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
     </div>
   </div>
 
@@ -145,6 +653,22 @@
         
           <li>
             <a href="/2023/03/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/">差分隐私定义</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">PyTorch学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/">差分隐私之组合定理</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">Z字形变换</a>
           </li>
         
       </ul>

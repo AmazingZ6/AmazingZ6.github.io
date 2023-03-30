@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>差分隐私之组合定理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="差分隐私之组合定理  在了解组合定理前，先要知道差分隐私的三个基本属性，这些是组合定理的基础 顺序组合(Sequential Composition)   差别隐私的第一个主要属性是顺序组合，它限定了在同一输入数据上释放差别隐私机制的多个结果的总隐私成本。形式上，差分隐私的顺序组合定义如下：  如果$F_1(x)$ 满足$(\epsilon_1,0)-dp$  并且$F_2(x)$ 满足$(\ep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="差分隐私之组合定理">
+<meta property="og:url" content="http://amazzl.top/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="差分隐私之组合定理  在了解组合定理前，先要知道差分隐私的三个基本属性，这些是组合定理的基础 顺序组合(Sequential Composition)   差别隐私的第一个主要属性是顺序组合，它限定了在同一输入数据上释放差别隐私机制的多个结果的总隐私成本。形式上，差分隐私的顺序组合定义如下：  如果$F_1(x)$ 满足$(\epsilon_1,0)-dp$  并且$F_2(x)$ 满足$(\ep">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-27T07:08:04.000Z">
+<meta property="article:modified_time" content="2023-03-29T11:46:01.798Z">
+<meta property="article:author" content="AmazingZ6">
+<meta property="article:tag" content="差分隐私">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://amazzl.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-差分隐私之组合定理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/" class="article-date">
+  <time datetime="2023-03-27T07:08:04.000Z" itemprop="datePublished">2023-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      差分隐私之组合定理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="差分隐私之组合定理"><a href="#差分隐私之组合定理" class="headerlink" title="差分隐私之组合定理"></a>差分隐私之组合定理</h1><p>  在了解组合定理前，先要知道差分隐私的三个基本属性，这些是组合定理的基础</p>
+<h2 id="顺序组合-Sequential-Composition"><a href="#顺序组合-Sequential-Composition" class="headerlink" title="顺序组合(Sequential Composition)"></a>顺序组合(Sequential Composition)</h2><p>   差别隐私的第一个主要属性是顺序组合，它限定了在同一输入数据上释放差别隐私机制的多个结果的总隐私成本。形式上，差分隐私的顺序组合定义如下：</p>
+<ul>
+<li><p>如果$F_1(x)$ 满足$(\epsilon_1,0)-dp$</p>
+</li>
+<li><p>并且$F_2(x)$ 满足$(\epsilon_2,0)-dp$</p>
+</li>
+<li><p>那么对于机制$G(x)=(F_1(x),F_2(x))$，它满足$(\epsilon_1+\epsilon_2,0)-dp$</p>
+<p>  顺序组合是差分隐私的一个重要属性，因为它是能够多次查询数据的基础。当对单一数据集进行多个独立分析时，顺序组合也很重要，因为它允许个人约束他们参与所有这些分析所产生的总隐私成本。顺序组合给出的隐私成本约束是一个上限，多个特定的不同的隐私方法的实际隐私成本可能小于此，但绝不会大于此。</p>
+</li>
+</ul>
+<h2 id="平行组合-Parallel-Composition"><a href="#平行组合-Parallel-Composition" class="headerlink" title="平行组合(Parallel Composition)"></a>平行组合(Parallel Composition)</h2><p>​    差分隐私的第二个重要属性被称为平行组合。并行组合可以被看作是顺序组合的替代品，它是计算多个数据发布的总隐私成本的第二种方式。并行组合是基于将你的数据集分割成不相干的块，并在每个块上分别运行不同的隐私机制的想法。由于这些块是不相连的，每个人的数据正好出现在一个块中，因此，即使总共有k个块（因此有k个机制的运行），该机制对每个人的数据正好运行一次。从形式上看。</p>
+<ul>
+<li><p>如果$F(x)$ 满足$(\epsilon,0)-dp$</p>
+</li>
+<li><p>如果我们将一个数据集$X$分为$k$个不相关的子块，即$x_1\cup…\cup x_k=X$</p>
+</li>
+<li><p>那么对于所有分开的机制$F(x_1),…,F(x_k)$满足$(\epsilon,0)-dp$</p>
+<p>  从效果上看，这是一个比顺序组合要好得多的约束。由于我们运行$F k$次，顺序组合会说这个程序满足$(\epsilon,0)-dp$差分隐私。也就是说，总的隐私成本只有ϵ。</p>
+<p>  形式上的定义与我们的直觉相吻合，如果数据集中的每个参与者都为$X$贡献了一行，那么这一行将正好出现在$x_1,…,x_k$的一个块中。这意味着$F$只会 “看到 “这个参与者的数据一次，这意味着$ϵ$的隐私成本对该个体是合适的。由于这一属性对所有个人都适用,所以每部分的隐私成本都是$ϵ$。</p>
+</li>
+</ul>
+<h2 id="后处理-Post-processing"><a href="#后处理-Post-processing" class="headerlink" title="后处理(Post-processing)"></a>后处理(Post-processing)</h2><p>   我们在这里要讨论的差异化隐私的第三个属性称为后处理。这个想法很简单：通过以某种方式对数据进行后处理，对于处理后的数据来讲，差分隐私对于数据的隐私保护效果依然存在，即</p>
+<ul>
+<li><p>如果$F(x)$ 满足$(\epsilon,0)-dp$</p>
+</li>
+<li><p>那么对于任何（确定的或随机的）函数$g$，$g(F(X))$满足$(\epsilon,0)-dp$</p>
+<p>  后处理属性意味着无论对不同隐私机制的输出进行什么计算，它都是安全的，不存在因此带来的隐私保护的危险，特别是，在机制的输出中进行可能减少噪音或改善信号的后处理是没有问题的（例如，对于不应该返回负面结果的查询，用零替换负面结果）。事实上，许多复杂的差分隐私算法都利用后处理来减少噪音并提高其结果的准确性。        </p>
+<p>  后处理属性的另一个含义是，差分隐私提供了对基于辅助信息的隐私攻击的抵抗。例如，函数g可能包含关于数据集元素的辅助信息，并试图利用这些信息进行链接攻击，此时后处理属性就能够保证，这种攻击的有效性受到隐私参数ϵ的限制，而不考虑g中包含的辅助信息。</p>
+</li>
+</ul>
+<h2 id="组合定理（Composition-Theorem）"><a href="#组合定理（Composition-Theorem）" class="headerlink" title="组合定理（Composition Theorem）"></a>组合定理（Composition Theorem）</h2><p>之前的文章说的都是对于单个函数而言，而在实际情况中，往往不是只有单个的查询的，所以就有了组合定理，即Composition Theorem，它探讨的就是在多个函数时，要满足什么样的隐私呢？</p>
+<p>如果我们已知一个随机函数的隐私损失，则k 个随机函数总的隐私损失是多少呢？通过上面的叙述，我们地发现，在每一个随机函数所加的噪声（noise）相互独立时，隐私损失是可以累加的，即简单组合定理（Simple Composition）。</p>
+<h3 id="简单组合定理"><a href="#简单组合定理" class="headerlink" title="简单组合定理"></a>简单组合定理</h3><p>简单组合定理定义如下：</p>
+<p>如果$M_i$是$(\epsilon,0)-dp$ 的随机函数，那么一个组合 (M1,M2,…,Mk) 满足$(\sum_{i=1}^k\epsilon,0)-dp$.</p>
+<p>如果$M_i$是$(\epsilon_i,\delta_i)-dp$ 的随机函数，那么一个组合 (M1,M2,…,Mk) 满足$(\sum_{i=1}^k\epsilon_i,\sum_{i=1}^k\delta_i)-dp$.</p>
+<p> 上述方法可以得到一个简单的上界，但是显然这是不够的，因为隐私损失是一个随机变量，要获得多个随机变量累加的上界，绝对不是简单的把每一个随机变量的上界累加就可以得到的。注意到<strong>随机变量除了本身的值有一个范围，他的期望也有一个范围</strong>。<strong>如果同时考虑这两个范围，那么就很可能得到一个更紧的上界</strong>。</p>
+<h3 id="进阶组合定理（Advanced-Composition）"><a href="#进阶组合定理（Advanced-Composition）" class="headerlink" title="进阶组合定理（Advanced Composition）"></a>进阶组合定理（Advanced Composition）</h3><p>它的定义如下</p>
+<p>对于$\forall\epsilon,\delta,\delta^\prime\geq0$,如果$M_i$是$(\epsilon,\delta)-dp$ 的随机函数，那么$(M_1,M_2…,M_k)$满足$(\epsilon^\prime,k\delta+\delta^\prime)-dp$ ，其中$\epsilon^\prime=\sqrt{2kln({1\over\epsilon^\prime})}\epsilon+k\epsilon(e^\epsilon-1)$</p>
+<p>可以看到，总的$\epsilon$不再像Simple Composition一样随着随机函数的数量$k$线性增长，而是随着$\sqrt{k}$线性增长，因此Advanced Composition在$k$较大时显著好于Simple Composition。</p>
+<h2 id="Moments-Accountant"><a href="#Moments-Accountant" class="headerlink" title="Moments Accountant"></a>Moments Accountant</h2><p>但是对于差分隐私组合来讲，要获得多个随机变量累加的上界，绝对不是简单的把每一个随机变量的上界累加就可以得到的。随机变量除了本身的值有一个范围，他的期望也有一个范围。如果同时考虑这两个范围，那么就很可能得到一个更紧的上界。</p>
+<p>于是Abadi等人提出了具有更紧上界的Moments Accountant，为了证明这个上界，首先需要证明每一个随机函数的矩生成函数的上界。Abadi et al.针对高斯分布的特例，使用了二项展开的方法，证明了前三项远大于其他的项和前三项的上界。之后他们又证明了矩生成函数的上界可以像隐私损失一样累加（在噪声独立的情况下）。最终，他们导出了一个更紧的composition隐私损失的上界。由于他们的研究着重于深度学习，因此给出的定理是以SGD为基础的。</p>
+<p>Moments Accountant定义如下：</p>
+<p>假设SGD的随机选择概率为 q ，训练轮数为 T ，那么存在常数 c1,c2 使得 ∀ε&lt;c1  ,∀δ&gt;0 ，若Gaussian Mechanism的标准差 σ 满足</p>
+<p>$\sigma\geq c_2q \sqrt {Tlog({1\over\delta})}$</p>
+<p>则这一系列 T 个 Gaussian Mechanism Mi 所构成的composition满足 $(\epsilon_i,\delta_i)-dp$ </p>
+<p>这个方法也是目前最先进的差分隐私核算方法。</p>
+<p>参考文献</p>
+<p><a target="_blank" rel="noopener" href="https://programming-dp.com/notebooks/ch4.html#post-processing">Properties of Differential Privacy — Programming Differential Privacy (programming-dp.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/264779199">差分隐私之Composition Theorem（一） - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://amazzl.top/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/" data-id="clfuhdazj0010pouu187v9gi7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PyTorch学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Z字形变换</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">JAVA基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag">差分隐私</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 13.33px;">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.33px;">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10px;">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 20px;">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 13.33px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/30/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/">差分隐私定义</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">PyTorch学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/">差分隐私之组合定理</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">Z字形变换</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 AmazingZ6<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
