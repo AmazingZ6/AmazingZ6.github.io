@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://amazzl.top/2023/03/29/pytorch学习笔记/"/>
+  <link rel="canonical" href="http://amazzl.top/2022/09/16/差分隐私定义/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -32,21 +32,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>PyTorch学习笔记 - Hexo</title>
-  <meta name="keywords" content="深度学习,null">
+  <title>差分隐私定义 - Hexo</title>
+  <meta name="keywords" content="差分隐私,null">
   <meta desc name="description" content="在读研究生的博客网站 - AmazingZ6 - Hexo">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="PyTorch学习笔记">
-<meta property="og:url" content="http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="差分隐私定义">
+<meta property="og:url" content="http://amazzl.top/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="PyTorch学习学着学着就发现自己的这方面的基础还是太差了，所以决定学一下PyTorch基础，相信绝对不会亏！！！ 下面都是一个简单的介绍或者说总结，详细内容请看官方文档PyTorch documentation，这个非常重要 1.数据加载主要用到两个函数 datasets DataLoader() datasets是用来获取或者说读取数据的，不过现在一般都是使用torchvision.data">
+<meta property="og:description" content="差分隐私学习0011 普通差分隐私的定义差分隐私中使用KL散度（KL-Divergence）来衡量隐私 所谓KL散度，开始是用于度量我们拟合的损失与与实际观察到的损失的差距，也可以用于表示当某分布q(x)被用于近似p(x)时的信息损失，它表示如下。$$D(p||q)&#x3D;\sum_{x \in y}p(x)log{p(x)\over q(x)}$$也就是说，q(x)能在多大程度上表达p(x)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2023-03-29T11:26:56.000Z">
-<meta property="article:modified_time" content="2023-03-29T11:27:44.763Z">
+<meta property="article:published_time" content="2022-09-16T11:31:08.000Z">
+<meta property="article:modified_time" content="2023-04-04T07:50:37.363Z">
 <meta property="article:author" content="AmazingZ6">
-<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="差分隐私">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -268,103 +268,6 @@ button {
   position: relative;
   overflow: hidden;
   margin-bottom: -100px;
-}
-.cover-wrapper .cover-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-}
-.cover-wrapper .cover-bg.lazyload:not(.loaded) {
-  opacity: 0;
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-}
-.cover-wrapper .cover-bg.lazyload.loaded {
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  animation-name: fadeIn;
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
 }
 .cover-wrapper .cover-body {
   z-index: 1;
@@ -714,6 +617,71 @@ button {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   border-bottom: 2px solid var(--color-site-inner);
+}
+.cover-wrapper #parallax-window {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.parallax-mirror {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1791,9 +1759,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1680315399254),
+    lastupdate: new Date(1680763707389),
     sidebar: {
-      for_page: ["blogger","category","tagcloud","webinfo","donate"],
+      for_page: ["blogger","category","tagcloud","webinfo","music","donate"],
       for_post: ["toc"],
       webinfo: {
         lastupd: {
@@ -1811,13 +1779,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
       
       aplayer: {
-        id: 3175833810,
+        id: 8442040147,
         enable:true
       },
       
       
       
-      rightmenus: {"enable":true,"order":["plugins.navigation","hr","plugins.inputBox","plugins.seletctText","plugins.elementCheck","plugins.elementImage","menus.link","hr","menus.darkMode","plugins.articlePage","music"],"options":{"iconPrefix":"fa-solid","articleShowLink":true,"musicAlwaysShow":true},"plugins":{"navigation":[{"id":"left","name":"转到上一页","icon":"fa-solid fa-arrow-left","event":"history.back()","group":"navigation"},{"id":"right","name":"转到下一页","icon":"fa-solid fa-arrow-right","event":"history.forward()","group":"navigation"},{"id":"redo","name":"刷新当前页面","icon":"fa-solid fa-redo","event":"window.location.reload()","group":"navigation"},{"id":"up","name":"回到顶部","icon":"fa-solid fa-arrow-up","event":"VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)","group":"navigation"}],"inputBox":[{"id":"copyPaste","name":"粘贴文本","icon":"fa-solid fa-paste","event":"copyPaste","group":"inputBox"},{"id":"copyAll","name":"全选文本","icon":"fa-solid fa-object-ungroup","event":"copyAll","group":"inputBox"},{"id":"copyCut","name":"剪切文本","icon":"fa-solid fa-cut","event":"copyCut","group":"inputBox"}],"seletctText":[{"id":"copyText","name":"复制文本","icon":"fa-solid fa-copy","event":"copyText","group":"seletctText"},{"id":"searchWord","name":"站内搜索","icon":"fa-solid fa-search","event":"OpenSearch(__text__)","group":"seletctText"},{"id":"bingSearch","name":"必应搜索","icon":"fa-solid fa-search","event":"window.open(`https://cn.bing.com/search?q=${__text__}`)","group":"seletctText"}],"elementCheck":[{"id":"openTab","name":"新标签页打开","icon":"fa-solid fa-external-link-square-alt","event":"window.open(__link__)","group":"elementCheck"},{"id":"copyLink","name":"复制链接地址","icon":"fa-solid fa-link","event":"copyLink","group":"elementCheck"}],"elementImage":[{"id":"copyImg","name":"复制图片","icon":"fa-solid fa-image","event":"copyImg","group":"elementImage"},{"id":"googleImg","name":"谷歌识图","icon":"fa-solid fa-images","event":"window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)","group":"elementImage"}],"articlePage":[{"id":"printMode","name":"打印页面","icon":"fa-solid fa-print","event":"printMode","group":"articlePage"},{"id":"readMode","name":"阅读模式","icon":"fa-solid fa-book-open","event":"readMode","group":"articlePage"}]},"menus":{"link":[{"id":"help","name":"常见问题","icon":"fa-solid fa-question","link":"https://volantis.js.org/faqs/","group":"link"},{"id":"examples","name":"示例博客","icon":"fa-solid fa-rss","link":"https://volantis.js.org/examples/","group":"link"},{"id":"contributors","name":"加入社区","icon":"fa-solid fa-fan","link":"https://volantis.js.org/contributors/","group":"link"},"hr",{"id":"source_docs","name":"本站源码","icon":"fa-solid fa-code-branch","link":"https://github.com/volantis-x/volantis-docs/","group":"link"},{"id":"source_theme","name":"主题源码","icon":"fa-solid fa-code-branch","link":"https://github.com/volantis-x/hexo-theme-volantis/","group":"link"}],"darkMode":[{"id":"darkMode","name":"暗黑模式","icon":"fa-solid fa-moon","event":"volantis.dark.toggle()","group":"darkMode"}]}}
+      rightmenus: {"enable":true,"order":["plugins.navigation","hr","plugins.inputBox","plugins.seletctText","plugins.elementCheck","plugins.elementImage","menus.link","hr","menus.darkMode","plugins.articlePage","music"],"options":{"iconPrefix":"fa-solid","articleShowLink":true,"musicAlwaysShow":true},"plugins":{"navigation":[{"id":"left","name":"转到上一页","icon":"fa-solid fa-arrow-left","event":"history.back()","group":"navigation"},{"id":"right","name":"转到下一页","icon":"fa-solid fa-arrow-right","event":"history.forward()","group":"navigation"},{"id":"redo","name":"刷新当前页面","icon":"fa-solid fa-redo","event":"window.location.reload()","group":"navigation"},{"id":"up","name":"回到顶部","icon":"fa-solid fa-arrow-up","event":"VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)","group":"navigation"}],"inputBox":[{"id":"copyPaste","name":"粘贴文本","icon":"fa-solid fa-paste","event":"copyPaste","group":"inputBox"},{"id":"copyAll","name":"全选文本","icon":"fa-solid fa-object-ungroup","event":"copyAll","group":"inputBox"},{"id":"copyCut","name":"剪切文本","icon":"fa-solid fa-cut","event":"copyCut","group":"inputBox"}],"seletctText":[{"id":"copyText","name":"复制文本","icon":"fa-solid fa-copy","event":"copyText","group":"seletctText"},{"id":"searchWord","name":"站内搜索","icon":"fa-solid fa-search","event":"OpenSearch(__text__)","group":"seletctText"},{"id":"bingSearch","name":"必应搜索","icon":"fa-solid fa-search","event":"window.open(`https://cn.bing.com/search?q=${__text__}`)","group":"seletctText"}],"elementCheck":[{"id":"openTab","name":"新标签页打开","icon":"fa-solid fa-external-link-square-alt","event":"window.open(__link__)","group":"elementCheck"},{"id":"copyLink","name":"复制链接地址","icon":"fa-solid fa-link","event":"copyLink","group":"elementCheck"}],"elementImage":[{"id":"copyImg","name":"复制图片","icon":"fa-solid fa-image","event":"copyImg","group":"elementImage"},{"id":"googleImg","name":"谷歌识图","icon":"fa-solid fa-images","event":"window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)","group":"elementImage"}],"articlePage":[{"id":"printMode","name":"打印页面","icon":"fa-solid fa-print","event":"printMode","group":"articlePage"},{"id":"readMode","name":"阅读模式","icon":"fa-solid fa-book-open","event":"readMode","group":"articlePage"}]},"menus":{"link":[{"id":"source_theme","name":"主题源码","icon":"fa-solid fa-code-branch","link":"https://github.com/volantis-x/hexo-theme-volantis/","group":"link"}],"darkMode":[{"id":"darkMode","name":"深色模式","icon":"fa-solid fa-moon","event":"volantis.dark.toggle()","group":"darkMode"}]}}
       
     }
   }
@@ -2239,9 +2207,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/'>
           
-            <img no-lazy class='logo' src='https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+          
+            <i class='fa-solid fa-blog'></i>
           
           
+            博客
           
         </a>
       
@@ -2359,7 +2329,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box header toggle-mode-btn">
-                  <i class='fa-solid fa-moon fa-fw'></i>黑暗模式
+                  <i class='fa-solid fa-moon fa-fw'></i>深色模式
                 </a>
               <li>
             
@@ -2492,7 +2462,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box header toggle-mode-btn">
-                  <i class='fa-solid fa-moon fa-fw'></i>黑暗模式
+                  <i class='fa-solid fa-moon fa-fw'></i>深色模式
                 </a>
               <li>
             
@@ -2517,7 +2487,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
       <div id="none" class='cover-wrapper post search' style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://api.yimian.xyz/img?type=wallpaper"></div>
+  <div id="parallax-window"></div>
 
 <div class='cover-body'>
   <div class='top'>
@@ -2594,7 +2564,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2023/03/29/PyTorch学习笔记/">
+  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2022/09/16/差分隐私定义/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hexo">
   </span>
@@ -2615,7 +2585,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        PyTorch学习笔记
+        差分隐私定义
       </h1>
       <div class='new-meta-box'>
         
@@ -2623,7 +2593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
 <div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
   <a itemprop="url" class='author' href="/" rel="nofollow">
-    <img itemprop="image" src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <img itemprop="image" src="https://gcore.jsdelivr.net/gh/AmazingZ6/CDN@main/img/nanami.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/AmazingZ6/CDN@main/img/nanami.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
     <p itemprop="name">zl</p>
   </a>
 </div>
@@ -2632,14 +2602,32 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：793 字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：3 分钟</p>
+    </a>
+  </div>
+
 
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2023-03-29T19:26:56+08:00">
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-09-16T19:31:08+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2023年3月29日</p>
+    <p>发布于：2022年9月16日</p>
   </a>
 </div>
 
@@ -2674,46 +2662,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="PyTorch学习"><a href="#PyTorch学习" class="headerlink" title="PyTorch学习"></a>PyTorch学习</h1><p>学着学着就发现自己的这方面的基础还是太差了，所以决定学一下PyTorch基础，相信绝对不会亏！！！</p>
-<p><em>下面都是一个简单的介绍或者说总结，详细内容请看官方文档<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/index.html">PyTorch documentation</a>，这个非常重要</em></p>
-<h2 id="1-数据加载"><a href="#1-数据加载" class="headerlink" title="1.数据加载"></a>1.数据加载</h2><p>主要用到两个函数</p>
-<p>datasets</p>
-<p>DataLoader()</p>
-<p>datasets是用来获取或者说读取数据的，不过现在一般都是使用torchvision.datasets来进行数据集的下载</p>
-<p>DataLoader()则用来对数据做一些设置，例如按照batch_size来分堆，我们使用数据主要就是使用DataLoader()函数获得的对象，它能把数据和标签分别存起来，后面直接调用，例如img, target &#x3D; test_data[0]</p>
-<h2 id="2-网络模型骨架（nn-Module）"><a href="#2-网络模型骨架（nn-Module）" class="headerlink" title="2.网络模型骨架（nn.Module）"></a>2.网络模型骨架（nn.Module）</h2><p>需要重写nn.Module类，主要重写两个函数，一个初始化函数，一个forward函数,下面讲的都是常用的。</p>
-<h3 id="2-1卷积层"><a href="#2-1卷积层" class="headerlink" title="2.1卷积层"></a>2.1卷积层</h3><p>我们常用的是<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html#torch.nn.Conv2d"><code>nn.Conv2d</code></a>（2d表示对2维数据，即图像进行操作），主要确定以下参数</p>
-<ul>
-<li>in_channels：输入通道数量</li>
-<li>out_channels：指定输出通道数量</li>
-<li>kernel_size：卷积核大小</li>
-<li>stride：步长</li>
-<li>padding：周围填充</li>
-</ul>
-<h3 id="2-2池化层"><a href="#2-2池化层" class="headerlink" title="2.2池化层"></a>2.2池化层</h3><p>这里以最大池化层为例</p>
-<p>常用<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.MaxPool2d.html#torch.nn.MaxPool2d"><code>nn.MaxPool2d</code></a>，主要确定以下参数</p>
-<ul>
-<li><em>kernel_size</em>：卷积核大小</li>
-<li><em>stride</em>：步长</li>
-</ul>
-<h3 id="2-3非线性激活层（Non-linear-Activations）"><a href="#2-3非线性激活层（Non-linear-Activations）" class="headerlink" title="2.3非线性激活层（Non-linear Activations）"></a>2.3非线性激活层（Non-linear Activations）</h3><p>用来给网络里加入一些非线性特征，常用有ReLU,SIGMOID函数</p>
-<h3 id="2-4-线性层（linear）"><a href="#2-4-线性层（linear）" class="headerlink" title="2.4 线性层（linear）"></a>2.4 线性层（linear）</h3><p>又叫全连接层，常用<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear"><code>nn.Linear</code></a>函数实现，可以把数据集的特征压缩指定值，使用之前通常需要用Flatten()变到一维，最后输出的维度就是所有可能的结果的数量，分别代表着每种结果的概率，通常需要确定以下值</p>
-<ul>
-<li>in_features：输入样本大小</li>
-<li>out_features：输出样本大小</li>
-<li>bias：如果设置为False，则图层不会学习附加偏差。默认值是True，表示增加学习偏置。</li>
-</ul>
-<h3 id="2-5-SEQUENTIAL（torch-nn-Sequential）"><a href="#2-5-SEQUENTIAL（torch-nn-Sequential）" class="headerlink" title="2.5 SEQUENTIAL（torch.nn.Sequential）"></a>2.5 SEQUENTIAL（torch.nn.Sequential）</h3><p>把网络放在一起，让代码更加整洁</p>
-<h2 id="3-lossfunction"><a href="#3-lossfunction" class="headerlink" title="3 lossfunction"></a>3 lossfunction</h2><p>主要有两个作用</p>
-<p>1.计算实际输出与目标之间的差距</p>
-<p>2.为我们更新输出提供一定的依据（反向传播），给每个卷积核设置了一个梯度（grad）</p>
-<p>第一次时模型还没有梯度参数，在进行一次loss.backward()后，模型就可以得到梯度这个重要的参数。</p>
-<p>常用的有交叉熵函数<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss"><code>nn.CrossEntropyLoss</code></a></p>
-<h2 id="4优化器（optimizer）"><a href="#4优化器（optimizer）" class="headerlink" title="4优化器（optimizer）"></a>4优化器（optimizer）</h2><p>常用函数有optimizer.zero_grad()，放在梯度计算之前，防止上次残留的梯度对这次的计算造成影响。</p>
-<p>以及optimizer.step()，通过梯度来对模型参数进行更新（例如卷积核的大小等）</p>
-<h2 id="5模型的保存与加载"><a href="#5模型的保存与加载" class="headerlink" title="5模型的保存与加载"></a>5模型的保存与加载</h2><p>可以torch.save()来保存模型，然后通过torch.load()加载模型</p>
-<p>也可以通过torch.save()来保存model.state_dict()，然后通过model.load_state_dice()来加载模型</p>
-<p>资料来源<a target="_blank" rel="noopener" href="https://github.com/xiaotudui/PyTorch-Tutorial">xiaotudui&#x2F;pytorch-tutorial: PyTorch深度学习快速入门教程（绝对通俗易懂！） (github.com)</a>，</p>
+    <h1 id="差分隐私学习001"><a href="#差分隐私学习001" class="headerlink" title="差分隐私学习001"></a>差分隐私学习001</h1><h2 id="1-普通差分隐私的定义"><a href="#1-普通差分隐私的定义" class="headerlink" title="1 普通差分隐私的定义"></a>1 普通差分隐私的定义</h2><p>差分隐私中使用KL散度（KL-Divergence）来衡量隐私</p>
+<p>所谓KL散度，开始是用于度量我们拟合的损失与与实际观察到的损失的差距，也可以用于表示当某分布q(x)被用于近似p(x)时的信息损失，它表示如下。<br>$$<br>D(p||q)&#x3D;\sum_{x \in y}p(x)log{p(x)\over q(x)}<br>$$<br>也就是说，q(x)能在多大程度上表达p(x)所包含的信息，KL散度越大，表示q(x)能表示的p(x)越少，则表达效果越差。</p>
+<p>但是我们需要的不是这两个分布的整体差异，我们只需要这两个分布在差距最大的情况下能够满足就行。</p>
+<p>所以有了MAX-Divergence, 即<br>$$<br>D_\infty(p||q)&#x3D;\underset {S\subseteq Supp(Y)}{max} [ln{Pr(Y \in S) \over Pr(Z \in S)}]<br>$$</p>
+<p>上式经过变形整理可得<br>$$<br>Pr[M(x)\in S] \leq e^\varepsilon Pr[M(x^\prime)\in S]<br>$$</p>
+<p>但是上述差分隐私定义太过严格，所以为了算法的实用性，引入了松弛版本的差分隐私（δ-Approximate Max Divergence），定义如下<br>$$<br>D^{\delta}_\infty(p||q)&#x3D;\underset {S\subseteq Supp(Y):Pr[Y \in S]\geq \delta}{max} [ln{Pr(Y \in S) - \delta \over Pr(Z \in S)}]<br>$$<br>新的隐私参数δ，代表了定义的失败概率，即有1-δ的概率，我们将得到与普通差分隐私相同的保证；有δ的概率，我们将得不到隐私保证。换言之，上述式子将分子减去了一个δ，相当于有了一定的放缩空间。</p>
+<p>也就是说，有δ的概率，任何事情都可能发生，甚至是整个数据集的泄露，因此，我们通常要求δ非常小,通常为<br>$$<br>1\over n^2<br>$$<br>或更小，其中n为数据集的大小。</p>
+<p>因此，我们将看到，实际使用中的(ϵ,δ)差分隐私不会像刚刚说的那样的整个数据集的泄露，相反，一般来说，失败所付出的代价是极小的。</p>
+<p>差分隐私所要求的就是需要上述散度小于或等于隐私界限，即<br>$$<br>D^{\delta}_\infty(p||q) \leq \varepsilon<br>$$<br> ϵ参数被称为隐私参数或隐私预算，用户可以通过改变它来调整该定义提供的 “隐私量”。ϵ越小，就要求对于相邻输入提供越相似的输出，以此来达到更好的隐私水平，ϵ很大时，就使得相邻输入的输出的相似性要求很小，因此提供的隐私水平较低。</p>
+<p>同样，上式整理可得<br>$$<br>Pr[M(x)\in S] \leq e^\varepsilon Pr[M(x^\prime)\in S]+\delta<br>$$</p>
+<h2 id="2-贝叶斯差分隐私定义"><a href="#2-贝叶斯差分隐私定义" class="headerlink" title="2 贝叶斯差分隐私定义"></a>2 贝叶斯差分隐私定义</h2><p>参照普通差分隐私，贝叶斯差分隐私普通定义如下<br>$$<br>Pr[M(x)\in S] \leq e^{\varepsilon_\mu} Pr[M(x^\prime)\in S]+\delta_\mu<br>$$<br>还有一种定义是<br>$$<br>Pr[L(w,X,X^\prime)\geq \varepsilon_\mu] \leq \delta_\mu<br>$$<br>其中</p>
+<p>$$<br>F(x)&#x3D;f(x)+Lap({s\over\epsilon})<br>$$</p>
+<p>参考资料</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139114240">差分隐私（一） Differential Privacy 简介 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139114240#ref_1_0">^</a>The Algorithmic Foundations of Differential Privacy <a target="_blank" rel="noopener" href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf">https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf</a></p>
 
   </div>
   
@@ -2738,10 +2701,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-03-29T19:27:44+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-04-04T15:50:37+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2023年3月29日</p>
+    <p>更新于：2023年4月4日</p>
   </a>
 </div>
 
@@ -2750,8 +2713,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>深度学习</p></a></div>
-  <span hidden itemprop="keywords">深度学习</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>差分隐私</p></a></div>
+  <span hidden itemprop="keywords">差分隐私</span>
 
 
         
@@ -2764,7 +2727,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=PyTorch学习笔记 - Hexo&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://amazzl.top/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/&title=差分隐私定义 - Hexo&summary="
           
           >
           
@@ -2776,7 +2739,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=PyTorch学习笔记 - Hexo&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://amazzl.top/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/&title=差分隐私定义 - Hexo&summary="
           
           >
           
@@ -2788,7 +2751,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=PyTorch学习笔记 - Hexo&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://amazzl.top/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/&title=差分隐私定义 - Hexo&summary="
           
           >
           
@@ -2821,17 +2784,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2023/03/29/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>差分隐私定义</p>
-          <p class='content'>差分隐私学习0011 普通差分隐私的定义差分隐私中使用KL散度（KL-Divergence）来衡量隐私
-所谓KL散度，开始是用于度量我们拟合的损失与与实际观察到的损失的差距，也可以用于表示当某分...</p>
+        <a class='prev' href='/2022/09/28/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%99%AA%E5%A3%B0/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>差分隐私之拉普拉斯噪声</p>
+          <p class='content'>差分隐私之拉普拉斯噪声  上一篇博客讲了差分隐私的基础定义，这一次来看看如何具体的通过添加噪声实现差分隐私。
+   实现差分隐私的最简单方法是在其答案中添加随机噪音。关键的问题是如何添加足够的噪...</p>
         </a>
       
       
-        <a class='next' href='/2023/03/27/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%B9%8B%E7%BB%84%E5%90%88%E5%AE%9A%E7%90%86/'>
-          <p class='title'>差分隐私之组合定理<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>差分隐私之组合定理  在了解组合定理前，先要知道差分隐私的三个基本属性，这些是组合定理的基础
-顺序组合(Sequential Composition)   差别隐私的第一个主要属性是顺序组合，它...</p>
+        <a class='next' href='/2022/03/10/Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/'>
+          <p class='title'>Z字形变换<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>6. Z 字形变换来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/zigzag-conversion
+题目描述：
+将一个给定字符串 s 根据...</p>
         </a>
       
     </div>
@@ -2847,7 +2811,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2889,7 +2853,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="toc-text">1.数据加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E9%AA%A8%E6%9E%B6%EF%BC%88nn-Module%EF%BC%89"><span class="toc-text">2.网络模型骨架（nn.Module）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-text">2.1卷积层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="toc-text">2.2池化层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%BF%80%E6%B4%BB%E5%B1%82%EF%BC%88Non-linear-Activations%EF%BC%89"><span class="toc-text">2.3非线性激活层（Non-linear Activations）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E7%BA%BF%E6%80%A7%E5%B1%82%EF%BC%88linear%EF%BC%89"><span class="toc-text">2.4 线性层（linear）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-SEQUENTIAL%EF%BC%88torch-nn-Sequential%EF%BC%89"><span class="toc-text">2.5 SEQUENTIAL（torch.nn.Sequential）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-lossfunction"><span class="toc-text">3 lossfunction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E4%BC%98%E5%8C%96%E5%99%A8%EF%BC%88optimizer%EF%BC%89"><span class="toc-text">4优化器（optimizer）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E5%8A%A0%E8%BD%BD"><span class="toc-text">5模型的保存与加载</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%99%AE%E9%80%9A%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">1 普通差分隐私的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89"><span class="toc-text">2 贝叶斯差分隐私定义</span></a></li></ol>
     </div>
   </section>
 
@@ -2986,9 +2950,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       order='list'
       fixed='false'
       list-max-height='320px'
-      server='netease'
+      server='tencent'
       type='playlist'
-      id='3175833810'
+      id='8442040147'
       list-folded='true'>
     </meting-js>
   
@@ -3213,46 +3177,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="noopener" href="https://volantis.js.org/faqs/" data-group="link">
-      <i class="fa-solid fa-question fa-fw"></i>
-      常见问题
-    </a>
-  </li>
-
-
-
-  <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="examples" target="_blank" rel="noopener" href="https://volantis.js.org/examples/" data-group="link">
-      <i class="fa-solid fa-rss fa-fw"></i>
-      示例博客
-    </a>
-  </li>
-
-
-
-  <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="contributors" target="_blank" rel="noopener" href="https://volantis.js.org/contributors/" data-group="link">
-      <i class="fa-solid fa-fan fa-fw"></i>
-      加入社区
-    </a>
-  </li>
-
-
-
-    <hr class="menuLoad-Content" >
-
-
-
-  <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="source_docs" target="_blank" rel="noopener" href="https://github.com/volantis-x/volantis-docs/" data-group="link">
-      <i class="fa-solid fa-code-branch fa-fw"></i>
-      本站源码
-    </a>
-  </li>
-
-
-
-  <li class="menuLoad-Content">
     <a class="vlts-menu fix-cursor-default" id="source_theme" target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/" data-group="link">
       <i class="fa-solid fa-code-branch fa-fw"></i>
       主题源码
@@ -3268,7 +3192,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <li class="menuLoad-Content">
     <span class="vlts-menu fix-cursor-default event" id="darkMode" data-event="volantis.dark.toggle()" data-group="darkMode">
       <i class="fa-solid fa-moon fa-fw"></i>
-      暗黑模式
+      深色模式
     </span>
   </li>
 
@@ -3392,16 +3316,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   RightMenusFunction['googleImg'] = (__link__) => {window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3658,7 +3572,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
             Metings.forEach((item, index) => {
               const aplayerItem = item.aplayer; if(!aplayerItem) return;
               const rightAplayerCheck = 'true' === 'true'
-                && item.meta.id === '3175833810';
+                && item.meta.id === '8442040147';
               if(rightAplayerCheck && typeof RightMenuAplayer !="undefined") RightMenuAplayer.checkAPlayer();
               if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
                 aplayerItem.on('play', function messagePlay() {
@@ -3727,7 +3641,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
   function pjax_giscus() {
     const HEAD = check_giscus();
     if (!HEAD) return;
-    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"}},pdata.commentConfig)
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"AmazingZ6/giscus","repo-id":"R_kgDOJRn9SA","category":"Announcements","category-id":"DIC_kwDOJRn9SM4CVeVn","mapping":"title","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN"},pdata.commentConfig)
     const script = document.createElement('script');
     script.setAttribute('src', 'https://giscus.app/client.js');
     Object.keys(cfg).forEach(k=>{
@@ -3849,6 +3763,59 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
 
+  <script>
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+      ParallaxWindow = document.querySelector("html");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 300;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
+
+
 
 
   <script>
@@ -3892,6 +3859,60 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 <!-- pjax 标签必须存在于所有页面 否则 pjax error -->
 <pjax>
+
+        <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = "https://unpkg.com/volantis-static@0.0.1654736714924/libs/mathjax/es5/tex-mml-chtml.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typesetPromise();
+  }
+</script>
+
+
 
 </pjax>
 
@@ -4024,7 +4045,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Hexo","url":"http://amazzl.top/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"AmazingZ6","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://amazzl.top/","sameAs":["https://github.com/volantis-x"],"description":"在读研究生的博客网站"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://amazzl.top/","name":"Hexo"}},{"@type":"ListItem","position":3,"item":{"@id":"http://amazzl.top/2023/03/29/PyTorch学习笔记/","name":"PyTorch学习笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Hexo","url":"http://amazzl.top/","keywords":null,"description":"在读研究生的博客网站","author":{"@type":"Person","name":"AmazingZ6","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://amazzl.top/","description":"在读研究生的博客网站"},"publisher":{"@type":"Organization","name":"Hexo","url":"http://amazzl.top/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://amazzl.top?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"PyTorch学习笔记","description":"在读研究生的博客网站","inLanguage":["zh-CN","en","zh-HK","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"},"author":{"@type":"Person","name":"AmazingZ6","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://amazzl.top/"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://amazzl.top/2023/03/29/PyTorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","wordCount":0,"datePublished":"2023-03-29T11:26:56.000Z","dateModified":"2023-03-29T11:27:44.763Z","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Hexo","url":"http://amazzl.top/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"AmazingZ6","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://amazzl.top/","sameAs":["https://github.com/volantis-x"],"description":"在读研究生的博客网站"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://amazzl.top/","name":"Hexo"}},{"@type":"ListItem","position":3,"item":{"@id":"http://amazzl.top/2022/09/16/差分隐私定义/","name":"差分隐私定义"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Hexo","url":"http://amazzl.top/","keywords":null,"description":"在读研究生的博客网站","author":{"@type":"Person","name":"AmazingZ6","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://amazzl.top/","description":"在读研究生的博客网站"},"publisher":{"@type":"Organization","name":"Hexo","url":"http://amazzl.top/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://amazzl.top?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"差分隐私定义","description":"在读研究生的博客网站","inLanguage":["zh-CN","en","zh-HK","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://amazzl.top/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/"},"author":{"@type":"Person","name":"AmazingZ6","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://amazzl.top/"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://amazzl.top/2022/09/16/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%AE%9A%E4%B9%89/","wordCount":0,"datePublished":"2022-09-16T11:31:08.000Z","dateModified":"2023-04-04T07:50:37.363Z","keywords":"差分隐私","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
@@ -4108,5 +4129,5 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     <!-- Custom Files bodyEnd begin-->
     
     <!-- Custom Files bodyEnd end-->
-  </body>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

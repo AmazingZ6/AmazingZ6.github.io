@@ -266,103 +266,6 @@ button {
   overflow: hidden;
   margin-bottom: -100px;
 }
-.cover-wrapper .cover-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-}
-.cover-wrapper .cover-bg.lazyload:not(.loaded) {
-  opacity: 0;
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-}
-.cover-wrapper .cover-bg.lazyload.loaded {
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  animation-name: fadeIn;
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
 .cover-wrapper .cover-body {
   z-index: 1;
   position: relative;
@@ -711,6 +614,71 @@ button {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   border-bottom: 2px solid var(--color-site-inner);
+}
+.cover-wrapper #parallax-window {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.parallax-mirror {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1788,9 +1756,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1680315399254),
+    lastupdate: new Date(1680763707389),
     sidebar: {
-      for_page: ["blogger","category","tagcloud","webinfo","donate"],
+      for_page: ["blogger","category","tagcloud","webinfo","music","donate"],
       for_post: ["toc"],
       webinfo: {
         lastupd: {
@@ -1808,13 +1776,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
       
       aplayer: {
-        id: 3175833810,
+        id: 8442040147,
         enable:true
       },
       
       
       
-      rightmenus: {"enable":true,"order":["plugins.navigation","hr","plugins.inputBox","plugins.seletctText","plugins.elementCheck","plugins.elementImage","menus.link","hr","menus.darkMode","plugins.articlePage","music"],"options":{"iconPrefix":"fa-solid","articleShowLink":true,"musicAlwaysShow":true},"plugins":{"navigation":[{"id":"left","name":"转到上一页","icon":"fa-solid fa-arrow-left","event":"history.back()","group":"navigation"},{"id":"right","name":"转到下一页","icon":"fa-solid fa-arrow-right","event":"history.forward()","group":"navigation"},{"id":"redo","name":"刷新当前页面","icon":"fa-solid fa-redo","event":"window.location.reload()","group":"navigation"},{"id":"up","name":"回到顶部","icon":"fa-solid fa-arrow-up","event":"VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)","group":"navigation"}],"inputBox":[{"id":"copyPaste","name":"粘贴文本","icon":"fa-solid fa-paste","event":"copyPaste","group":"inputBox"},{"id":"copyAll","name":"全选文本","icon":"fa-solid fa-object-ungroup","event":"copyAll","group":"inputBox"},{"id":"copyCut","name":"剪切文本","icon":"fa-solid fa-cut","event":"copyCut","group":"inputBox"}],"seletctText":[{"id":"copyText","name":"复制文本","icon":"fa-solid fa-copy","event":"copyText","group":"seletctText"},{"id":"searchWord","name":"站内搜索","icon":"fa-solid fa-search","event":"OpenSearch(__text__)","group":"seletctText"},{"id":"bingSearch","name":"必应搜索","icon":"fa-solid fa-search","event":"window.open(`https://cn.bing.com/search?q=${__text__}`)","group":"seletctText"}],"elementCheck":[{"id":"openTab","name":"新标签页打开","icon":"fa-solid fa-external-link-square-alt","event":"window.open(__link__)","group":"elementCheck"},{"id":"copyLink","name":"复制链接地址","icon":"fa-solid fa-link","event":"copyLink","group":"elementCheck"}],"elementImage":[{"id":"copyImg","name":"复制图片","icon":"fa-solid fa-image","event":"copyImg","group":"elementImage"},{"id":"googleImg","name":"谷歌识图","icon":"fa-solid fa-images","event":"window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)","group":"elementImage"}],"articlePage":[{"id":"printMode","name":"打印页面","icon":"fa-solid fa-print","event":"printMode","group":"articlePage"},{"id":"readMode","name":"阅读模式","icon":"fa-solid fa-book-open","event":"readMode","group":"articlePage"}]},"menus":{"link":[{"id":"help","name":"常见问题","icon":"fa-solid fa-question","link":"https://volantis.js.org/faqs/","group":"link"},{"id":"examples","name":"示例博客","icon":"fa-solid fa-rss","link":"https://volantis.js.org/examples/","group":"link"},{"id":"contributors","name":"加入社区","icon":"fa-solid fa-fan","link":"https://volantis.js.org/contributors/","group":"link"},"hr",{"id":"source_docs","name":"本站源码","icon":"fa-solid fa-code-branch","link":"https://github.com/volantis-x/volantis-docs/","group":"link"},{"id":"source_theme","name":"主题源码","icon":"fa-solid fa-code-branch","link":"https://github.com/volantis-x/hexo-theme-volantis/","group":"link"}],"darkMode":[{"id":"darkMode","name":"暗黑模式","icon":"fa-solid fa-moon","event":"volantis.dark.toggle()","group":"darkMode"}]}}
+      rightmenus: {"enable":true,"order":["plugins.navigation","hr","plugins.inputBox","plugins.seletctText","plugins.elementCheck","plugins.elementImage","menus.link","hr","menus.darkMode","plugins.articlePage","music"],"options":{"iconPrefix":"fa-solid","articleShowLink":true,"musicAlwaysShow":true},"plugins":{"navigation":[{"id":"left","name":"转到上一页","icon":"fa-solid fa-arrow-left","event":"history.back()","group":"navigation"},{"id":"right","name":"转到下一页","icon":"fa-solid fa-arrow-right","event":"history.forward()","group":"navigation"},{"id":"redo","name":"刷新当前页面","icon":"fa-solid fa-redo","event":"window.location.reload()","group":"navigation"},{"id":"up","name":"回到顶部","icon":"fa-solid fa-arrow-up","event":"VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)","group":"navigation"}],"inputBox":[{"id":"copyPaste","name":"粘贴文本","icon":"fa-solid fa-paste","event":"copyPaste","group":"inputBox"},{"id":"copyAll","name":"全选文本","icon":"fa-solid fa-object-ungroup","event":"copyAll","group":"inputBox"},{"id":"copyCut","name":"剪切文本","icon":"fa-solid fa-cut","event":"copyCut","group":"inputBox"}],"seletctText":[{"id":"copyText","name":"复制文本","icon":"fa-solid fa-copy","event":"copyText","group":"seletctText"},{"id":"searchWord","name":"站内搜索","icon":"fa-solid fa-search","event":"OpenSearch(__text__)","group":"seletctText"},{"id":"bingSearch","name":"必应搜索","icon":"fa-solid fa-search","event":"window.open(`https://cn.bing.com/search?q=${__text__}`)","group":"seletctText"}],"elementCheck":[{"id":"openTab","name":"新标签页打开","icon":"fa-solid fa-external-link-square-alt","event":"window.open(__link__)","group":"elementCheck"},{"id":"copyLink","name":"复制链接地址","icon":"fa-solid fa-link","event":"copyLink","group":"elementCheck"}],"elementImage":[{"id":"copyImg","name":"复制图片","icon":"fa-solid fa-image","event":"copyImg","group":"elementImage"},{"id":"googleImg","name":"谷歌识图","icon":"fa-solid fa-images","event":"window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)","group":"elementImage"}],"articlePage":[{"id":"printMode","name":"打印页面","icon":"fa-solid fa-print","event":"printMode","group":"articlePage"},{"id":"readMode","name":"阅读模式","icon":"fa-solid fa-book-open","event":"readMode","group":"articlePage"}]},"menus":{"link":[{"id":"source_theme","name":"主题源码","icon":"fa-solid fa-code-branch","link":"https://github.com/volantis-x/hexo-theme-volantis/","group":"link"}],"darkMode":[{"id":"darkMode","name":"深色模式","icon":"fa-solid fa-moon","event":"volantis.dark.toggle()","group":"darkMode"}]}}
       
     }
   }
@@ -2236,9 +2204,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/'>
           
-            <img no-lazy class='logo' src='https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+          
+            <i class='fa-solid fa-blog'></i>
           
           
+            博客
           
         </a>
       
@@ -2356,7 +2326,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box header toggle-mode-btn">
-                  <i class='fa-solid fa-moon fa-fw'></i>黑暗模式
+                  <i class='fa-solid fa-moon fa-fw'></i>深色模式
                 </a>
               <li>
             
@@ -2489,7 +2459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box header toggle-mode-btn">
-                  <i class='fa-solid fa-moon fa-fw'></i>黑暗模式
+                  <i class='fa-solid fa-moon fa-fw'></i>深色模式
                 </a>
               <li>
             
@@ -2514,7 +2484,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
       <div id="none" class='cover-wrapper  search' style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://api.yimian.xyz/img?type=wallpaper"></div>
+  <div id="parallax-window"></div>
 
 <div class='cover-body'>
   <div class='top'>
@@ -2594,6 +2564,184 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <section class="post-list">
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2021/04/19/考研之旅003/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Hexo">
+    <meta itemprop="description" content="在读研究生的博客网站">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2021/04/19/%E8%80%83%E7%A0%94%E4%B9%8B%E6%97%85003/"  itemprop="url">
+        考研003
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于考研的第三篇博客数学：
+​        刷完了线代，感觉线代内容是相对偏少的，已经开始概率论，但是对应的网课好像还没出，只能拿去年的看看了哈哈。
+英语：
+​        目前是背单词加做真题，但是真题做的有点慢，一篇阅读要么就是文章里的词很多不认识，要么就是选项里很多不认识，很绝望，所以还是要加紧背单词哈哈。
+专业课：
+​        目前是慢慢的在把专业课的时间往上加，争取在这个...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2021-04-19T22:26:22+08:00">2021-04-19</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/04/19/%E8%80%83%E7%A0%94%E4%B9%8B%E6%97%85003/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2021/04/04/考研之旅002/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Hexo">
+    <meta itemprop="description" content="在读研究生的博客网站">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2021/04/04/%E8%80%83%E7%A0%94%E4%B9%8B%E6%97%85002/"  itemprop="url">
+        考研002
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于考研的第二篇博客数学：终于在今天做完了1800高数基础，明天开始线代，刚好书昨天到了，争取这个月把线代基础过完，快点开始概率论
+英语：还在背单词，打算在本月做下真题，看下阅读试试手，当然单词也在背（刚买的黄皮书的厚度吓到我了&#96;(&gt;﹏&lt;)′）
+专业课：好久没看了，得找个时间看，这样下去也不是办法
+政治：还没开始😆😆😆
+
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2021-04-04T15:37:21+08:00">2021-04-04</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/04/04/%E8%80%83%E7%A0%94%E4%B9%8B%E6%97%85002/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2021/03/14/考研之旅001/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Hexo">
+    <meta itemprop="description" content="在读研究生的博客网站">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2021/03/14/%E8%80%83%E7%A0%94%E4%B9%8B%E6%97%85001/"  itemprop="url">
+        考研001
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于考研的第一篇博客目前学习状态还可以(～￣▽￣)～
+但从明天开始要上课了，效率肯定会有所下降，目前目标是在四月之前把高数1800基础题做完（现在还在做定积分，所以有点难，但可以争取一下）
+英语单词每天在背，不过照现在这个速度得到7月份才能背完，准备下月开始做一下关于英语阅读方面的练习
+专业课在慢慢的看课，自己当初学的还可以（感谢我的老师），所以学起来感觉还是很轻松的（除了计组。。。）
+至于...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2021-03-14T19:49:34+08:00">2021-03-14</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/03/14/%E8%80%83%E7%A0%94%E4%B9%8B%E6%97%85001/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -3016,172 +3164,6 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2019/12/12/动态查找（查找，插入及删除）/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Hexo">
-    <meta itemprop="description" content="在读研究生的博客网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2019/12/12/%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9F%A5%E6%89%BE%EF%BC%8C%E6%8F%92%E5%85%A5%E5%8F%8A%E5%88%A0%E9%99%A4%EF%BC%89/"  itemprop="url">
-        动态查找（查找，插入及删除）
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        看代码啦
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2019-12-12T18:59:31+08:00">2019-12-12</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/12/12/%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9F%A5%E6%89%BE%EF%BC%8C%E6%8F%92%E5%85%A5%E5%8F%8A%E5%88%A0%E9%99%A4%EF%BC%89/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2019/12/01/二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Hexo">
-    <meta itemprop="description" content="在读研究生的博客网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2019/12/01/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%85%88%E5%BA%8F%E5%88%9B%E5%BB%BA%E5%8F%8A%E9%81%8D%E5%8E%86%EF%BC%88%E5%8C%85%E5%90%AB%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%89%E5%92%8C%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84/"  itemprop="url">
-        二叉树的先序创建及遍历（包含层次遍历）和静态链表储存结构
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>直接上代码（有注释）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int x=<span class="number">1</span>;<span class="comment">//节点编号</span></span><br><span class="line"></span><br><span class="line">typedef struct <span class="title class_">Zl</span><span class="comment">//二叉树的节点</span></span><br><span class="line">&#123;</span><br><span class="line">    char data;<span class="comment">//数据域</span></span><br><span class="line">    struct <span class="title class_">Zl</span> *lchild,*rchild;<span class="comment">//指向左子树和右子树的指针</span></span><br><span class="line">    int index;<span class="comment">//每个节点的编号</span></span><br><span class="line">&#125;<span class="title class_">Zl</span>;</span><br><span class="line"></span><br><span class="line">typedef struct <span class="title class_">Static</span><span class="comment">//静态链表的结点</span></span><br><span class="line">&#123;</span><br><span class="line">	char data;	<span class="comment">//数据域</span></span><br><span class="line">	int lchild;  <span class="comment">//指向左子树的指针域</span></span><br><span class="line">	int rchild;  <span class="comment">//指向右子树的指针域</span></span><br><span class="line">&#125;<span class="title class_">Static</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Zl</span>* <span class="title class_">PreOrderInitBTree</span>()<span class="comment">//先序建立二叉树</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="title class_">Zl</span> *T;</span><br><span class="line">	char temp;</span><br><span class="line">	cin&gt;&gt;temp;<span class="comment">//由键盘输入结点数据域的值</span></span><br><span class="line">	<span class="keyword">if</span>(temp ==<span class="string">&#x27;0&#x27;</span>)  <span class="comment">//若某一节点为叶子结点，则其左右子树均为NULL，0表示建空树</span></span><br><span class="line">	    T=<span class="variable constant_">NULL</span>; </span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		T=<span class="keyword">new</span> <span class="title class_">Zl</span>;</span><br><span class="line">		T-&gt;data=temp;</span><br><span class="line">		T-&gt;index=x++;</span><br><span class="line">		T-&gt;lchild=<span class="title class_">PreOrderInitBTree</span>();<span class="comment">//递归创建其左子树</span></span><br><span class="line">		T-&gt;rchild=<span class="title class_">PreOrderInitBTree</span>();<span class="comment">//递归创建其右子树</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> T;                              <span class="comment">//返回根节点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">PreOrderTraverse</span>(<span class="title class_">Zl</span> *first)<span class="comment">//先序遍历及输出二叉树</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(first!=<span class="variable constant_">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;first-&gt;data;<span class="comment">//先输出结点值</span></span><br><span class="line">        <span class="title class_">PreOrderTraverse</span>(first-&gt;lchild);</span><br><span class="line">        <span class="title class_">PreOrderTraverse</span>(first-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">MidOrderTraverse</span>(<span class="title class_">Zl</span> *first)<span class="comment">//中序遍历并输出二叉树</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(first!=<span class="variable constant_">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">MidOrderTraverse</span>(first-&gt;lchild);</span><br><span class="line">        cout&lt;&lt;first-&gt;data;<span class="comment">//先遍历完左子树再输出结点值</span></span><br><span class="line">        <span class="title class_">MidOrderTraverse</span>(first-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">cengciTraverse</span>(<span class="title class_">Zl</span> *p)<span class="comment">//层次遍历二叉树</span></span><br><span class="line">&#123;</span><br><span class="line">    queue&lt;<span class="title class_">Zl</span>&gt; qe;<span class="comment">//用队列来存放结点</span></span><br><span class="line">    qe.<span class="title function_">push</span>(*p);</span><br><span class="line">    <span class="keyword">while</span>(qe.<span class="title function_">empty</span>()==<span class="literal">false</span>)<span class="comment">//只要结点不为空就继续</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">Zl</span> temp=qe.<span class="title function_">front</span>();<span class="comment">//将将要出队的结点值储存在temp中</span></span><br><span class="line">        qe.<span class="title function_">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(temp.<span class="property">lchild</span>!=<span class="variable constant_">NULL</span>)</span><br><span class="line">            qe.<span class="title function_">push</span>(*temp.<span class="property">lchild</span>);<span class="comment">//左孩子入队</span></span><br><span class="line">        <span class="keyword">if</span>(temp.<span class="property">rchild</span>!=<span class="variable constant_">NULL</span>)</span><br><span class="line">            qe.<span class="title function_">push</span>(*temp.<span class="property">rchild</span>);<span class="comment">//右孩子入队，按照先左后右的顺序入队，确保出队顺序</span></span><br><span class="line">        cout&lt;&lt;temp.<span class="property">data</span>;<span class="comment">//输出结点值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">Scopy</span>(<span class="title class_">Static</span> *s,<span class="title class_">Zl</span> *p)<span class="comment">//将动态二叉链表转化为静态链表</span></span><br><span class="line">&#123;</span><br><span class="line">    s[p-&gt;index].<span class="property">data</span>=p-&gt;data;<span class="comment">//数据同步过来</span></span><br><span class="line">    <span class="keyword">if</span>(p-&gt;lchild==<span class="variable constant_">NULL</span>)<span class="comment">//左孩子为空时</span></span><br><span class="line">        s[p-&gt;index].<span class="property">lchild</span>=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        s[p-&gt;index].<span class="property">lchild</span>=p-&gt;lchild-&gt;index;<span class="comment">//同步左孩子信息</span></span><br><span class="line">        <span class="title class_">Scopy</span>(s,p-&gt;lchild);<span class="comment">//递归同步左子树</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;rchild==<span class="variable constant_">NULL</span>)<span class="comment">//左孩子为空时</span></span><br><span class="line">        s[p-&gt;index].<span class="property">rchild</span>=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        s[p-&gt;index].<span class="property">rchild</span>=p-&gt;rchild-&gt;index;<span class="comment">//同步右孩子信息</span></span><br><span class="line">        <span class="title class_">Scopy</span>(s,p-&gt;rchild);<span class="comment">//递归同步右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">Destory</span>(<span class="title class_">Zl</span> *p)<span class="comment">//删除单个结点</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="title function_">free</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="title class_">Clean</span>(<span class="title class_">Zl</span> *first)<span class="comment">//整表删除</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(first!=<span class="variable constant_">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title class_">Clean</span>(first-&gt;lchild);</span><br><span class="line">        <span class="title class_">Clean</span>(first-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">free</span>(first);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int <span class="title function_">main</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="title class_">Zl</span> *first;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请按先序顺序输入二叉树序列，0代表空&quot;</span>&lt;&lt;endl;</span><br><span class="line">    first=<span class="title class_">PreOrderInitBTree</span>();</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;先序输出：&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="title class_">PreOrderTraverse</span>(first);<span class="comment">//先序遍历输出</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;中序输出&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="title class_">MidOrderTraverse</span>(first);<span class="comment">//中序遍历输出</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;层次遍历输出&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="title function_">cengciTraverse</span>(first);<span class="comment">//层次遍历输出</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="title class_">Static</span> s[<span class="number">20</span>];</span><br><span class="line">    <span class="title class_">Scopy</span>(s,first);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;静态链表输出：&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(int i=<span class="number">1</span>;i&lt;x;i++)<span class="comment">//输出静态链表</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;下标为:&quot;</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; 数据:&quot;</span>&lt;&lt;s[i].<span class="property">data</span>&lt;&lt;<span class="string">&quot; 左孩子下标:&quot;</span>&lt;&lt;s[i].<span class="property">lchild</span>&lt;&lt;<span class="string">&quot; 右孩子下标:&quot;</span>&lt;&lt;s[i].<span class="property">rchild</span>&lt;&lt;endl;<span class="comment">//依次输出结点值及左子树编号和右子树编号</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title class_">Clean</span>(first);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2019-12-01T21:58:19+08:00">2019-12-01</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/12/01/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%85%88%E5%BA%8F%E5%88%9B%E5%BB%BA%E5%8F%8A%E9%81%8D%E5%8E%86%EF%BC%88%E5%8C%85%E5%90%AB%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%89%E5%92%8C%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://amazzl.top/2019/11/17/一元二次多项式的相加/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Hexo">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Hexo">
-    <meta itemprop="description" content="在读研究生的博客网站">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2019/11/17/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%8A%A0/"  itemprop="url">
-        一元二次多项式的相加
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        这次我们话不多说，直接上代码，看代码注释即可
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2019-11-17T21:24:09+08:00">2019-11-17</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/11/17/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%8A%A0/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3196,7 +3178,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
           </a>
         
         <p class="current">
-          3 / 4
+          3 / 5
         </p>
         
           <a class="next" rel="next" href="/page/4/">
@@ -3222,8 +3204,8 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
   <div class='content'>
     
       
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+        <a class='avatar flat-box circle' href='/about/'>
+          <img no-lazy src='https://gcore.jsdelivr.net/gh/AmazingZ6/CDN@main/img/nanami.png'/>
         </a>
       
     
@@ -3232,7 +3214,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
         
         
         
-          <p><span id="jinrishici-sentence">Hexo</span></p>
+          <p><span id="jinrishici-sentence">从前从前，有个人爱你很久</span></p>
           <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
@@ -3241,8 +3223,8 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
       <div class="social-wrapper">
         
           
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
+            <a href="https://space.bilibili.com/66908429"
+              class="social fa-brands fa-bilibili flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
               
@@ -3250,7 +3232,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
           
         
           
-            <a href="mailto:me@xxx.com"
+            <a href="mailto:2398355047@qq.com"
               class="social fa-solid fa-envelope flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -3268,8 +3250,8 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
           
         
           
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
+            <a href="https://pd.qq.com/s/9ubkyup6j"
+              class="social fa-brands fa-qq flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
               
@@ -3307,7 +3289,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
 
 
     <div class='content'>
-      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 20.67px; color: #6c6c6c">LeetCode</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 17.33px; color: #828282">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 17.33px; color: #828282">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 24px; color: #555">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a>
+      <a href="/tags/JAVA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">JAVA基础知识</a> <a href="/tags/LeetCode/" style="font-size: 21.5px; color: #666">LeetCode</a> <a href="/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" style="font-size: 19px; color: #777">差分隐私</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 16.5px; color: #888">数据结构</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 24px; color: #555">考研</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a>
     </div>
   </section>
 
@@ -3333,7 +3315,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>38 篇</div>
+          <div>41 篇</div>
         </div>
       
 
@@ -3343,7 +3325,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>22.9k 字</div>
+          <div>24.1k 字</div>
         </div>
       
 
@@ -3368,12 +3350,47 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
       
         <div class="webinfo-item">
           <div>最后活动时间：</div>
-          <div id="last-update-show">2023-04-01 日</div>
+          <div id="last-update-show">2023-04-06 日</div>
         </div>
       
     </div>
   </div>
 </section>
+
+    
+  
+
+  
+    
+    
+      
+
+  <section class='widget desktop mobile  music'>
+    
+
+    <div class='content'>
+      
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='tencent'
+      type='playlist'
+      id='8442040147'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+    </div>
+  </section>
+
 
     
   
@@ -3458,9 +3475,9 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
       order='list'
       fixed='false'
       list-max-height='320px'
-      server='netease'
+      server='tencent'
       type='playlist'
-      id='3175833810'
+      id='8442040147'
       list-folded='true'>
     </meting-js>
   
@@ -3685,46 +3702,6 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
 
 
   <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="noopener" href="https://volantis.js.org/faqs/" data-group="link">
-      <i class="fa-solid fa-question fa-fw"></i>
-      常见问题
-    </a>
-  </li>
-
-
-
-  <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="examples" target="_blank" rel="noopener" href="https://volantis.js.org/examples/" data-group="link">
-      <i class="fa-solid fa-rss fa-fw"></i>
-      示例博客
-    </a>
-  </li>
-
-
-
-  <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="contributors" target="_blank" rel="noopener" href="https://volantis.js.org/contributors/" data-group="link">
-      <i class="fa-solid fa-fan fa-fw"></i>
-      加入社区
-    </a>
-  </li>
-
-
-
-    <hr class="menuLoad-Content" >
-
-
-
-  <li class="menuLoad-Content">
-    <a class="vlts-menu fix-cursor-default" id="source_docs" target="_blank" rel="noopener" href="https://github.com/volantis-x/volantis-docs/" data-group="link">
-      <i class="fa-solid fa-code-branch fa-fw"></i>
-      本站源码
-    </a>
-  </li>
-
-
-
-  <li class="menuLoad-Content">
     <a class="vlts-menu fix-cursor-default" id="source_theme" target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/" data-group="link">
       <i class="fa-solid fa-code-branch fa-fw"></i>
       主题源码
@@ -3740,7 +3717,7 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
   <li class="menuLoad-Content">
     <span class="vlts-menu fix-cursor-default event" id="darkMode" data-event="volantis.dark.toggle()" data-group="darkMode">
       <i class="fa-solid fa-moon fa-fw"></i>
-      暗黑模式
+      深色模式
     </span>
   </li>
 
@@ -3864,16 +3841,6 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，�
 
 
   RightMenusFunction['googleImg'] = (__link__) => {window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -4130,7 +4097,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
             Metings.forEach((item, index) => {
               const aplayerItem = item.aplayer; if(!aplayerItem) return;
               const rightAplayerCheck = 'true' === 'true'
-                && item.meta.id === '3175833810';
+                && item.meta.id === '8442040147';
               if(rightAplayerCheck && typeof RightMenuAplayer !="undefined") RightMenuAplayer.checkAPlayer();
               if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
                 aplayerItem.on('play', function messagePlay() {
@@ -4199,7 +4166,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
   function pjax_giscus() {
     const HEAD = check_giscus();
     if (!HEAD) return;
-    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"}},pdata.commentConfig)
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"AmazingZ6/giscus","repo-id":"R_kgDOJRn9SA","category":"Announcements","category-id":"DIC_kwDOJRn9SM4CVeVn","mapping":"title","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN"},pdata.commentConfig)
     const script = document.createElement('script');
     script.setAttribute('src', 'https://giscus.app/client.js');
     Object.keys(cfg).forEach(k=>{
@@ -4319,6 +4286,59 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
 
+
+
+  <script>
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+      ParallaxWindow = document.querySelector("html");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 300;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
 
 
 
@@ -4580,5 +4600,5 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
     <!-- Custom Files bodyEnd begin-->
     
     <!-- Custom Files bodyEnd end-->
-  </body>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
